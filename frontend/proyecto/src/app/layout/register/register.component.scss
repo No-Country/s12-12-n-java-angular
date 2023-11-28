@@ -13,7 +13,8 @@
 }
 /* ----------------------------------------estilos del formulario */
 .form {
-  padding: 10vw 1rem;
+  max-width: min(100%, 400px);
+  margin: auto;
   &__title {
     font-size: 1.5rem;
     text-align: center;
@@ -23,7 +24,6 @@
   &__box {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     /*---------------------------------------- estilos input */
     &__field {
       display: flex;
@@ -32,7 +32,11 @@
       border: 2px solid $colThird;
       border-radius: 0.5rem;
       background-color: white;
-      @include transitionFast;
+      margin-bottom: 1rem;
+      transition: border 0.3s ease-in-out;
+      &:focus-within {
+        border: solid $colPrime 2px;
+      }
       /* -----------------------------------inputs tipo password */
       &__inputPass{
         display: flex;
@@ -42,17 +46,18 @@
         .eyeBtn{
           border: none;
           background-color: white;
-          border-radius: 0.5rem;
+          border-radius: 50%;
           cursor: pointer;
           margin-right: 0.5rem;
+          @include transitionFast;
           &__eye{
             width: 2rem;
             aspect-ratio: 1/1;
           }
+          &:hover{
+            background-color: $colBg;
+          }
         }
-      }
-      &:focus-within {
-        border: solid $colPrime 2px;
       }
       label {
         position: absolute;
@@ -81,7 +86,19 @@
         }
       }
     }
+    /*---------------------------------- estilos de validacion */
+    .errorField{
+      border: solid 2px red;
+      margin-bottom: 0;
+    }
+    &__validateMessage>span{
+      display: block;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+      color: rgb(200, 0, 0);
+    }
     &__fieldCheck {
+      margin-bottom: 1rem;
       align-self: flex-end;
     }
     &__btn {
@@ -95,6 +112,16 @@
         box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
         border-radius: 1rem;
         padding-block: 0.5rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        @include transitionFast;
+        &:hover{
+          transform: scale(1.05) translateY(-0.2rem);
+        }
+        &:disabled{
+          transform: none;
+          opacity: 0.7;
+        }
       }
     }
     &__toLogin {
@@ -119,8 +146,8 @@
     place-items: center;
     flex-grow: 2;
     background: linear-gradient(
-        rgba(255, 255, 255, 0.6),
-        rgba(255, 255, 255, 0.6)
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.4)
       ),
       url("/assets/oilWallpaper.jpg");
     background-position: left;
@@ -133,10 +160,5 @@
   }
   .rightBox {
     flex-grow: 2;
-  }
-}
-@media screen and (min-width: 1000px) {
-  .form {
-    padding: 10vw;
   }
 }
