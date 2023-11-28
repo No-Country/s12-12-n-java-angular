@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div>
+  <h4>¡Bienvenido Nuevamente</h4>
+  <button type="">Ingresa con Gmail</button>
+
+  <hr />
+  <div>
+    <form (ngSubmit)="login()">
+      <label>
+        Email:
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Password:
+        <input type="password" name="password" required />
+      </label>
+      <div>
+        <label>
+          <input type="checkbox" name="opcion" />
+          Mantenerme conectado
+        </label>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <hr />
+
+  <p>
+    ¿Nuevo en Foodie List?
+    <a href="#">Registrate aquí</a>
+  </p>
+</div>
+
+<div class="column">
+  <h2>Nueva Recetas</h2>
+  <p>
+    Estamos más que agradecidos con nuestra comunidad, por ellos tenemos
+    nuevas recetas para ti.
+  </p>
+</div>
