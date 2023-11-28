@@ -6,8 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+ // password: string;
+  hide = true;
 
   constructor(){}
+
+  passwordVisible() {
+    this.hide = !this.hide;
+  }
 
   login(){
     console.log('Funcionando');

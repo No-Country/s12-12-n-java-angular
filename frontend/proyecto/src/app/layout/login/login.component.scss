@@ -1,0 +1,118 @@
+@import '../../stylesConfig/stylesConfig.scss';
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/*
+.column-1, .column-2 {
+  float: left;
+  width:25%;
+
+} */
+
+.texto{
+  display: flex;
+  flex-direction: column;
+  margin:20px;
+  padding: 20px;
+  text-align: right;
+}
+
+.column-1, .column-2{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  float: left;
+  width:25%;
+  width:50%;
+  height: 100vh;
+  padding: 10px;
+}
+
+/* Estilos de la linea horizontal */
+.linea-horizontal::before {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #bbb;
+  margin: 10px 0;
+}
+
+
+/* Estilos para el campo de contraseña*/
+input.contrasena {
+
+}
+
+
+/* Estilos para los campos de email y contraseña*/
+input.email, input.contrasena {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Estilos para la visibilidad de la contraseña*/
+.eye-icon {
+  cursor: pointer;
+  user-select: none;
+  margin-left: 5px;
+}
+
+/* Estilos de boton 'Ingresar' */
+button {
+  background-color: $colPrime;
+  color: white;
+  padding: 10px 20px;
+  width: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: none;
+  cursor: pointer;
+}
+
+.login-gmail{
+  width:100%
+}
+
+
+/*Estilos de boton de Login*/
+.boton-login{
+  border-radius: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 85%;
+}
+
+a{
+  text-decoration: none;
+}
+
+div.column-2 {
+  background-image: url('https://cloudfront.omsphoto.com/wp-content/uploads/2019/11/OMS-photo-anna-jones-raw-food-photography-006-558x700.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  padding: 20px;
+}
+
+/* Oculta la segunda columna*/
+@media screen and (max-width: 600px) {
+  div.column-2 {
+    display: none;
+  }
+  div.column-1 {
+    background-image: url('https://cloudfront.omsphoto.com/wp-content/uploads/2019/11/OMS-photo-anna-jones-raw-food-photography-006-558x700.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+  }
+}
+

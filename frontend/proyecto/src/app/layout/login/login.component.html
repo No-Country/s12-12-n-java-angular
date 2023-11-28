@@ -1,39 +1,59 @@
-<div>
-  <h4>¡Bienvenido Nuevamente</h4>
-  <button type="">Ingresa con Gmail</button>
+<div class="row">
+  <div class="column-1">
+    <div class="formulario-login">
+      <h4>¡Bienvenido Nuevamente!</h4>
+      <button class="login-gmail" type="">Ingresa con Gmail</button>
 
-  <hr />
-  <div>
-    <form (ngSubmit)="login()">
-      <label>
-        Email:
-        <input type="email" name="email" required />
-      </label>
-      <label>
-        Password:
-        <input type="password" name="password" required />
-      </label>
-      <div>
-        <label>
-          <input type="checkbox" name="opcion" />
-          Mantenerme conectado
-        </label>
+      <div class="linea-horizontal"></div>
+
+      <!-- Formulario de Login -->
+      <div class="">
+        <form (ngSubmit)="login()">
+          <div>
+            <label>
+              Correo:
+              <input class="email" placeholder="Ingresa tu correo electronico" type="email" name="email" required />
+            </label>
+          </div>
+          <div>
+            <label>
+              Contraseña:
+              <input
+                class="contrasena"
+                placeholder="Ingresa tu contraseña"
+                type="{{ hide ? 'password' : 'text' }}"
+                name="password"
+                required
+              />
+              <span class="eye-icon" (click)="passwordVisible()"></span>
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" name="opcion" />
+              Mantenerme conectado
+            </label>
+          </div>
+          <button class="boton-login" type="submit">Ingresar</button>
+        </form>
       </div>
-      <button type="submit">Login</button>
-    </form>
+
+      <div class="linea-horizontal"></div>
+
+      <p>
+        ¿No tienes una cuenta?
+        <a href="#">Registrate aquí</a>
+      </p>
+    </div>
   </div>
-  <hr />
 
-  <p>
-    ¿Nuevo en Foodie List?
-    <a href="#">Registrate aquí</a>
-  </p>
-</div>
-
-<div class="column">
-  <h2>Nueva Recetas</h2>
-  <p>
-    Estamos más que agradecidos con nuestra comunidad, por ellos tenemos
-    nuevas recetas para ti.
-  </p>
+  <div class="column-2">
+    <div class="texto">
+      <h2>¡Nueva Recetas!</h2>
+      <p>
+        Estamos más que agradecidos con nuestra comunidad, por ellos tenemos
+        nuevas recetas para ti.
+      </p>
+    </div>
+  </div>
 </div>
