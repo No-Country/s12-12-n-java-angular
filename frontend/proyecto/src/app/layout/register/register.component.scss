@@ -1,0 +1,142 @@
+@import "/src/app/stylesConfig/stylesConfig.scss";
+
+:host {
+  display: grid;
+  flex-grow: 2;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("/assets/oilWallpaper.jpg");
+  background-position: left;
+  place-items: center;
+}
+/* ----------------------------------------estilos del formulario */
+.form {
+  padding: 10vw 1rem;
+  &__title {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /*---------------------------------------- estilos input */
+    &__field {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 2px solid $colThird;
+      border-radius: 0.5rem;
+      background-color: white;
+      @include transitionFast;
+      /* -----------------------------------inputs tipo password */
+      &__inputPass{
+        display: flex;
+        input{
+          flex-grow: 2;
+        }
+        .eyeBtn{
+          border: none;
+          background-color: white;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          margin-right: 0.5rem;
+          &__eye{
+            width: 2rem;
+            aspect-ratio: 1/1;
+          }
+        }
+      }
+      &:focus-within {
+        border: solid $colPrime 2px;
+      }
+      label {
+        position: absolute;
+        top: 0px;
+        left: 1rem;
+        transform: translateY(-50%);
+        background-color: white;
+        padding-inline: 0.25rem;
+        border-radius: 0.2rem;
+      }
+      input {
+        border-radius: 0.5rem;
+        border: none;
+        outline: none;
+        padding-block: 0.75rem;
+        padding-left: 0.5rem;
+        @include transitionFast;
+        /*-------------------------borrando estilos del autocompletado */
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px white inset !important; /* Ajusta el color de fondo según tus necesidades */
+          -webkit-text-fill-color: inherit !important;
+          caret-color: $colThird;
+        }
+      }
+    }
+    &__fieldCheck {
+      align-self: flex-end;
+    }
+    &__btn {
+      align-self: stretch;
+      button {
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: $colPrime;
+        color: $colBg;
+        box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+        border-radius: 1rem;
+        padding-block: 0.5rem;
+      }
+    }
+    &__toLogin {
+      align-self: flex-end;
+      a {
+        color: $colPrime;
+      }
+    }
+  }
+}
+.leftBox {
+  display: none;
+}
+
+@media screen and (min-width: 650px) {
+  :host {
+    background: white;
+    display: flex;
+  }
+  .leftBox {
+    display: grid;
+    place-items: center;
+    flex-grow: 2;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.6)
+      ),
+      url("/assets/oilWallpaper.jpg");
+    background-position: left;
+    height: 100%;
+    padding-inline: 1rem;
+    h2 {
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+  }
+  .rightBox {
+    flex-grow: 2;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .form {
+    padding: 10vw;
+  }
+}
