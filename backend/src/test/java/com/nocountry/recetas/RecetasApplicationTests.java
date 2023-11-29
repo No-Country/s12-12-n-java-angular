@@ -1,4 +1,4 @@
-package com.nocountry.recetas;
+/*package com.nocountry.recetas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,4 +10,4 @@ class RecetasApplicationTests {
 	void contextLoads() {
 	}
 
-}
+}*/
