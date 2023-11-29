@@ -1,55 +1,90 @@
-<div class="row">
-  <div class="column-1">
+<div class="contenedor">
+  <div class="caja-1">
     <div class="formulario-login">
-      <h4>¡Bienvenido Nuevamente!</h4>
+      <h2>¡Bienvenido Nuevamente!</h2>
       <button class="login-gmail" type="">Ingresa con Gmail</button>
 
       <div class="linea-horizontal"></div>
 
       <!-- Formulario de Login -->
-      <div class="">
-        <form (ngSubmit)="login()">
-          <div>
-            <label>
-              Correo:
-              <input class="email" placeholder="Ingresa tu correo electronico" type="email" name="email" required />
-            </label>
+      <div class="form__box">
+        <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+          <!--Reutilizado del Register-->
+          <!-- Campo de email -->
+          <div
+            [ngClass]="invalidateField('email') ? 'errorField' : ''"
+            class="form__box__field"
+          >
+            <label for="email">Correo</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              formControlName="email"
+              placeholder="Ingresa tu correo electronico"
+            />
           </div>
-          <div>
-            <label>
-              Contraseña:
+          <div class="form__box__validateMessage">
+            <span *ngIf="invalidateField('email')">
+              {{ validationFieldMessage("email") }}
+            </span>
+          </div>
+          <!-- Campo de contraseña -->
+          <div
+            [ngClass]="invalidateField('password') ? 'errorField' : ''"
+            class="form__box__field"
+          >
+            <label for="pass">Contraseña</label>
+            <div class="form__box__field__inputPass">
               <input
-                class="contrasena"
+                id="pass"
+                name="pass"
+                [type]="showPass ? 'text' : 'password'"
+                formControlName="password"
                 placeholder="Ingresa tu contraseña"
-                type="{{ hide ? 'password' : 'text' }}"
-                name="password"
-                required
               />
-              <span class="eye-icon" (click)="passwordVisible()"></span>
-            </label>
+              <button
+                (click)="showPass = !showPass"
+                type="button"
+                class="eyeBtn"
+              >
+                <img
+                  class="eyeBtn__eye"
+                  [src]="showPass ? 'assets/eye.svg' : 'assets/eye-slash.svg'"
+                  alt="eye_icon"
+                />
+              </button>
+            </div>
+
           </div>
-          <div>
-            <label>
-              <input type="checkbox" name="opcion" />
-              Mantenerme conectado
-            </label>
-          </div>
-          <button class="boton-login" type="submit">Ingresar</button>
+
+            <!-- Checkbox 'Mantenerme conectado' -->
+            <div>
+              <label class="label-check">
+                <input class="input-check" type="checkbox" name="opcion" />
+                Mantenerme conectado
+              </label>
+            </div>
+
+            <!-- Botón 'Ingresar' -->
+            <div class="form__box__btn">
+              <button [disabled]="loginForm.invalid" class="boton-login" type="submit">Ingresar</button>
+            </div>
+
+          <div class="linea-horizontal"></div>
+
+          <p>
+            ¿No tienes una cuenta?
+            <a routerLink="/register">Registrate aqu&iacute;</a>
+          </p>
         </form>
       </div>
-
-      <div class="linea-horizontal"></div>
-
-      <p>
-        ¿No tienes una cuenta?
-        <a href="#">Registrate aquí</a>
-      </p>
     </div>
   </div>
 
-  <div class="column-2">
-    <div class="texto">
-      <h2>¡Nueva Recetas!</h2>
+  <div class="caja-2">
+    <div class="parrafo">
+      <h1>¡Nueva Recetas!</h1>
       <p>
         Estamos más que agradecidos con nuestra comunidad, por ellos tenemos
         nuevas recetas para ti.

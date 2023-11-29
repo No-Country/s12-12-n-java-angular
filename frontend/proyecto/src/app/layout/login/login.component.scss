@@ -1,39 +1,19 @@
-@import '../../stylesConfig/stylesConfig.scss';
+@import "../../stylesConfig/stylesConfig.scss";
 
-.row:after {
+/* Contenedor de las dos cajas*/
+.contenedor {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.contenedor:after {
   content: "";
-  display: table;
+  display: grid;
   clear: both;
 }
-/*
-.column-1, .column-2 {
-  float: left;
-  width:25%;
 
-} */
-
-.texto{
-  display: flex;
-  flex-direction: column;
-  margin:20px;
-  padding: 20px;
-  text-align: right;
-}
-
-.column-1, .column-2{
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  float: left;
-  width:25%;
-  width:50%;
-  height: 100vh;
-  padding: 10px;
-}
-
-/* Estilos de la linea horizontal */
+/* Estilos de la linea horizontal --ok */
 .linea-horizontal::before {
   content: "";
   display: block;
@@ -41,78 +21,225 @@
   margin: 10px 0;
 }
 
+/*Titulo de la caja uno*/
+h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
 
-/* Estilos para el campo de contraseña*/
-input.contrasena {
+/*Reutilizado de register*/
+.form {
+  max-width: min(100%, 400px);
+  margin: auto;
 
+  &__box {
+    display: flex;
+    flex-direction: column;
+    /*---------------------------------------- estilos input */
+    &__field {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 2px solid $colThird;
+      border-radius: 0.5rem;
+      background-color: white;
+      margin-bottom: 1rem;
+      transition: border 0.3s ease-in-out;
+      &:focus-within {
+        border: solid $colPrime 2px;
+      }
+      /* -----------------------------------inputs tipo password */
+      &__inputPass{
+        display: flex;
+        input{
+          flex-grow: 2;
+        }
+        .eyeBtn{
+          border: none;
+          background-color: white;
+          border-radius: 50%;
+          cursor: pointer;
+          margin-right: 0.5rem;
+          @include transitionFast;
+          &__eye{
+            width: 2rem;
+            aspect-ratio: 1/1;
+          }
+          &:hover{
+            background-color: $colBg;
+          }
+        }
+      }
+      label {
+        position: absolute;
+        top: 0px;
+        left: 1rem;
+        transform: translateY(-50%);
+        background-color: white;
+        padding-inline: 0.25rem;
+        border-radius: 0.2rem;
+      }
+      input {
+        border-radius: 0.5rem;
+        border: none;
+        outline: none;
+
+        padding-block: 0.75rem;
+        padding-left: 0.5rem;
+        @include transitionFast;
+        /*-------------------------borrando estilos del autocompletado */
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px white inset !important; /* Ajusta el color de fondo según tus necesidades */
+          -webkit-text-fill-color: inherit !important;
+          caret-color: $colThird;
+        }
+      }
+    }
+    /*---------------------------------- estilos de validacion */
+    .errorField{
+      border: solid 2px red;
+      margin-bottom: 0;
+    }
+    &__validateMessage>span{
+      display: block;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+      color: rgb(200, 0, 0);
+    }
+    &__fieldCheck {
+      margin-bottom: 1rem;
+      align-self: flex-end;
+    }
+    &__btn {
+      align-self: stretch;
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: $colPrime;
+        color: $colBg;
+        box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+        border-radius: 1rem;
+        padding-block: 0.5rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        @include transitionFast;
+        &:hover{
+          transform: scale(1.05) translateY(-0.2rem);
+        }
+        &:disabled{
+          transform: none;
+          opacity: 0.7;
+        }
+      }
+    }
+
+  }
 }
 
 
-/* Estilos para los campos de email y contraseña*/
-input.email, input.contrasena {
-  position: relative;
-  margin-bottom: 20px;
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
+
+.caja-1,
+.caja-2 {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  float: left;
+  width: 50%;
+  height: 100vh;
+  padding: auto;
 }
 
-/* Estilos para la visibilidad de la contraseña*/
-.eye-icon {
-  cursor: pointer;
-  user-select: none;
-  margin-left: 5px;
+/* Estilos del boton de Gmail --ok*/
+.login-gmail {
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: $colPrime;
+      color: $colBg;
+      box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+      padding-block: 0.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      @include transitionFast;
+      &:hover{
+        transform: scale(1.05) translateY(-0.2rem);
+      }
+      &:disabled{
+        transform: none;
+        opacity: 0.7;
+
+  }
 }
 
-/* Estilos de boton 'Ingresar' */
-button {
-  background-color: $colPrime;
-  color: white;
-  padding: 10px 20px;
-  width: auto;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  border: none;
-  cursor: pointer;
+/* Hipervinculos con color primario --ok*/
+a {
+  color: $colPrime;
 }
 
-.login-gmail{
-  width:100%
+/*Estilos para el check-list --ok*/
+label.label-check{
+  position: static !important;
+}
+input.input-check{
+  position: static !important;
 }
 
-
-/*Estilos de boton de Login*/
-.boton-login{
-  border-radius: 15px;
-  margin-right: 20px;
-  margin-left: 20px;
-  width: 85%;
-}
-
-a{
-  text-decoration: none;
-}
-
-div.column-2 {
-  background-image: url('https://cloudfront.omsphoto.com/wp-content/uploads/2019/11/OMS-photo-anna-jones-raw-food-photography-006-558x700.jpg');
+/* CAJA 2 --ok*/
+div.caja-2 {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("/assets/foodliest.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  font-size: 1.5rem;
+  padding: 5px;
 
-  padding: 20px;
+  /* Titulo de la caja 2 --ok*/
+  h1 {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+
+  /* Parrafo de la caja 2 --ok*/
+  .parrafo {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    text-align: right;
+  }
 }
 
-/* Oculta la segunda columna*/
-@media screen and (max-width: 600px) {
-  div.column-2 {
+/* Media queries */
+
+/* Oculta la segunda caja cuando se ingresa con tablets o dispositivos móviles --ok*/
+@media screen and (max-width: 650px) {
+  div.caja-2 {
     display: none;
   }
-  div.column-1 {
-    background-image: url('https://cloudfront.omsphoto.com/wp-content/uploads/2019/11/OMS-photo-anna-jones-raw-food-photography-006-558x700.jpg');
+  div.caja-1 {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.6)
+      ),
+      url("/assets/foodliest.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width:100%;
+    width: 100%;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
 }
-
