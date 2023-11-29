@@ -1,16 +1,22 @@
+/*Importación de los estilos globales*/
 @import "../../stylesConfig/stylesConfig.scss";
 
-/* Contenedor de las dos cajas*/
+
+/* Estilos para el contenedor que envuelve las dos cajas*/
 .contenedor {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-.contenedor:after {
-  content: "";
   display: grid;
-  clear: both;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/*Estilos para las dos cajas*/
+.caja-1,
+.caja-2 {
+  display: flex;
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 10px;
+  min-height: 100vh;
 }
 
 /* Estilos de la linea horizontal --ok */
@@ -21,19 +27,25 @@
   margin: 10px 0;
 }
 
-/*Titulo de la caja uno*/
-h2 {
-  font-size: 1.5rem;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 2rem;
+.caja-1 .form {
+  width: 100%;
+  flex-direction: column;
 }
-
-/*Reutilizado de register*/
+/****Reutilizado de register*/
+/*Estilos del formulario*/
 .form {
-  max-width: min(100%, 400px);
-  margin: auto;
+  display: block;
 
+  max-width: 100%;
+  margin: auto;
+  /*Titulo del formulario*/
+  &__title {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  /*Caja del formulario*/
   &__box {
     display: flex;
     flex-direction: column;
@@ -51,23 +63,23 @@ h2 {
         border: solid $colPrime 2px;
       }
       /* -----------------------------------inputs tipo password */
-      &__inputPass{
+      &__inputPass {
         display: flex;
-        input{
+        input {
           flex-grow: 2;
         }
-        .eyeBtn{
+        .eyeBtn {
           border: none;
           background-color: white;
           border-radius: 50%;
           cursor: pointer;
           margin-right: 0.5rem;
           @include transitionFast;
-          &__eye{
+          &__eye {
             width: 2rem;
             aspect-ratio: 1/1;
           }
-          &:hover{
+          &:hover {
             background-color: $colBg;
           }
         }
@@ -101,11 +113,12 @@ h2 {
       }
     }
     /*---------------------------------- estilos de validacion */
-    .errorField{
+    /*Campos de email y contraseña con bordes y mensajes en rojo*/
+    .errorField {
       border: solid 2px red;
       margin-bottom: 0;
     }
-    &__validateMessage>span{
+    &__validateMessage > span {
       display: block;
       padding-left: 0.5rem;
       margin-bottom: 1rem;
@@ -115,6 +128,8 @@ h2 {
       margin-bottom: 1rem;
       align-self: flex-end;
     }
+
+    /* Botones */
     &__btn {
       align-self: stretch;
       button {
@@ -130,53 +145,15 @@ h2 {
         margin-bottom: 1rem;
         cursor: pointer;
         @include transitionFast;
-        &:hover{
+        &:hover {
           transform: scale(1.05) translateY(-0.2rem);
         }
-        &:disabled{
+        &:disabled {
           transform: none;
           opacity: 0.7;
         }
       }
     }
-
-  }
-}
-
-
-
-.caja-1,
-.caja-2 {
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  float: left;
-  width: 50%;
-  height: 100vh;
-  padding: auto;
-}
-
-/* Estilos del boton de Gmail --ok*/
-.login-gmail {
-      width: 100%;
-      outline: none;
-      border: none;
-      background-color: $colPrime;
-      color: $colBg;
-      box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
-      padding-block: 0.5rem;
-      margin-bottom: 1rem;
-      cursor: pointer;
-      @include transitionFast;
-      &:hover{
-        transform: scale(1.05) translateY(-0.2rem);
-      }
-      &:disabled{
-        transform: none;
-        opacity: 0.7;
-
   }
 }
 
@@ -186,60 +163,61 @@ a {
 }
 
 /*Estilos para el check-list --ok*/
-label.label-check{
+label.label-check {
   position: static !important;
 }
-input.input-check{
+input.input-check {
   position: static !important;
 }
+
+/*CAJA 1 */
 
 /* CAJA 2 --ok*/
 div.caja-2 {
   background: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.6)
-    ),
-    url("/assets/foodliest.jpeg");
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.4)
+  ),
+  url("/assets/foodliest.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   font-size: 1.5rem;
-  padding: 5px;
+}
 
-  /* Titulo de la caja 2 --ok*/
-  h1 {
-    font-size: 2rem;
-    font-weight: bolder;
-  }
+/* Titulo de la caja 2 --ok*/
+h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+}
 
-  /* Parrafo de la caja 2 --ok*/
-  .parrafo {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 20px;
-    text-align: right;
-  }
+/* Parrafo de la caja 2 --ok*/
+.parrafo {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  text-align: right;
 }
 
 /* Media queries */
 
 /* Oculta la segunda caja cuando se ingresa con tablets o dispositivos móviles --ok*/
 @media screen and (max-width: 650px) {
-  div.caja-2 {
+  .caja-2 {
     display: none;
   }
-  div.caja-1 {
+  .caja-1 {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / span 2;
     background: linear-gradient(
-        rgba(255, 255, 255, 0.6),
-        rgba(255, 255, 255, 0.6)
-      ),
-      url("/assets/foodliest.jpeg");
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url("/assets/foodliest.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 100%;
-    margin-left: 1rem !important;
-    margin-right: 1rem !important;
   }
 }

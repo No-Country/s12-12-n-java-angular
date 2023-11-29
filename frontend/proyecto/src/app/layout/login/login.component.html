@@ -1,15 +1,21 @@
 <div class="contenedor">
   <div class="caja-1">
+    <!-- Formulario de Login -->
+
     <div class="formulario-login">
-      <h2>¡Bienvenido Nuevamente!</h2>
-      <button class="login-gmail" type="">Ingresa con Gmail</button>
+      <!--Reutilizado del Register-->
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2 class="form__title">¡Bienvenido Nuevamente!</h2>
 
-      <div class="linea-horizontal"></div>
+        <!-- Boton de inicio de sesión con Gmail -->
+        <div class="form__box">
+          <div class="form__box__btn">
+            <button class="boton-gmail" type="button">Ingresa con Gmail</button>
+          </div>
 
-      <!-- Formulario de Login -->
-      <div class="form__box">
-        <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
-          <!--Reutilizado del Register-->
+          <!-- Linea horizontal -->
+          <div class="linea-horizontal"></div>
+
           <!-- Campo de email -->
           <div
             [ngClass]="invalidateField('email') ? 'errorField' : ''"
@@ -24,11 +30,13 @@
               placeholder="Ingresa tu correo electronico"
             />
           </div>
+          <!-- Mensaje de error email -->
           <div class="form__box__validateMessage">
             <span *ngIf="invalidateField('email')">
               {{ validationFieldMessage("email") }}
             </span>
           </div>
+
           <!-- Campo de contraseña -->
           <div
             [ngClass]="invalidateField('password') ? 'errorField' : ''"
@@ -43,6 +51,7 @@
                 formControlName="password"
                 placeholder="Ingresa tu contraseña"
               />
+              <!-- Botón (ojo) de visibilidad de contraseña -->
               <button
                 (click)="showPass = !showPass"
                 type="button"
@@ -55,33 +64,47 @@
                 />
               </button>
             </div>
-
           </div>
 
-            <!-- Checkbox 'Mantenerme conectado' -->
-            <div>
-              <label class="label-check">
-                <input class="input-check" type="checkbox" name="opcion" />
-                Mantenerme conectado
-              </label>
-            </div>
+          <!-- Mensaje de error contraseña -->
+          <div class="form__box__validateMessage">
+            <span *ngIf="invalidateField('password')">
+              {{ validationFieldMessage("password") }}
+            </span>
+          </div>
 
-            <!-- Botón 'Ingresar' -->
-            <div class="form__box__btn">
-              <button [disabled]="loginForm.invalid" class="boton-login" type="submit">Ingresar</button>
-            </div>
+          <!-- Checkbox 'Mantenerme conectado' -->
+          <div>
+            <label class="label-check">
+              <input class="input-check" type="checkbox" name="opcion" />
+              Mantenerme conectado
+            </label>
+          </div>
 
+          <!-- Botón 'Ingresar' -->
+          <div class="form__box__btn">
+            <button
+              [disabled]="loginForm.invalid"
+              class="boton-login"
+              type="submit"
+            >
+              Ingresar
+            </button>
+          </div>
+          <!-- Linea horizontal -->
           <div class="linea-horizontal"></div>
 
+          <!-- Hipervinculo al Register -->
           <p>
             ¿No tienes una cuenta?
-            <a routerLink="/register">Registrate aqu&iacute;</a>
+            <a routerLink="/register">Registrate aquí</a>
           </p>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
 
+  <!-- CAJA 2 -->
   <div class="caja-2">
     <div class="parrafo">
       <h1>¡Nueva Recetas!</h1>
