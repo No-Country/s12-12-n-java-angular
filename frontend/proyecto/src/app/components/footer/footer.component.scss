@@ -1,0 +1,9 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+:host{
+  background-color: $colThird;
+  padding-block: 1rem;
+  color: $colBg;
+  display: grid;
+  place-items: center;
+  font-size:calc(12px + 0.390625vw);
+}
