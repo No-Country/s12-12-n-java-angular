@@ -1,0 +1,228 @@
+/*Importación de los estilos globales*/
+@import "../../stylesConfig/stylesConfig.scss";
+
+
+/* Estilos para el contenedor que envuelve las dos cajas*/
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/*Estilos para las dos cajas*/
+.caja-1,
+.caja-2 {
+  display: flex;
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 10px;
+  min-height: 100vh;
+}
+
+/* Estilos de la linea horizontal --ok */
+.linea-horizontal::before {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #bbb;
+  margin: 10px 0;
+}
+
+.caja-1 .form {
+  width: 100%;
+  flex-direction: column;
+}
+/****Reutilizado de register*/
+/*Estilos del formulario*/
+.form {
+  display: block;
+
+  max-width: 100%;
+  margin: auto;
+  /*Titulo del formulario*/
+  &__title {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  /*Caja del formulario*/
+  &__box {
+    display: flex;
+    flex-direction: column;
+    /*---------------------------------------- estilos input */
+    &__field {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 2px solid $colThird;
+      border-radius: 0.5rem;
+      background-color: white;
+      margin-bottom: 1rem;
+      transition: border 0.3s ease-in-out;
+      &:focus-within {
+        border: solid $colPrime 2px;
+      }
+      /* -----------------------------------inputs tipo password */
+      &__inputPass {
+        display: flex;
+        input {
+          flex-grow: 2;
+        }
+        .eyeBtn {
+          border: none;
+          background-color: white;
+          border-radius: 50%;
+          cursor: pointer;
+          margin-right: 0.5rem;
+          @include transitionFast;
+          &__eye {
+            width: 2rem;
+            aspect-ratio: 1/1;
+          }
+          &:hover {
+            background-color: $colBg;
+          }
+        }
+      }
+      label {
+        position: absolute;
+        top: 0px;
+        left: 1rem;
+        transform: translateY(-50%);
+        background-color: white;
+        padding-inline: 0.25rem;
+        border-radius: 0.2rem;
+      }
+      input {
+        border-radius: 0.5rem;
+        border: none;
+        outline: none;
+
+        padding-block: 0.75rem;
+        padding-left: 0.5rem;
+        @include transitionFast;
+        /*-------------------------borrando estilos del autocompletado */
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px white inset !important; /* Ajusta el color de fondo según tus necesidades */
+          -webkit-text-fill-color: inherit !important;
+          caret-color: $colThird;
+        }
+      }
+    }
+    /*---------------------------------- estilos de validacion */
+    /*Campos de email y contraseña con bordes y mensajes en rojo*/
+    .errorField {
+      border: solid 2px red;
+      margin-bottom: 0;
+    }
+    &__validateMessage > span {
+      display: block;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+      color: rgb(200, 0, 0);
+    }
+    &__fieldCheck {
+      margin-bottom: 1rem;
+      align-self: flex-end;
+    }
+
+    /* Botones */
+    &__btn {
+      align-self: stretch;
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: $colPrime;
+        color: $colBg;
+        box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+        border-radius: 1rem;
+        padding-block: 0.5rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        @include transitionFast;
+        &:hover {
+          transform: scale(1.05) translateY(-0.2rem);
+        }
+        &:disabled {
+          transform: none;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+/* Hipervinculos con color primario --ok*/
+a {
+  color: $colPrime;
+}
+
+/*Estilos para el check-list --ok*/
+label.label-check {
+  position: static !important;
+}
+input.input-check {
+  position: static !important;
+}
+
+/*CAJA 1 */
+
+/* CAJA 2 --ok*/
+div.caja-2 {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.4)
+  ),
+  url("/assets/foodliest.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-size: 1.5rem;
+}
+
+/* Titulo de la caja 2 --ok*/
+h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+/* Parrafo de la caja 2 --ok*/
+.parrafo {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  text-align: right;
+}
+
+/* Media queries */
+
+/* Oculta la segunda caja cuando se ingresa con tablets o dispositivos móviles --ok*/
+@media screen and (max-width: 650px) {
+  
+  :host{
+    min-width: 100%;
+  }
+
+  .caja-2 {
+    display: none;
+  }
+  .caja-1 {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url("/assets/foodliest.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}

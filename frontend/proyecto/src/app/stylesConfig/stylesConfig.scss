@@ -1,0 +1,18 @@
+$colPrime: #CF8048;
+$colSec: #D5B495;
+$colThird: #1F1F1F;
+$colFourth:#678C30;
+$colBg: #F0F3F4;
+
+@function changeOpacity($color, $opacity){
+  @return rgba($color, $opacity);
+}
+
+@mixin changeColorPng ($color){
+  filter: drop-shadow(0 100px 0 $color);
+  transform: translateY(-100px);
+}
+
+@mixin transitionFast{
+  transition: all ease-in-out 0.3s;
+}
