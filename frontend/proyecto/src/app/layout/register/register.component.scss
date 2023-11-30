@@ -139,26 +139,24 @@
 @media screen and (min-width: 650px) {
   :host {
     background: white;
-    display: flex;
+    grid-template-columns: 1fr 1fr;
   }
   .leftBox {
     display: grid;
     place-items: center;
-    flex-grow: 2;
+    width: 100%;
     background: linear-gradient(
         rgba(255, 255, 255, 0.4),
         rgba(255, 255, 255, 0.4)
       ),
       url("/assets/oilWallpaper.jpg");
     background-position: left;
+    background-size: cover;
     height: 100%;
     padding-inline: 1rem;
     h2 {
       font-size: 2rem;
       font-weight: bolder;
     }
-  }
-  .rightBox {
-    flex-grow: 2;
   }
 }
