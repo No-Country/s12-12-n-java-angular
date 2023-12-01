@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-box',
@@ -8,6 +8,12 @@ import { Component } from '@angular/core';
 export class SearchBoxComponent {
   categories:string[] = ["Guisos", "Postres", "Ensalada", "Jugos", "Fritura"];
   sizeRecipes = 2500;
-  selectedCategory="";
+  selectedCategory="categoria";
   fieldSearch="";
+
+  @Input() btnRedirection!:String;
+
+  onSubmit(){
+    console.log(this.selectedCategory)
+  }
 }

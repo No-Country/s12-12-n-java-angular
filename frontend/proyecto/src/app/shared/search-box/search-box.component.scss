@@ -57,6 +57,8 @@
     text-align: center;
     border-radius: 2rem;
     cursor: pointer;
+    white-space: nowrap;
+    padding-inline: 0.5rem;
     @include transitionFast;
     &:hover{
       box-shadow: 0 5px 2px -1px rgba(0, 0, 0, 0.5);
@@ -77,6 +79,6 @@
 }
 @media screen and (min-width:900px) {
   .form{
-    &__category, &__redirect{grid-column: span 2;}
+    &__category, &__redirect{grid-column: span 1;}
   }
 }
