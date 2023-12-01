@@ -1,6 +1,10 @@
 /*Importación de los estilos globales*/
 @import "../../stylesConfig/stylesConfig.scss";
 
+/*  */
+:host{
+  overflow-x: hidden;
+}
 
 /* Estilos para el contenedor que envuelve las dos cajas*/
 .contenedor {
