@@ -1,11 +1,15 @@
 @import 'src/app/stylesConfig/stylesConfig.scss';
 @import '../../../assets//scss/media-queries/media-queries.scss';
-
+/* añadi tamaño al componente para que siempre empiece con espacio */
+:host{
+  display: block;
+  height: 4rem;
+  background-color: $colBg;
+}
 .container {
-    // width: 95%;
+  // width: 95%;
     max-width: 1200px;
     margin: 0 0.75rem;
-
     @include tablet {
         width: 100%;
         margin: 0 auto;
@@ -17,9 +21,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    // background-color: $colBg;
+    /* añadi color de fondo por que en las vista de color blanco se pierden
+    y se suporponen las letras */
+    background-color: changeOpacity($colBg, 0.3);
+    backdrop-filter: blur(5px);
     transition: .5s;
     z-index: 100;
+    /* sombra para que sea fiel al figma */
+    box-shadow: 0 2px 7px 0px rgba(0, 0, 0, .5);
 }
 
 .nav {
@@ -27,7 +36,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $colWhite;
+    /* como el fondo es blanco debe contrastar en negro de las letras */
+    color: $colThird;
 }
 
 .menu {
@@ -43,6 +53,9 @@
         background-color: $colBg;
         transition: .5s;
         z-index: 100;
+        /* aqui no se si tu intencion era dejar un navbar
+        que se quede a la mitad? bueno con esto siempre llena pantalla */
+        height: 100vh;
     }
 
 
@@ -61,9 +74,10 @@
     &__link {
         font-size: 1rem;
         color: $colBlack;
-
+        text-decoration: none;
         @include tablet {
-            color: $colWhite;
+          /* bueno los iconos deben contrastar con la barra por eso negro */
+            color: $colThird;
         }
     }
 
@@ -98,7 +112,8 @@
 
         &--img {
             font-size: 22px;
-            color:$colWhite;
+            /* lo mismo constraste */
+            color:$colThird;
         }
     }
 }

@@ -9,21 +9,21 @@
         <div class="menu" [ngClass]="showMenu ? 'show-menu' : ''">
             <ul class="menu__list">
                 <li class="menu__items">
-                    <a class="menu__link">Inicio</a>
+                    <a routerLink="home" class="menu__link">Inicio</a>
                 </li>
                 <li class="menu__items">
-                    <a class="menu__link">Nosotros</a>
+                    <a routerLink="home" class="menu__link">Nosotros</a>
                 </li>
                 <li class="menu__items">
-                    <a class="menu__link">Recetas</a>
+                    <a routerLink="recipes" class="menu__link">Recetas</a>
                 </li>
                 <li class="menu__items">
-                    <a class="menu__link">Mi lista</a>
+                    <a routerLink="#" class="menu__link">Mi lista</a>
                 </li>
             </ul>
             <div class="menu__close">
                 <button class="icons__items--link" type="button" (click)="closeMenu()">
-                    <img src="../../../assets/icons/close.svg" alt="close" class="icons__items--img">
+                    <img src="assets/icons/close.svg" alt="close" class="icons__items--img">
                 </button>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     </button>
                     <!-- <ul class="dropdown__menu" >
                         <li class="dropdown__item">
-                            <a 
+                            <a
                                 class="dropdown__menu--item dropdown__button--item">
                                 Mi cuenta
                             </a>
