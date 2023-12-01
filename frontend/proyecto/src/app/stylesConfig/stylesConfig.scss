@@ -3,6 +3,8 @@ $colSec: #D5B495;
 $colThird: #1F1F1F;
 $colFourth:#678C30;
 $colBg: #F0F3F4;
+$colWhite:#FFFFFF;
+$colBlack:#000000;
 
 @function changeOpacity($color, $opacity){
   @return rgba($color, $opacity);

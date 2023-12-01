@@ -1,0 +1,31 @@
+@import 'src/app/stylesConfig/stylesConfig.scss';
+@import '../../../assets//scss/media-queries/media-queries.scss';
+
+.section {
+    padding: 10rem 0;
+    // background-color: $colBg;
+    z-index: 1;
+}
+
+.home {
+    background-image: url(../../../assets/foodhero5.webp);
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+    @include tablet { 
+        background-position: center;
+        min-height: 100vh;
+     }
+    &::before {
+        content: '';
+        background-color: $colBlack;
+        position: absolute;
+        top:0;
+        left:0;
+        right: 0;
+        bottom:0;
+        opacity: 0.4;
+    }
+}
