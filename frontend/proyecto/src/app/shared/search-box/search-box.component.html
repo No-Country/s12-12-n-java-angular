@@ -1,0 +1,22 @@
+<form class="form" (ngSubmit)="onSubmit()">
+  <div class="form__field">
+    <button type="submit" class="form__btn">
+      <img src="assets/search-icon.svg" alt="search-icon">
+    </button>
+    <input
+    name="fieldSearch"
+    [(ngModel)]="fieldSearch"
+    type="text"
+    placeholder="Busqueda por receta, autor o ingrediente"
+    >
+  </div>
+  <select
+  class="form__category"
+  name="selectedCategory"
+  [(ngModel)]="selectedCategory">
+    <option value="categoria" selected>Categoria</option>
+    <option *ngFor="let category of categories">{{category}}</option>
+  </select>
+  <a class="form__redirect" routerLink="../home">{{btnRedirection}}</a>
+  <p class="form__paragraph">Tienes {{sizeRecipes}} recetas para encontrar</p>
+</form>
