@@ -82,3 +82,8 @@
     &__category, &__redirect{grid-column: span 1;}
   }
 }
+@media screen and (min-width:100px) {
+  :host{
+    grid-column: span 12;
+  }
+}
