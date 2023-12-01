@@ -1,1 +1,30 @@
-<p>user works!</p>
+<!-- Contenedor de las dos cajas -->
+<div class="contenedor_user">
+  <!-- Caja 1 -->
+  <div class="caja-1">div1</div>
+
+  <!-- Caja 2 -->
+  <div class="caja-2">
+
+
+    <div class="usuario">
+      <!-- Photo de perfil -->
+      <div class="circulo">
+        <div
+          class="foto_cover"
+          [style.background-image]="'url(' + imageUrl + ')'"
+        >
+          <img class="foto" [src]="imageUrl" (error)="onImageError()" />
+          <div class="error_foto" *ngIf="imageError">
+            {{ username.charAt(0) }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="formulario_user">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae asperiores, consectetur atque ullam esse voluptatibus aspernatur minus neque autem sit minima repellendus iusto, quaerat, illo sequi aut. Error, libero expedita.</p>
+    </div>
+
+  </div>
+</div>

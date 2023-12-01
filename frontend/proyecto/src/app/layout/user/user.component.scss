@@ -1,0 +1,100 @@
+/*Importación de los estilos globales*/
+@import "../../stylesConfig/stylesConfig.scss";
+
+/* Estilos para el contenedor padre con flexbox */
+.contenedor_user {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  min-height: 100%;
+}
+
+/* Estilos para las dos cajas */
+.caja-1,
+.caja-2 {
+  flex: 1 1 0px; /* Esto hace que ambas cajas tengan la misma anchura */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 10px;
+  border: 1px solid black; /* borde */
+}
+
+/* Estilos para caja 1 */
+.caja-1 {
+  background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)),
+    url("/assets/tableWallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-size: 1.5rem;
+}
+
+.caja-2 {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+  .circulo {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: $colPrime;
+
+    .foto_cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-size: cover;
+    }
+
+    .foto {
+      display: none;
+    }
+
+    .error_foto {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 50px;
+    }
+  }
+
+  /* Formulario */
+  .formulario_user {
+    text-align: center;
+    padding: 5rem 1rem 3rem 1rem;
+    margin-top: 1.5rem;
+    border-radius: 1rem;
+  }
+}
+/* Media Queries */
+@media screen and (max-width: 650px) {
+  :host {
+    min-width: 100%;
+  }
+  .caja-1 {
+    display: none;
+  }
+  .caja-2 {
+    background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)),
+      url("/assets/tableWallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 1.5rem;
+    .circulo {
+      background-color: rgba(217, 217, 217, 0.65);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    .formulario_user {
+      background-color: rgba(217, 217, 217, 0.65);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  }
+}
