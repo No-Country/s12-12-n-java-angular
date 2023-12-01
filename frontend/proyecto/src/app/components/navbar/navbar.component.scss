@@ -1,0 +1,108 @@
+@import 'src/app/stylesConfig/stylesConfig.scss';
+@import '../../../assets//scss/media-queries/media-queries.scss';
+
+.container {
+    // width: 95%;
+    max-width: 1200px;
+    margin: 0 0.75rem;
+
+    @include tablet {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // background-color: $colBg;
+    transition: .5s;
+    z-index: 100;
+}
+
+.nav {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $colWhite;
+}
+
+.menu {
+    @include tablet-max {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100%;
+        padding: 15.2rem 3rem;
+        text-align: center;
+        box-shadow: 0px 0 10px rgba(0, 0, 0, 0.2);
+        background-color: $colBg;
+        transition: .5s;
+        z-index: 100;
+    }
+
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__link {
+        font-size: 1rem;
+        color: $colBlack;
+
+        @include tablet {
+            color: $colWhite;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+
+        @include tablet {
+            display: none;
+        }
+    }
+}
+
+.icons {
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__items {
+
+        &--link {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        &--img {
+            font-size: 22px;
+            color:$colWhite;
+        }
+    }
+}
+
+.show-menu {
+    right: 0;
+}
