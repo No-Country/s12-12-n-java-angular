@@ -1,4 +1,7 @@
+@import "/src/app/stylesConfig/stylesConfig.scss";
+
 :host{
   flex-grow: 2;
   display: flex;
+  background-color: $colBg;
 }
