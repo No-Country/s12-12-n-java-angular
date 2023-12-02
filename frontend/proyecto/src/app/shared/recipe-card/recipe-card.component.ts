@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class RecipeCardComponent {
   @Input() recipeCommunity:boolean = true;
+  isCheck = false;
 }

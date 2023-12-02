@@ -13,7 +13,16 @@ export class SearchBoxComponent {
 
   @Input() btnRedirection!:String;
 
+
   onSubmit(){
     console.log(this.selectedCategory)
   }
+
+  redirectTo(){
+    if(this.btnRedirection === 'mis recetas'){
+      return "../myrecipes"
+    }
+    return "../createrecipe"
+  }
+
 }

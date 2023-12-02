@@ -1,6 +1,6 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 :host{
-  grid-column: span 6;
+  grid-column: span 12;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -8,15 +8,16 @@
   max-width: 400px;
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5);
   @media screen and ( min-width:750px ) {
-   grid-column: span 3;
+   grid-column: span 6;
   }
   @media screen and ( min-width:1250px ) {
-   grid-column: span 2;
+   grid-column: span 4;
   }
 }
 .header{
   display: flex;
   padding: 1rem;
+  align-items: center;
   &__profile{
     background-color: $colFourth;
     border-radius: 50%;
@@ -25,6 +26,19 @@
     display: grid;
     place-items: center;
     color: white;
+  }
+  &__check{
+    all: initial;
+    cursor: pointer;
+    @include transitionFast;
+    border-radius: 50%;
+    img{
+      display: block;
+    }
+    &:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 3px 2px 0px rgba(0, 0, 0, .5);
+    }
   }
   &__info{
     flex-grow: 2;
