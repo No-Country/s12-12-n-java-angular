@@ -17,6 +17,6 @@
     <option value="categoria" selected>Categoria</option>
     <option *ngFor="let category of categories">{{category}}</option>
   </select>
-  <a class="form__redirect" routerLink="../home">{{btnRedirection}}</a>
+  <a class="form__redirect" [routerLink]="[redirectTo()]">{{btnRedirection}}</a>
   <p class="form__paragraph">Tienes {{sizeRecipes}} recetas para encontrar</p>
 </form>

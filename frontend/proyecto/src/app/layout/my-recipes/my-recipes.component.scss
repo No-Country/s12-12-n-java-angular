@@ -1,0 +1,34 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+:host{
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: $colBg;
+}
+.recipeContainer{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  padding: 1rem 1.5rem;
+  gap: 2rem 0;
+  justify-items: center;
+  @media screen and (min-width:750px) {
+    gap: 2rem;
+  }
+
+}
+
+@media screen and (min-width:1000px) {
+  .recipeContainer>app-recipe-card{
+    grid-column: span 4 ;
+  }
+}
+@media screen and (min-width:1250px) {
+  .recipeContainer>app-recipe-card{
+    grid-column: span 3 !important;
+  }
+}
+// @media screen and (min-width:1250px) {
+//   .recipeContainer{
+//     grid-column: span 9;
+//   }
+// }

@@ -1,7 +1,14 @@
 <div class="header">
-  <div class="header__profile">
+  <div *ngIf="recipeCommunity, else check" class="header__profile">
     <span>J</span>
   </div>
+  <ng-template #check>
+    <button (click)="isCheck = !isCheck" class="header__check">
+      <img
+      [src]="isCheck?'assets/checked.svg':'assets/uncheck.svg'"
+      alt="check-icon">
+    </button>
+  </ng-template>
   <div class="header__info">
     <p class="header__info__title">Calamares en su tinta</p>
     <p class="header__info__author">Juanito Alimaña Navaja</p>

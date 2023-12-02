@@ -1,14 +1,19 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
 :host{
   flex-grow: 2;
   display: flex;
   flex-direction: column;
+  background-color: $colBg;
 }
 .recipeContainer{
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(12,1fr);
   padding: 1rem 1.5rem;
-  gap: 2rem;
+  gap: 2rem 0;
   justify-items: center;
+  @media screen and (min-width:750px) {
+      gap: 2rem;
+  }
 }
 .communityContainer{
   padding: 1rem 2rem;
