@@ -1,1 +1,53 @@
-<p>navbar works!</p>
+<div class="overlay"></div>
+<header class="header">
+    <nav class="nav container">
+        <div class="nav__logo">
+            <a class="nav__logo--content">
+                <p>Foodie <span>List</span></p>
+            </a>
+        </div>
+        <div class="menu" [ngClass]="showMenu ? 'show-menu' : ''">
+            <ul class="menu__list">
+                <li class="menu__items">
+                    <a routerLink="home" class="menu__link">Inicio</a>
+                </li>
+                <li class="menu__items">
+                    <a routerLink="home" class="menu__link">Nosotros</a>
+                </li>
+                <li class="menu__items">
+                    <a routerLink="recipes" class="menu__link">Recetas</a>
+                </li>
+                <li class="menu__items">
+                    <a routerLink="#" class="menu__link">Mi lista</a>
+                </li>
+            </ul>
+            <div class="menu__close">
+                <button class="icons__items--link" type="button" (click)="closeMenu()">
+                    <img src="assets/icons/close.svg" alt="close" class="icons__items--img">
+                </button>
+            </div>
+        </div>
+        <div class="icons">
+            <ul class="icons__menu">
+                <li class="icons__items dropdown">
+                    <button type="button" class="icons__items--link dropdown__button">
+                        <i class='bx bx-user icons__items--img'></i>
+                    </button>
+                    <!-- <ul class="dropdown__menu" >
+                        <li class="dropdown__item">
+                            <a
+                                class="dropdown__menu--item dropdown__button--item">
+                                Mi cuenta
+                            </a>
+                        </li>
+                    </ul> -->
+                </li>
+                <li class="icons__toggle icons__items">
+                    <button type="button" class="icons__items--link" (click)="toggleMenu()">
+                        <i class="bx bx-menu-alt-right icons__items--img"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

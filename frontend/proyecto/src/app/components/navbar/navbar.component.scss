@@ -1,0 +1,123 @@
+@import 'src/app/stylesConfig/stylesConfig.scss';
+@import '../../../assets//scss/media-queries/media-queries.scss';
+/* añadi tamaño al componente para que siempre empiece con espacio */
+:host{
+  display: block;
+  height: 4rem;
+  background-color: $colBg;
+}
+.container {
+  // width: 95%;
+    max-width: 1200px;
+    margin: 0 0.75rem;
+    @include tablet {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* añadi color de fondo por que en las vista de color blanco se pierden
+    y se suporponen las letras */
+    background-color: changeOpacity($colBg, 0.3);
+    backdrop-filter: blur(5px);
+    transition: .5s;
+    z-index: 100;
+    /* sombra para que sea fiel al figma */
+    box-shadow: 0 2px 7px 0px rgba(0, 0, 0, .5);
+}
+
+.nav {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* como el fondo es blanco debe contrastar en negro de las letras */
+    color: $colThird;
+}
+
+.menu {
+    @include tablet-max {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100%;
+        padding: 15.2rem 3rem;
+        text-align: center;
+        box-shadow: 0px 0 10px rgba(0, 0, 0, 0.2);
+        background-color: $colBg;
+        transition: .5s;
+        z-index: 100;
+        /* aqui no se si tu intencion era dejar un navbar
+        que se quede a la mitad? bueno con esto siempre llena pantalla */
+        height: 100vh;
+    }
+
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__link {
+        font-size: 1rem;
+        color: $colBlack;
+        text-decoration: none;
+        @include tablet {
+          /* bueno los iconos deben contrastar con la barra por eso negro */
+            color: $colThird;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+
+        @include tablet {
+            display: none;
+        }
+    }
+}
+
+.icons {
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__items {
+
+        &--link {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        &--img {
+            font-size: 22px;
+            /* lo mismo constraste */
+            color:$colThird;
+        }
+    }
+}
+
+.show-menu {
+    right: 0;
+}
