@@ -12,26 +12,27 @@ export class UserComponent {
   username = 'Emanuel '; //prueba de username
   imageUrl = 'https://this-is-an-invalid-url.com/invalid-image.jpg'; //prueba de imagen que no carga
   imageError = false;
+
 // agregar loader spinner
   onImageError() {
     this.imageError = true;
     console.log('La función onImageError se ha ejecutado.');
   }
-  registForm!: FormGroup;
+  userForm!: FormGroup;
   showPass = false;
   showRepeatPass = false;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.registForm = this.initForm();
+    this.userForm = this.initForm();
   }
 
   /**
    * registra el nuevo usuario
    */
   onSubmit() {
-    console.log(this.registForm)
+    console.log(this.userForm)
 
   }
 
@@ -40,8 +41,8 @@ export class UserComponent {
    *@param string:campo
   */
   invalidateField(field:string){
-    return ( this.registForm.get(field)?.errors &&
-     this.registForm.get(field)?.touched);
+    return ( this.userForm.get(field)?.errors &&
+     this.userForm.get(field)?.touched);
   }
 
   /**
@@ -49,7 +50,7 @@ export class UserComponent {
    *@param string:campo
   */
   validationFieldMessage(field:string):string{
-    return (this.registForm.get(field)?.errors?.['message'])
+    return (this.userForm.get(field)?.errors?.['message'])
   }
 
   /**
