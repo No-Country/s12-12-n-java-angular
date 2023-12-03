@@ -1,0 +1,17 @@
+:host{
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+}
+.checkBtn{
+  all: initial;
+  cursor: pointer;
+  img{
+    width: 1.5rem;
+    display: block;
+    aspect-ratio: 1;
+  }
+}
+.lineThrough{
+  text-decoration: line-through;
+}
