@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import {
   emailValidator,
   passValidator,
@@ -13,8 +13,11 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+
+  // quitar el ojo del edge
   loginForm!: FormGroup;
   showPass = false;
+  rememberMe : boolean = false;
 
   constructor(private fb: FormBuilder) {}
 
@@ -24,6 +27,15 @@ export class LoginComponent {
 
   login() {
     console.log(this.loginForm);
+
+    if (this.rememberMe) {
+      this.rememberMe = true;
+      console.log('recordarme');
+    } else {
+      this.rememberMe = false;
+    }
+
+
   }
 
   //Reutilizo codigo del register
