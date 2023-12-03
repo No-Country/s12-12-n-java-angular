@@ -1,24 +1,19 @@
-package com.nocountry.recetas.domain.entities.historial;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import jakarta.persistence.*;
+import lombok.*;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-
-public class Historial {
-
-
+@Table(name = "historial")
+@Entity(name = "historial")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@EqualsAndHashCode(of = "id")
+public class Hitorial {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @RequestMapping(value = "id")
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "historial")
+    private String historial;
 }
