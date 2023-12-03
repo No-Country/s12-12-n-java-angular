@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./select-ingredients.component.scss']
 })
 export class SelectIngredientsComponent {
-
 }

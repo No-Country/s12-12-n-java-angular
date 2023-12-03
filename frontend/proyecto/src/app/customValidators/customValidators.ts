@@ -5,7 +5,7 @@ import { AbstractControl } from '@angular/forms';
  * Minimo 5 caracteres
  * Maximo 40 caracteres
  * No permite que el primer digito sea un espacio en blanco
- * No permite mas de 2 esoaciso entre palabras
+ * No permite mas de 2 espacios entre palabras
  * @param controller
  * @returns nulo o error
  */

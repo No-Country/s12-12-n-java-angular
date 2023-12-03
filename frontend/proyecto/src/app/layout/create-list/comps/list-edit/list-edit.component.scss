@@ -1,0 +1,30 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+:host{
+  display: block;
+  background-color: changeOpacity(white,.5);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: .5rem;
+  color: $colThird;
+  @include transitionFast;
+  &:hover{
+    background-color: $colWhite;
+  }
+  @media screen and (min-width:1000px) {
+    font-size: 1.4rem;
+  }
+}
+button{
+  all: initial;
+  border-radius: 50%;
+  img{display: block;}
+  cursor: pointer;
+  @include transitionFast;
+  &:hover{
+    box-shadow: 0 2px 2px 0px rgba(0, 0, 0, .4);
+    transform: translateY(-2px);
+  }
+}

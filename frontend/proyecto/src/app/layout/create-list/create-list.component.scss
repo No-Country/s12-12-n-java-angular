@@ -1,0 +1,107 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+:host{
+  display: block;
+  flex-grow: 2;
+  padding: 2rem 0.5rem;
+}
+/* formulario para crear listas */
+.form{
+  background-color: changeOpacity($colThird, .5);
+  padding: 2rem 0.25rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: $colWhite;
+  h2{
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+    @media screen and (min-width:1000px) {
+      font-size: 2rem;
+    }
+  }
+  /*-------------------------------------- añadir elemento a la lista */
+  &__newField{
+    position: relative;
+    margin-bottom: 1rem;
+    padding-inline: 1rem;
+    button{
+      all: initial;
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      border-radius: 50%;
+      @include transitionFast;
+      &:hover{
+        box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.5);
+        transform: translateY(calc(-50% - 2px));
+      }
+      img{display: block;}
+    }
+    input{
+      width: 100%;
+      padding: 0.8rem;
+      padding-left: 3rem;
+      border-radius: 1rem;
+      border: none;
+      outline: none;
+      @media screen and (min-width:1000px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &__list{
+    margin-bottom: 1rem;
+  }
+  textarea{
+    border: none;
+    resize: none;
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    outline: none;
+  }
+  /* --------------------------------------------------botones */
+  &__actions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    button{
+      padding-inline: 1rem;
+      margin-bottom: 0.5rem !important;
+      box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+      &:first-child{
+        @include btnStyle($colFourth, $colBg);
+      }
+      &:last-child{
+        @include btnStyle($colPrime, $colBg);
+      }
+
+    }
+  }
+
+}
+
+@media screen and (min-width:500px) {
+  :host{
+    padding: 2rem 10vw;
+  }
+  .form{
+    padding-inline: 5vw;
+  }
+}
+
+@media screen and (min-width:700px) {
+
+  .form__list , .form__newField{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+  .form__actions{
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
