@@ -1,6 +1,5 @@
 package com.nocountry.recetas.domain.entities.receta;
 
-import com.nocountry.recetas.domain.entities.categoria.Categoria;
 import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -21,10 +20,18 @@ public class Receta {
     private boolean visible;
     private int likes;
 
+    /*
     @ManyToOne
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "recetas", cascade = CascadeType.ALL)
+    @ManyToMany
+    @JoinTable(
+            name = "receta_ingredientes",
+            joinColumns = @JoinColumn(name = "receta_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingrediente_id")
+    )
     private List<Ingrediente> ingredientes;
 
+     */
 }

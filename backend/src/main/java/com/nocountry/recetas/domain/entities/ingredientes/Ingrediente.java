@@ -4,6 +4,8 @@ import com.nocountry.recetas.domain.entities.receta.Receta;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name = "ingredientes")
 @Data
@@ -14,8 +16,12 @@ public class Ingrediente {
     private String nombre;
     private double cantidad;
     private String tipo_medida;
+/*
 
-    @ManyToOne
-    private Receta recetas;
+    @ManyToMany(mappedBy = "ingredientes")
+    private List<Receta> recetas;
+
+
+ */
 }
 
