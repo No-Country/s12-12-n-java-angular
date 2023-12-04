@@ -1,10 +1,16 @@
 <app-search-box [btnRedirection]="'crear receta'"></app-search-box>
 <div class="recipeContainer">
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
+  <app-my-recipe-card></app-my-recipe-card>
+  <app-my-recipe-card></app-my-recipe-card>
+  <app-my-recipe-card></app-my-recipe-card>
+  <app-my-recipe-card></app-my-recipe-card>
+  <app-my-recipe-card></app-my-recipe-card>
+  <app-my-recipe-card></app-my-recipe-card>
+  <app-my-recipe-card></app-my-recipe-card>
 </div>
+<button
+  (click)="createList()"
+  class="createListBtn">
+  <img src="assets/list-icon.svg" alt="list-icon">
+  <span>Generar Lista</span>
+</button>
