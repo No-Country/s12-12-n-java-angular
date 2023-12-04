@@ -1,6 +1,9 @@
 /*Importación de los estilos globales*/
 @import "../../stylesConfig/stylesConfig.scss";
 
+:host{
+  overflow-x: hidden;
+}
 
 /* Estilos para el contenedor que envuelve las dos cajas*/
 .contenedor {
@@ -17,7 +20,7 @@
   align-items: center; /* Centra los elementos verticalmente */
   justify-content: center; /* Centra los elementos horizontalmente */
   padding: 10px;
-  // min-height: 100vh;
+  max-height: 100vh;/* El alto máximo es de 100vh */
 }
 
 /* Estilos de la linea horizontal --ok */
@@ -205,13 +208,18 @@ h1 {
 
 /* Oculta la segunda caja cuando se ingresa con tablets o dispositivos móviles --ok*/
 @media screen and (max-width: 650px) {
+
+  :host{
+    min-width: 100%;
+  }
+
   .caja-2 {
     display: none;
   }
   .caja-1 {
     display: flex;
     flex-direction: column;
-    grid-column: 1 / span 2;
+    grid-column: span 2;
     background: linear-gradient(
       rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.4)
