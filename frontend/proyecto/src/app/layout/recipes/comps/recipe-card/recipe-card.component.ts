@@ -6,6 +6,4 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./recipe-card.component.scss']
 })
 export class RecipeCardComponent {
-  @Input() recipeCommunity:boolean = true;
-  isCheck = false;
 }
