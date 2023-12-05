@@ -2,20 +2,20 @@
 <header class="header">
     <nav class="nav container">
         <div class="nav__logo">
-            <a class="nav__logo--content">
+            <a class="nav__logo--text">
                 <p>Foodie <span>List</span></p>
             </a>
         </div>
         <div class="menu" [ngClass]="showMenu ? 'show-menu' : ''">
             <ul class="menu__list">
                 <li class="menu__items">
-                    <a routerLink="home" class="menu__link">Inicio</a>
+                    <a routerLink="/foodlist/home" class="menu__link">Inicio</a>
                 </li>
                 <li class="menu__items">
                     <a routerLink="home" class="menu__link">Nosotros</a>
                 </li>
                 <li class="menu__items">
-                    <a routerLink="recipes" class="menu__link">Recetas</a>
+                    <a routerLink="/foodlist/recipes" class="menu__link">Recetas</a>
                 </li>
                 <li class="menu__items">
                     <a routerLink="#" class="menu__link">Mi lista</a>

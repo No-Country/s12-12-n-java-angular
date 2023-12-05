@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: "", loadChildren:()=>import('./layout/layout.module').then(m=>m.LayoutModule)},
-  {path: "**", component:NotFoundComponent},
+  { path: '', redirectTo: 'foodlist', pathMatch: 'full' },
+  { path: "foodlist", loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule) },
+  { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({

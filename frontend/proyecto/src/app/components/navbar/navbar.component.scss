@@ -1,15 +1,18 @@
 @import 'src/app/stylesConfig/stylesConfig.scss';
 @import '../../../assets//scss/media-queries/media-queries.scss';
+
 /* añadi tamaño al componente para que siempre empiece con espacio */
-:host{
-  display: block;
-  height: 4rem;
-  background-color: $colBg;
+:host {
+    display: block;
+    height: 4rem;
+    background-color: $colBg;
 }
+
 .container {
-  // width: 95%;
+    // width: 95%;
     max-width: 1200px;
     margin: 0 0.75rem;
+
     @include tablet {
         width: 100%;
         margin: 0 auto;
@@ -38,6 +41,13 @@
     align-items: center;
     /* como el fondo es blanco debe contrastar en negro de las letras */
     color: $colThird;
+
+    &__logo {
+        &--text {
+            font-family: 'Hedvig Letters Serif', serif;
+        }
+
+    }
 }
 
 .menu {
@@ -75,8 +85,9 @@
         font-size: 1rem;
         color: $colBlack;
         text-decoration: none;
+
         @include tablet {
-          /* bueno los iconos deben contrastar con la barra por eso negro */
+            /* bueno los iconos deben contrastar con la barra por eso negro */
             color: $colThird;
         }
     }
@@ -113,7 +124,13 @@
         &--img {
             font-size: 22px;
             /* lo mismo constraste */
-            color:$colThird;
+            color: $colThird;
+        }
+    }
+
+    &__toggle {
+        @include tablet {
+            display: none;
         }
     }
 }
