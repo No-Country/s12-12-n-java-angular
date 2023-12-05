@@ -7,19 +7,21 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 
 
 
+
 @NgModule({
   declarations: [
     SearchBoxComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule
   ],
-  exports:[
+  exports: [
     SearchBoxComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
   ]
 })
 export class SharedModule { }
