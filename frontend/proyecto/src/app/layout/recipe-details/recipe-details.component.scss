@@ -1,0 +1,212 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+@import '/src/assets/scss/media-queries/media-queries';
+
+.section {
+    padding: 4rem 0 2rem;
+}
+
+.container {
+    max-width: 1054px;
+    margin: 0 1.25rem;
+
+    @include mobile-max {
+        margin: 0 1rem;
+    }
+
+    @include tablet {
+        margin: 0 0.875rem;
+    }
+
+    @include desktop {
+        margin: 0 1rem;
+    }
+
+    @include desktop-large {
+        margin: 0 auto;
+    }
+}
+
+.details {
+    &__title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+
+        @include tablet {
+            font-size: 2rem;
+            text-align: initial;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        &--letter {
+            background-color: $colFourth;
+            border-radius: 50%;
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: $colWhite;
+        }
+
+        &--content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        &--calendar {
+            width: 20px;
+        }
+
+    }
+
+    &__info {
+        margin-bottom: 2rem;
+
+        &--img {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 0.75rem;
+            border-radius: 1rem;
+        }
+
+        &--data {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+
+            &:nth-child(4) {
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            @include tablet {
+                text-align: center;
+            }
+        }
+
+        &--quantity {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+
+            @include mobile-large {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            @include tablet {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            p {
+                color: #6a6969;
+                font-size: 0.875rem;
+                margin-bottom: 0.375rem;
+            }
+
+            span {
+                font-size: 0.9375rem;
+            }
+        }
+
+        &--button {
+            @include btnStyle($colBag: $colPrime, $colFont: $colBg);
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            text-transform: capitalize;
+            margin: 0;
+            box-shadow: none;
+        }
+
+        &--heart {
+            width: 20px;
+            // margin: 0 auto;
+        }
+    }
+
+    &__recipe {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap:3rem;
+        }
+    }
+
+    &__ingredients {
+
+        &--title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        &--list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+
+            @include tablet {
+                margin: 0 2rem;
+                width: 350px;
+                gap:1.5rem;
+            }
+
+        }
+
+        &--items {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+            &__name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+        }
+
+    }
+
+    &__preparation {
+        &--list {
+            list-style-type: disc;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 0 0 2rem 1rem;
+
+            @include tablet {
+                margin: 0 2rem 0 0
+            }
+        }
+
+        &--text {
+            line-height: 1.4;
+        }
+    }
+}

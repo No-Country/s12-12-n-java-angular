@@ -1,0 +1,34 @@
+<div class="header">
+  <div *ngIf="recipeCommunity, else check" class="header__profile">
+    <span>J</span>
+  </div>
+  <ng-template #check>
+    <button (click)="isCheck = !isCheck" class="header__check">
+      <img
+      [src]="isCheck?'assets/checked.svg':'assets/uncheck.svg'"
+      alt="check-icon">
+    </button>
+  </ng-template>
+  <div class="header__info">
+    <p class="header__info__title">Calamares en su tinta</p>
+    <p class="header__info__author">Juanito Alimaña Navaja</p>
+  </div>
+  <div class="header__options">
+    <img src="assets/option-icon.svg" alt="options-icon">
+  </div>
+</div>
+<div class="main">
+  <img src="assets/tableWallpaper.jpg" alt="recipe-picture">
+  <div class="main__info">
+    <p class="main__info__category">Mariscos</p>
+    <p class="main__info__servings">4 prociones</p>
+  </div>
+</div>
+<div class="actions">
+  <a  routerLink="/foodielist/recipes/recipe-details" class="actions__more"> Leer mas ...</a>
+  <button *ngIf="recipeCommunity, else fallback"
+   class="actions__import"> Importar </button>
+  <ng-template #fallback>
+    <button class="actions__edit"> editar </button>
+  </ng-template>
+</div>

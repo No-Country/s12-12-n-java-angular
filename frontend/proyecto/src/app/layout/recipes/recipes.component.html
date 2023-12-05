@@ -1,1 +1,38 @@
-<p>recipes works!</p>
+<app-search-box [btnRedirection]="'mis recetas'"></app-search-box>
+<div class="recipeContainer">
+  <app-recipe-card></app-recipe-card>
+  <app-recipe-card></app-recipe-card>
+  <app-recipe-card></app-recipe-card>
+  <app-recipe-card></app-recipe-card>
+  <app-recipe-card></app-recipe-card>
+  <app-recipe-card></app-recipe-card>
+  <app-recipe-card></app-recipe-card>
+</div>
+<div class="communityContainer">
+  <div class="mostLike">
+    <div class="mostLike__header">
+      <h4>Mas seguidos</h4>
+      <img src="assets/star-icon.svg" alt="star-icon">
+    </div>
+    <div class="mostLike__recipes">
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+    </div>
+  </div>
+  <div class="recommendations">
+    <div class="recommendations__header">
+      <h4>Recomendaciones</h4>
+      <img src="assets/star-icon.svg" alt="star-icon">
+    </div>
+    <div class="recommendations__recipes">
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+      <app-recipe-mini-card></app-recipe-mini-card>
+    </div>
+  </div>
+</div>
