@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @Getter
 
 public class HistorialResponse {
-    private String nombre;
+    private Long id;
 }
