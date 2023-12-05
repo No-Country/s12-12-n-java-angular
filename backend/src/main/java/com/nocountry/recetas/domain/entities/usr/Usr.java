@@ -23,5 +23,6 @@ public class Usr {
     private String nombre;
     private String email;
     private String password;
-    //private Historial historial;
+
+    //private List<Historial> historial;
 }
