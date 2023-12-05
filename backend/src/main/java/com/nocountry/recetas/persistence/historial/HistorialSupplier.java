@@ -1,4 +1,5 @@
 package com.nocountry.recetas.persistence.historial;
+
 import com.nocountry.recetas.domain.entities.historial.Historial;
 import com.nocountry.recetas.domain.response.HistorialResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,15 +8,13 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 @Component
 
-public class HistorialSupplier implements Supplier<Optional<List<CategoriaResponse>>>{
+public class HistorialSupplier implements Supplier<Optional<List<HistorialResponse>>>{
 
     @Autowired
-    private CategoriaMapper categoriaMapper;
+    private HistorialMapper historialMapper;
 
     @Override
     public Optional<List<HistorialResponse>> get() {
