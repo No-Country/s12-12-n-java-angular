@@ -24,7 +24,7 @@ public class HistorialSupplier implements Supplier<Optional<List<HistorialRespon
             List<HistorialResponse> historialResponses = historial.stream()
                     .map(historial -> HistorialResponse.
                             builder().
-                            nombre(historial.getNombre())
+                            nombre(historial.getid())
                             .build())
                     .toList();
             return Optional.of(historialResponses);

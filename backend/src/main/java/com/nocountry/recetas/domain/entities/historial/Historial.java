@@ -14,6 +14,5 @@ public class Historial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "historial")
-    private String historial;
+
 }
