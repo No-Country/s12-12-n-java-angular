@@ -25,7 +25,7 @@
   </div>
 </div>
 <div class="actions">
-  <button class="actions__more"> Leer mas ...</button>
+  <a  routerLink="/foodielist/recipes/recipe-details" class="actions__more"> Leer mas ...</a>
   <button *ngIf="recipeCommunity, else fallback"
    class="actions__import"> Importar </button>
   <ng-template #fallback>
