@@ -1,5 +1,6 @@
 package com.nocountry.recetas.persistence.historial;
 
+
 import com.nocountry.recetas.domain.entities.historial.Historial;
 import com.nocountry.recetas.domain.response.HistorialResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class HistorialSupplier implements Supplier<Optional<List<HistorialRespon
 
     @Override
     public Optional<List<HistorialResponse>> get() {
-        List<Historial> historial= HistorialMapper.getHistorialMapper();
+        List<Historial> historial= historialMapper.getHistorialMapper();
 
         if(!CollectionUtils.isEmpty(historial)){
             List<HistorialResponse> historialResponses = historial.stream()
