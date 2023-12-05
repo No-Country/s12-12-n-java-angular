@@ -6,16 +6,18 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
-    SearchBoxComponent,
+    SearchBoxComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule
   ],
-  exports:[
+  exports: [
     SearchBoxComponent,
   ]
 })

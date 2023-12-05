@@ -1,5 +1,5 @@
-<form class="form" [formGroup]="crearRecetaForm" (ngSubmit)="crearReceta()">
-  <h2>Crear receta</h2>
+<form class="form" [formGroup]="editRecetaForm" (ngSubmit)="editReceta()">
+  <h2>Editar receta</h2>
   <div class="primerosCampos">
     <div class="camposReceta">
       <div class="nombreycategoria">
@@ -65,8 +65,8 @@
       </div>
     </div>
     <!-- Botón para crear nueva receta con evento click crearReceta()-->
-    <div class="boton-flotante" (click)="crearReceta()">
-      <button class="btnCrearReceta">CREAR</button>
+    <div class="boton-flotante" (click)="editReceta()">
+      <button class="btnCrearReceta">GUARDAR</button>
     </div>
   </div>
   <!-- Ingredientes y procedimentos de la preparacion -->

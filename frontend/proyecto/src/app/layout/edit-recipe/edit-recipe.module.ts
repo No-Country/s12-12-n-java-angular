@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { CreateRecipeRoutingModule } from './create-recipe-routing.module';
-import { CreateRecipeComponent } from './create-recipe.component';
+import { EditRecipeRoutingModule } from './edit-recipe-routing.module';
+import { EditRecipeComponent } from './edit-recipe.component';
 
 
 @NgModule({
   declarations: [
-    CreateRecipeComponent
+    EditRecipeComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CreateRecipeRoutingModule
+    EditRecipeRoutingModule
   ]
 })
-export class CreateRecipeModule { }
+export class EditRecipeModule { }
