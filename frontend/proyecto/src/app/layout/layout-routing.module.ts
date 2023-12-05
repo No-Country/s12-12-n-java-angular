@@ -18,8 +18,9 @@ const routes: Routes = [
       { path: 'selectingredients', loadChildren: () => import('./select-ingredients/select-ingredients.module').then(m => m.SelectIngredientsModule) },
       { path: 'createlist', loadChildren: () => import('./create-list/create-list.module').then(m => m.CreateListModule) },
       { path: 'createrecipe', loadChildren: () => import('./create-recipe/create-recipe.module').then(m => m.CreateRecipeModule) },
+      { path: 'editrecipe', loadChildren: () => import('./edit-recipe/edit-recipe.module').then(m => m.EditRecipeModule) },
     ]
-  }
+  },
 ];
 
 @NgModule({
