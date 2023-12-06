@@ -1,7 +1,7 @@
 <div class="boxTitle">
   <h2>Mis Listas</h2>
 </div>
-<div class="currentList">
+<div #list class="currentList">
   <h3>Lista 06/06/06</h3>
   <ul class="currentList__recipeList">
     <li>Olluquito con charqui</li>
@@ -30,8 +30,13 @@
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur corrupti perspiciatis repellat? Vel deleniti repudiandae ad et amet sint, veritatis quasi aut alias, est corrupti, dolorem deserunt voluptatem consequatur. Dolorum. </p>
   </div>
   <div class="currentList__btns">
-    <button class="btnDelete">Eliminar Lista</button>
-    <button class="btnExport">
+    <button
+    #btnDelete
+    class="btnDelete">Eliminar Lista</button>
+    <button
+    (click)="takeScreenshot()"
+    #btnExport
+    class="btnExport">
       <img src="assets/icon-export.svg" alt="export-icon">
       <span>Exportar</span>
     </button>

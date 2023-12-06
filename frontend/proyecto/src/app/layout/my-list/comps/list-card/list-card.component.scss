@@ -8,6 +8,12 @@
   border-radius: .5rem;
   padding-block: 1rem;
   width: min(250px, 100%);
+  cursor: pointer;
+  @include transitionFast;
+  @include hoverRaised;
+  &:hover{
+    transform: scale(1.05);
+  }
 }
 .title{
   margin-bottom: 1rem;
