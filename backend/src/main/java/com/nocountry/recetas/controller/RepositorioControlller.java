@@ -26,5 +26,10 @@ public class RepositorioControlller {
         return ResponseEntity.notFound().build();
         return ResponseEntity.ok(repositorioResponseList);
     }
+
+    // @GetMapping("/list")
+    // public ResponseEntity<?> findAll() {
+    //     return ResponseEntity.ok(repositoryService.getRepositories());
+    // }
     
 }

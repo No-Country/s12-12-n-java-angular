@@ -1,9 +1,11 @@
 package com.nocountry.recetas.domain.entities.repositorio;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nocountry.recetas.domain.entities.receta.Receta;
-import com.nocountry.recetas.domain.entities.usr.Usr;
+import com.nocountry.recetas.domain.entities.usr.Usuario;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,13 +14,15 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Table(name = "repositorio")
-@Entity(name = "repositorio")
+@Entity(name = "Repositorio")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -26,17 +30,26 @@ import lombok.Setter;
 @Builder
 @EqualsAndHashCode(of = "id")
 public class Repositorio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
-    
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usr usuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonManagedReference
+    private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "receta_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "receta_id", nullable = false)
+    @JsonManagedReference
     private Receta receta;
-    
+
 }
+
+
+
+
+
+
+

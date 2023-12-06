@@ -2,42 +2,56 @@ package com.nocountry.recetas.persistence.repository;
 
 import java.util.Optional;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.List;
 
-import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 
 import org.springframework.stereotype.Component;
 
-import com.nocountry.recetas.domain.entities.categoria.Categoria;
+import com.nocountry.recetas.domain.entities.receta.Receta;
 import com.nocountry.recetas.domain.entities.repositorio.Repositorio;
+import com.nocountry.recetas.domain.entities.usr.Usuario;
 import com.nocountry.recetas.domain.response.CategoriaResponse;
 import com.nocountry.recetas.domain.response.RepositorioResponse;
 
+import lombok.RequiredArgsConstructor;
+
 @Component
-public class RepositorySupplier implements Supplier<Optional<List<RepositorioResponse>>>{       
+public class RepositorySupplier implements Supplier<Optional<List<RepositorioResponse>>> {       
 
     @Autowired
-    private RepositoryMapper repositoryMapper;
+    private  RepositoryMapper repositoryMapper;
 
     @Override
     public Optional<List<RepositorioResponse>> get() {
-        List<Repositorio> repositorys= repositoryMapper.getRepositorysMapper();
-
-        if(!CollectionUtils.isEmpty(repositorys)){
+        List<Repositorio> repositorys = repositoryMapper.getRepositorysMapper();
+    
+        if (repositorys != null && !repositorys.isEmpty()) {
+            repositorys.forEach(repositorio -> {
+                System.out.println("ID: " + repositorio.getId());
+                System.out.println("Receta: " +  repositorio.getReceta());
+                System.out.println("USUARIO: " + repositorio.getUsuario());
+            });
+    
             List<RepositorioResponse> repositoryResponses = repositorys.stream()
-                    .map(repositorio -> RepositorioResponse.
-                            builder().
-                            receta(repositorio.getReceta())
+                    .map(repositorio -> RepositorioResponse.builder()
+                            .id(repositorio.getId())
+                            .usuario(repositorio.getUsuario())
+                            .receta(repositorio.getReceta())
                             .build())
-                    .toList();
+                    .collect(Collectors.toList());
+    
             return Optional.of(repositoryResponses);
         }
         return Optional.empty();
     }
-
-
-
     
-}
+    
+
+// public List<RepositorioResponse> getRepositories() {
+    //     return repositoryMapper.getRepositorysMapper();
+    // }
+ }
