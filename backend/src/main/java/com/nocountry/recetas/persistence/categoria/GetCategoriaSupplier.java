@@ -8,13 +8,11 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 
 @Component
-public class CategoriaSupplier implements Supplier<Optional<List<CategoriaResponse>>> {
+public class GetCategoriaSupplier implements Supplier<Optional<List<CategoriaResponse>>> {
 
     @Autowired
     private CategoriaMapper categoriaMapper;
