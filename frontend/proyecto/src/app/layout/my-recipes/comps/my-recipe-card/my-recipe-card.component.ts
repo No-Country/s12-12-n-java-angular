@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-recipe-card',
@@ -8,4 +9,13 @@ import { Component, Input } from '@angular/core';
 export class MyRecipeCardComponent {
   @Input() recipeCommunity:boolean = true;
   isCheck = false;
+  constructor(
+    private router:Router
+  ){}
+  toDetail(){
+    this.router.navigate(['recipes/recipe-details'])
+  }
+  toEdit(){
+    this.router.navigate(['editrecipe'])
+  }
 }
