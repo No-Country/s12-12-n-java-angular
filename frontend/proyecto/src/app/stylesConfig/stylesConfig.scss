@@ -37,3 +37,9 @@ $colBlack:#000000;
     opacity: 0.7;
   }
 }
+@mixin hoverRaised{
+  &:hover{
+    transform: scaleY(-2px);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
+  }
+}

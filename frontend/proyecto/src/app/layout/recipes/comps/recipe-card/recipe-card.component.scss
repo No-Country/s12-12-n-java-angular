@@ -27,19 +27,6 @@
     place-items: center;
     color: white;
   }
-  &__check{
-    all: initial;
-    cursor: pointer;
-    @include transitionFast;
-    border-radius: 50%;
-    img{
-      display: block;
-    }
-    &:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 3px 2px 0px rgba(0, 0, 0, .5);
-    }
-  }
   &__info{
     flex-grow: 2;
     margin-left: 0.5rem;
@@ -81,7 +68,7 @@
     border: 1px solid $colThird;
     box-shadow: none;
   }
-  &__edit, &__import{
+  &__import{
     @include btnStyle($colFourth, $colBg);
     box-shadow: none;
   }
