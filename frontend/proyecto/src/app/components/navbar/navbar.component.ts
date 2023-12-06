@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,9 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   public showMenu: boolean = false;
 
-
+  constructor(
+    private router:Router
+  ){}
 
   toggleMenu() {
     console.log('toggleMenu abierto');
@@ -16,5 +19,10 @@ export class NavbarComponent {
   }
   closeMenu() {
     this.showMenu = false;
+  }
+
+  /*Metodo temporal para ver el usuario */
+  userRedirect(){
+    this.router.navigate(['user'])
   }
 }

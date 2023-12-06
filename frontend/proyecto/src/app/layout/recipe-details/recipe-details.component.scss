@@ -1,6 +1,9 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 @import '/src/assets/scss/media-queries/media-queries';
-
+:host{
+  display: block;
+  flex-grow: 2;
+}
 .section {
     padding: 4rem 0 2rem;
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { emailValidator, passValidator, repeatPassValidator, textValidator } from 'src/app/customValidators/customValidators';
 
 
@@ -22,7 +23,10 @@ export class UserComponent {
   showPass = false;
   showRepeatPass = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private router:Router
+    ) {}
 
   ngOnInit() {
     this.userForm = this.initForm();
@@ -64,5 +68,10 @@ export class UserComponent {
       repeatPassword: ['',[Validators.required, repeatPassValidator, passValidator]],
       email: ['',[ Validators.required, emailValidator]],
     });
+  }
+
+  /* metodo temporal para ver el login */
+  logout(){
+    this.router.navigate(['login'])
   }
 }
