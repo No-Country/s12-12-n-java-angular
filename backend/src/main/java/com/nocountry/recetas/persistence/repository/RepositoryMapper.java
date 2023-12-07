@@ -2,12 +2,9 @@ package com.nocountry.recetas.persistence.repository;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import com.nocountry.recetas.domain.entities.receta.Receta;
+import com.nocountry.recetas.domain.entities.usr.Usuario;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,15 +14,15 @@ import com.nocountry.recetas.domain.response.RepositorioResponse;
 @Mapper
 public interface RepositoryMapper {
 
-  @Select("SELECT r.id, u.*, rec.* FROM repositorio r " +
-  "JOIN usuarios u ON r.usuario_id = u.id " +
-  "JOIN recetas rec ON r.receta_id = rec.id")
-    @Results( {
-      @Result( column = "usuario_id", property = "usuario.id", jdbcType = JdbcType.LONGVARBINARY),
-      @Result( column = "receta_id", property = "receta.id", jdbcType = JdbcType.LONGVARBINARY)
-    })
-    @Options(timeout = 10)
-    List<Repositorio> getRepositorysMapper();
+  @Select("SELECT r.id, u.id as usuario_id, u.nombre as usuario_nombre, rec.id as receta_id, rec.nombre as receta_nombre FROM repositorio r " +
+          "JOIN usuarios u ON r.usuario_id = u.id " +
+          "JOIN recetas rec ON r.receta_id = rec.id")
+  @Results( {
+          //descomentar cuando importes el metodo get de usuarios del mapper que tiene alejandro
+          //@Result( column = "usuario_id", property = "usuario", javaType = Usuario.class, one = @One(select = "com.example.mapper.UsuarioMapper.findById")),
+          @Result( column = "receta_id", property = "receta", javaType = Receta.class, one = @One(select = "com.nocountry.recetas.persistence.receta.RecetaMapper.findById"))
+  })
+  List<Repositorio> getRepositorysMapper();
 
 }
 // @Select("SELECT r.id as id, u.id as iduser, u.nombre as usuario, rec.nombre

@@ -23,7 +23,7 @@ public class RepositorioControlller {
     public ResponseEntity<List<RepositorioResponse>> getRepositorios(){
         List<RepositorioResponse> repositorioResponseList = repositoryService.getRepositorios();
         if(repositorioResponseList.isEmpty())
-        return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(repositorioResponseList);
     }
 

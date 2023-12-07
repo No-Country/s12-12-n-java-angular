@@ -32,14 +32,14 @@ public class RepositorySupplier implements Supplier<Optional<List<RepositorioRes
         if (repositorys != null && !repositorys.isEmpty()) {
             repositorys.forEach(repositorio -> {
                 System.out.println("ID: " + repositorio.getId());
-                System.out.println("Receta: " +  repositorio.getReceta());
-                System.out.println("USUARIO: " + repositorio.getUsuario());
+                System.out.println("Receta: " +  repositorio.getReceta().getId());
+               // System.out.println("USUARIO: " + repositorio.getUsuario().getId());
             });
     
             List<RepositorioResponse> repositoryResponses = repositorys.stream()
                     .map(repositorio -> RepositorioResponse.builder()
                             .id(repositorio.getId())
-                            .usuario(repositorio.getUsuario())
+                           // .usuario(repositorio.getUsuario())
                             .receta(repositorio.getReceta())
                             .build())
                     .collect(Collectors.toList());
