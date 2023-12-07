@@ -1,0 +1,61 @@
+/*Importación de los estilos globales*/
+@import "../../../stylesConfig/stylesConfig.scss";
+
+@import "../user.component.scss";
+
+/* Color de Boton 'Eliminar Cuenta' */
+$colRed: #db6262;
+
+@mixin btnStyle2($colBag: $colPrime, $colFont: $colBg) {
+  outline: none;
+  border: none;
+  background-color: $colRed;
+  color: $colFont;
+  box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+  border-radius: 1rem;
+  padding-block: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  @include transitionFast;
+  &:hover {
+    transform: scale(1.05) translateY(-0.2rem);
+  }
+  &:disabled {
+    transform: none;
+    opacity: 0.7;
+  }
+}
+
+/* Boton de Cerrar sesión  */
+.botones_cuenta {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  margin-bottom: 0.5rem;
+
+  /* Estilos boton de logout */
+  .btn_div1 {
+    flex-grow: 1;
+  }
+  .btnLogout {
+    width: 85%;
+    font-size: 1rem;
+    @include btnStyle;
+  }
+  .btn_div2 {
+    flex-grow: 1;
+  }
+  .btnDelAccount {
+    width: 90%;
+    font-size: 1rem;
+    @include btnStyle2;
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 650px) {
+  .botones_cuenta {
+    flex-direction: column !important;
+    font-size: 1.5rem;
+  }
+}
