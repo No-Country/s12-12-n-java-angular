@@ -109,6 +109,7 @@
   display: flex;
   float: right;
   padding-right: 0;
+  
 }
 /* Estilo que invierte el color del SVG */
 .invertir-color-svg {
@@ -119,6 +120,7 @@
 .btnSave {
   background-color: $colBlack;
   float: right;
+  cursor:pointer;
   border-radius: 25%;
   margin: 0 0 0 0.3rem;
   padding: 0.3rem;
@@ -145,11 +147,5 @@
     right: 20;
     z-index: 2;
   }
-  .botones_edicion {
-    position: absolute;
 
-    top: 0;
-    right: 20;
-    z-index: 2;
-  }
 }
