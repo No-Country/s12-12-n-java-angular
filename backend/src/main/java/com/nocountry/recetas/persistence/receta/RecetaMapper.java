@@ -12,4 +12,7 @@ public interface RecetaMapper {
     @Select("SELECT * FROM recetas")
     @Options(timeout = 20)
     List<Receta> getRecetasMapper();
+
+    @Select("SELECT * FROM recetas WHERE id = #{id}")
+    Receta findById(Long id);
 }
