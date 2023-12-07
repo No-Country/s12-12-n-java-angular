@@ -7,6 +7,10 @@
   padding: 0.25rem;
   border-radius: 0.5rem;
   backdrop-filter: blur(4px);
+  @include transitionFast;
+  &:hover{
+    background-color: white;
+  }
 }
 .item__ingredient {
   flex-grow: 2;

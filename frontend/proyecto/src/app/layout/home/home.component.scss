@@ -33,10 +33,11 @@
   }
 }
 .about{
-
+  max-width: 1200px;
   h2{
     font-size: 2rem;
     text-align: center;
+    font-weight: bold;
   }
   &__box{
     &>*{ margin-bottom: 1rem; }
@@ -53,7 +54,7 @@
       padding: 0.5rem;
       border: solid 1px $colThird;
       border-radius: 0.5rem;
-      font-size: calc(15px + 0.390625vw);
+      font-size: calc(14px + 0.390625vw);
     }
   }
 }
@@ -73,7 +74,7 @@
       &__stripe{ height: 100%; }
       &__paragraph{
         padding: 1.5rem;
-        box-shadow: 0 5px 10px -1px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.7);
       }
     }
     .green{
@@ -113,6 +114,9 @@
   .about{
     background-color: $colBg;
     padding-top: 2rem;
+    &__title{
+      margin-bottom: 4rem;
+    }
     &__box{
       &__stripe{
         position: relative;
@@ -138,15 +142,15 @@
     &~p{grid-column: 7 / span 6 !important;}
   }
 }
-@media screen and (min-width:1250px) {
-  .about{
-    h2{
-      font-size: 3rem;
-      margin-bottom: 3rem;
-    }
-  }
-  .about__box__paragraph{
-    font-size: 1.8rem;
-    line-height: 2.5rem;
-  }
-}
+// @media screen and (min-width:1250px) {
+//   .about{
+//     h2{
+//       font-size: 3rem;
+//       margin-bottom: 3rem;
+//     }
+//   }
+//   .about__box__paragraph{
+//     font-size: 1.8rem;
+//     line-height: 2.5rem;
+//   }
+// }

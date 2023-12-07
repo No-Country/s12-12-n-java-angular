@@ -7,11 +7,16 @@
   border-radius: 0.5rem;
   max-width: 400px;
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5);
+  @include transitionFast;
   @media screen and ( min-width:750px ) {
    grid-column: span 6;
   }
   @media screen and ( min-width:1250px ) {
    grid-column: span 4;
+  }
+  @include hoverRaised;
+  &:hover{
+    transform: scale(1.05);
   }
 }
 .header{
