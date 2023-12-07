@@ -44,7 +44,6 @@ public class Repositorio {
     @JoinColumn(name = "receta_id", nullable = false)
     @JsonManagedReference
     private Receta receta;
-
 }
 
 
