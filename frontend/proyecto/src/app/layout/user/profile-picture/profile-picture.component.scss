@@ -1,6 +1,8 @@
 /*Importación de los estilos globales*/
 @import "../../../stylesConfig/stylesConfig.scss";
 
+@import "../user.component.scss";
+
 @mixin transitionSlow {
   transition: all 0.4s ease-in-out;
 }
