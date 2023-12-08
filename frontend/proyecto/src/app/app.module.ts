@@ -12,7 +12,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
