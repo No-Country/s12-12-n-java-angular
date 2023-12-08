@@ -3,13 +3,14 @@ package com.nocountry.recetas.persistence.repository;
 import java.util.List;
 
 import com.nocountry.recetas.domain.entities.receta.Receta;
-import com.nocountry.recetas.domain.entities.usr.Usuario;
+import com.nocountry.recetas.domain.entities.usr.Usr;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.data.jpa.repository.Query;
 
 import com.nocountry.recetas.domain.entities.repositorio.Repositorio;
 import com.nocountry.recetas.domain.response.RepositorioResponse;
+import com.nocountry.recetas.domain.response.UsrResponse;
 
 @Mapper
 public interface RepositoryMapper {
@@ -19,7 +20,7 @@ public interface RepositoryMapper {
           "JOIN recetas rec ON r.receta_id = rec.id")
   @Results( {
           //descomentar cuando importes el metodo get de usuarios del mapper que tiene alejandro
-          //@Result( column = "usuario_id", property = "usuario", javaType = Usuario.class, one = @One(select = "com.example.mapper.UsuarioMapper.findById")),
+          @Result( column = "usuario_id", property = "usuario", javaType = Usr.class, one = @One(select = "com.nocountry.recetas.persistence.usr.UsrMapper.findByIdUsr")),
           @Result( column = "receta_id", property = "receta", javaType = Receta.class, one = @One(select = "com.nocountry.recetas.persistence.receta.RecetaMapper.findById"))
   })
   List<Repositorio> getRepositorysMapper();

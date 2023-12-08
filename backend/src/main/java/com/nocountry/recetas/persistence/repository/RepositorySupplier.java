@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 import com.nocountry.recetas.domain.entities.receta.Receta;
 import com.nocountry.recetas.domain.entities.repositorio.Repositorio;
-import com.nocountry.recetas.domain.entities.usr.Usuario;
+import com.nocountry.recetas.domain.entities.usr.Usr;
 import com.nocountry.recetas.domain.response.CategoriaResponse;
 import com.nocountry.recetas.domain.response.RepositorioResponse;
 
@@ -33,13 +33,13 @@ public class RepositorySupplier implements Supplier<Optional<List<RepositorioRes
             repositorys.forEach(repositorio -> {
                 System.out.println("ID: " + repositorio.getId());
                 System.out.println("Receta: " +  repositorio.getReceta().getId());
-               // System.out.println("USUARIO: " + repositorio.getUsuario().getId());
+               System.out.println("USUARIO: " + repositorio.getUsuario().getId());
             });
     
             List<RepositorioResponse> repositoryResponses = repositorys.stream()
                     .map(repositorio -> RepositorioResponse.builder()
                             .id(repositorio.getId())
-                           // .usuario(repositorio.getUsuario())
+                           .usuario(repositorio.getUsuario())
                             .receta(repositorio.getReceta())
                             .build())
                     .collect(Collectors.toList());

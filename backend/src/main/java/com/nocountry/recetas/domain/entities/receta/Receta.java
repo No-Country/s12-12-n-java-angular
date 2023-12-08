@@ -3,7 +3,7 @@ package com.nocountry.recetas.domain.entities.receta;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
 import com.nocountry.recetas.domain.entities.repositorio.Repositorio;
-import com.nocountry.recetas.domain.entities.usr.Usuario;
+import com.nocountry.recetas.domain.entities.usr.Usr;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -24,7 +24,7 @@ public class Receta {
         private int likes;
 
         @ManyToMany(mappedBy = "recetas")
-        private List<Usuario> usuarios;
+        private List<Usr> usuarios;
 
         @OneToMany(mappedBy = "receta")
          @JsonBackReference

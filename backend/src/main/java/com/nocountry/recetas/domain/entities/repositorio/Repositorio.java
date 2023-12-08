@@ -3,7 +3,7 @@ package com.nocountry.recetas.domain.entities.repositorio;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nocountry.recetas.domain.entities.receta.Receta;
-import com.nocountry.recetas.domain.entities.usr.Usuario;
+import com.nocountry.recetas.domain.entities.usr.Usr;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -39,7 +39,7 @@ public class Repositorio {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
     @JsonBackReference
-    private Usuario usuario;
+    private Usr usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "receta_id", nullable = false)

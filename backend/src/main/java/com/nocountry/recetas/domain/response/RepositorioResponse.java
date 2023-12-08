@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Results;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import com.nocountry.recetas.domain.entities.receta.Receta;
-import com.nocountry.recetas.domain.entities.usr.Usuario;
+import com.nocountry.recetas.domain.entities.usr.Usr;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +23,7 @@ public class RepositorioResponse {
     private Long id;
 
     
-    private Usuario  usuario;
+    private Usr  usuario;
 
     private  Receta receta;
 
