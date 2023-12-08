@@ -1,25 +1,23 @@
-<div class="header">
-  <div class="header__profile">
-    <span>J</span>
-  </div>
-  <div class="header__info">
-    <p class="header__info__title">Calamares en su tinta</p>
-    <p class="header__info__author">Juanito Alimaña Navaja</p>
-  </div>
-  <div class="header__options">
-    <img src="assets/option-icon.svg" alt="options-icon">
-  </div>
-</div>
 <div class="main">
   <img src="assets/tableWallpaper.jpg" alt="recipe-picture">
   <div class="main__info">
-    <p class="main__info__category">Mariscos</p>
-    <p class="main__info__servings">4 prociones</p>
+    <div class="main__info__header">
+      <p>Olluquito con charqui</p>
+      <div class="main__info__header__like">
+        <img src="assets/like-icon.svg" alt="like-icon">
+        <span>200</span>
+      </div>
+    </div>
+    <div class="main__info__time">
+      <img src="assets/time-icon.svg" alt="time-icon">
+      <span>20 Min</span>
+    </div>
   </div>
 </div>
-<div class="actions">
+<div class="footer">
+  <p>{{"juanito alimaña con mucha maña" | shortenString |titlecase}}</p>
   <button
   (click)="toDetail()"
-  class="actions__more"> Leer mas ...</button>
-  <button class="actions__import"> Importar </button>
+  class="footer__detailBtn"> Preparaci&oacute;n</button>
+  <!-- <button class="actions__import"> Importar </button> -->
 </div>
