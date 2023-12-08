@@ -1,0 +1,8 @@
+<div class="circulo">
+  <div class="foto_cover" [style.background-image]="'url(' + imageUrl + ')'">
+    <img class="foto" [src]="imageUrl" (error)="onImageError()" />
+    <div class="error_foto" *ngIf="imageError">
+      {{ username.charAt(0) }}
+    </div>
+  </div>
+</div>

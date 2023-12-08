@@ -1,35 +1,9 @@
 /*Importación de los estilos globales*/
 @import "../../stylesConfig/stylesConfig.scss";
 
-@mixin transitionSlow {
-  transition: all 0.4s ease-in-out;
-}
-/* Color de Boton 'Eliminar Cuenta' */
-$colRed: #db6262;
-
-@mixin btnStyle2($colBag: $colPrime, $colFont: $colBg) {
-  outline: none;
-  border: none;
-  background-color: $colRed;
-  color: $colFont;
-  box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
-  border-radius: 1rem;
-  padding-block: 0.5rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  @include transitionFast;
-  &:hover {
-    transform: scale(1.05) translateY(-0.2rem);
-  }
-  &:disabled {
-    transform: none;
-    opacity: 0.7;
-  }
-}
-
 :host {
   overflow-x: hidden;
-  max-height:100%;
+  max-height: 100%;
 }
 
 /* Estilos para el contenedor padre con flexbox */
@@ -43,6 +17,8 @@ $colRed: #db6262;
 /* Estilos para las dos cajas */
 .caja-1,
 .caja-2 {
+  display: flex;
+  flex-direction: column;
   flex: 1 1 0px; /* Esto hace que ambas cajas tengan la misma anchura */
   align-items: center; /* Centra los elementos verticalmente */
   justify-content: center; /* Centra los elementos horizontalmente */
@@ -51,9 +27,7 @@ $colRed: #db6262;
 
 /* Estilos para caja 1 */
 .caja-1 {
-  background: linear-gradient(
-  rgba(50, 50, 50, 0.5),
-  rgba(50, 50, 50, 0.5)),
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
     url("/assets/tableWallpaper.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,228 +39,47 @@ $colRed: #db6262;
   text-align: center;
   padding-left: 2rem;
 
-
-
   /* Estilos contenedor del texto de la caja 1 */
   .bienvenida {
-
     margin-bottom: 1rem;
     padding: 0;
     color: white;
     text-align: left;
-/* Estilos de titulo Foodie List */
+    /* Estilos de titulo Foodie List */
     .titulo_foodielist {
-      font-size: 52px;/* probando */
+      font-size: 52px; /* probando */
       margin-bottom: 16px;
-      font-weight:lighter;
+      font-weight: lighter;
     }
-/* Parrafo de slogan de Foodie List */
-     .slogan {
+    /* Parrafo de slogan de Foodie List */
+    .slogan {
       margin-bottom: 16px;
-     }
-     /* Estilos de botón de Empezar */
-  .button {
-    align-self: stretch;
-    width: 60%;
-    button {
-      width: 100%;
-      font-size: 1rem;
-      @include btnStyle;
     }
-  }
-  }}
-/* Estilos caja-2 */
-.caja-2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-/* Foto de perfil */
-  .circulo {
-    position: relative;
-    width: 170px;
-    height: 170px;
-    border-radius: 100px;
-    background-color: $colPrime;
-    @include transitionSlow();
-
-    .foto_cover {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background-size: cover;
-    }
-
-    .foto {
-      display: none;
-    }
-/* Si no hay foto, muestra la primera letra del nombre */
-    .error_foto {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size: 100px;
-      color: white;
-    }
-  }
-
-  /* Formulario */
-  .formulario_user {
-    /* Estilos del cuadrado donde están los inputs y los botones */
-    text-align: center;
-    padding: 1.5rem 1rem 1rem 1rem;
-    margin-top: 1.5rem;
-    border-radius: 1rem;
-
-    /* Botones de Cerrar sesión y de borrar la cuenta */
-    .botones_cuenta {
-      display: flex;
-      flex-direction: row;
+    /* Estilos de botón de Empezar */
+    .button {
       align-self: stretch;
-      margin-bottom: 0.5rem;
-/* Estilos boton de logout */
-      .btn_div1 {
-        flex-grow: 1;
-      }
-      .btn_div1 .btnLogout {
-        width: 85%;
+      width: 60%;
+      button {
+        width: 100%;
         font-size: 1rem;
         @include btnStyle;
       }
-/* Estilos botón de Borrar cuenta */
-      .btn_div2 {
-        flex-grow: 1;
-      }
-      .btn_div2 .btnDelAccount {
-        width: 90%;
-        font-size: 1rem;
-        @include btnStyle2;
-      }
     }
+  }
+  /* Estilos caja-2 */
+  .caja-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-    .form__box {
-      /* Reutilizado del Register */
-
-      display: flex;
-      flex-direction: column;
-      /*---------------------------------------- estilos input */
-      &__field {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        width: 100%;
-        position: relative;
-        border: 2px solid $colThird;
-        border-radius: 0.5rem;
-        background-color: white;
-        margin-bottom: 1rem;
-        transition: border 0.3s ease-in-out;
-        &:focus-within {
-          border: solid $colPrime 2px;
-        }
-        /* -----------------------------------inputs tipo password */
-        &__inputPass {
-          display: flex;
-          input {
-            flex-grow: 2;
-          }
-          .eyeBtn {
-            border: none;
-            background-color: white;
-            border-radius: 50%;
-            cursor: pointer;
-            margin-right: 0.5rem;
-            @include transitionFast;
-            &__eye {
-              width: 2rem;
-              aspect-ratio: 1/1;
-            }
-            &:hover {
-              background-color: $colBg;
-            }
-          }
-        }
-        label {
-          position: absolute;
-          top: 0px;
-          left: 1rem;
-          transform: translateY(-50%);
-          background-color: white;
-          padding-inline: 0.25rem;
-          border-radius: 0.2rem;
-        }
-        input {
-          border-radius: 0.5rem;
-          border: none;
-          outline: none;
-          padding-block: 0.75rem;
-          padding-left: 0.5rem;
-          @include transitionFast;
-
-          /*-------------------------borrando estilos del autocompletado */
-          &:-webkit-autofill,
-          &:-webkit-autofill:hover,
-          &:-webkit-autofill:focus,
-          &:-webkit-autofill:active {
-            -webkit-box-shadow: 0 0 0 30px white inset !important; /* Ajusta el color de fondo según tus necesidades */
-            -webkit-text-fill-color: inherit !important;
-            caret-color: $colThird;
-          }
-        }
-      }
-      /* Estilos para que el input repetir contraseña coincida en ancho con los demás inputs */
-      .repetir_pass{
-        width:72%;
-      }
-      /*---------------------------------- estilos de validacion */
-      .errorField {
-        border: solid 2px red;
-        margin-bottom: 0;
-      }
-      &__validateMessage > span {
-        display: flex; /* Permite en este formulario que los mensajes de error se ubiquen abajo de cada campo */
-        padding-left: 0.5rem;
-        margin-bottom: 1rem;
-        color: rgb(200, 0, 0);
-      }
-      &__fieldCheck {
-        margin-bottom: 1rem;
-        align-self: flex-end;
-      }
-
-      /* Estilos del contenedor de cada input */
-      .inputs {
-        display: flex;
-        flex-direction: row;
-
-      }
-
-      .campo {
-        flex-grow: 2;
-      }
-
-      /* Estilos de botones de edicion (editar y guardar datos del usuario) */
-      .botones_edicion {
-        display: flex;
-        float: right;
-        padding-right: 0;
-      }
-/* Estilo que invierte el color del SVG */
-      .invertir-color-svg {
-        filter: invert(1);
-      }
-/* Botones editar y guardar de perfil de usuario */
-      .btnEdit,
-      .btnSave {
-        background-color: black;
-        float: right;
-        border-radius: 25%;
-        margin: 0 0 0 0.3rem;
-        padding: 0.3rem;
-      }
+    /* Formulario */
+    .formulario_user {
+      /* Estilos del cuadrado donde están los inputs y los botones */
+      text-align: center;
+      padding: 1.5rem 1rem 1rem 1rem;
+      margin-top: 1.5rem;
+      border-radius: 1rem;
     }
   }
 }
@@ -300,47 +93,21 @@ $colRed: #db6262;
     display: none;
   }
   .caja-2 {
-    background: linear-gradient(
-      rgba(50, 50, 50, 0.5),
-      rgba(50, 50, 50, 0.5)),
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
       url("/assets/tableWallpaper.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     font-size: 1rem;
-    .circulo {
-      background-color: rgba(250, 199, 199, 0.4);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
+
     .formulario_user {
       background-color: rgba(217, 217, 217, 0.65);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-    }
-    .inputs {
-      position: relative;
-      justify-content: space-between;
-    }
-    .campo {
-      margin-top: 3rem;
-
-      position: relative; /* Asegura que el input sea un elemento relativo */
-      z-index: 1;
-    }
-    .repetir_pass{
-      width:100% !important;
-    }
-    .botones_edicion {
-      position: absolute;
-
-      top: 0;
-      right: 20;
-      z-index: 2;
-    }
-    .botones_cuenta {
-      flex-direction: column !important;
-      font-size: 1.5rem;
+      text-align: center;
+      padding: 1.5rem 1rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 1rem;
     }
   }
 }
