@@ -16,12 +16,10 @@ public class Ingrediente {
     private String nombre;
     private double cantidad;
     private String tipo_medida;
-/*
 
-    @ManyToMany(mappedBy = "ingredientes")
-    private List<Receta> recetas;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "receta_id", nullable = false)
+    private Receta receta;
 
-
- */
 }
 

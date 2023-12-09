@@ -1,5 +1,6 @@
 package com.nocountry.recetas.persistence.receta;
 
+import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
 import com.nocountry.recetas.domain.entities.receta.Receta;
 import com.nocountry.recetas.domain.response.RecetaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class RecetaSupplier implements Supplier<Optional<List<RecetaResponse>>> 
                             .nombre(receta.getNombre())
                             .procedimientos(receta.getProcedimientos())
                             .likes(receta.getLikes())
+                            .categoria(receta.getCategoria())
+                            .ingredientes(receta.getIngredientes())
                             .build())
                     .toList();
             return  Optional.of(recetaResponses);

@@ -11,9 +11,5 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class ErrorAdvice {
-    private String action;
     private String message;
-    private LocalDateTime date = LocalDateTime.now();
-    private String messageType;
-    private Object detalle;
 }

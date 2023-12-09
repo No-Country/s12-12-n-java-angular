@@ -1,6 +1,7 @@
 package com.nocountry.recetas.persistence.categoria;
 
 import com.nocountry.recetas.domain.entities.categoria.Categoria;
+import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface CategoriaMapper {
 
     @Delete("DELETE FROM categoria WHERE id = #{id}")
     void deleteCategoriaById(@Param("id") Long id);
+
+    @Select("SELECT * FROM categoria WHERE id = #{id}")
+    @Options(timeout = 20)
+    Categoria getCategoriaById(@Param("id") Long id);
 }

@@ -36,7 +36,6 @@ public class CategoriaService {
             ErrorAdvice errorAdvice= ErrorAdvice
                     .builder()
                     .message(":::::::NO EXISTEN DATOS EN CATEGORIAS:::::::")
-                    .action("ERROR AL EJECUTAR CONSULTA")
                     .build();
             throw new RuntimeException(errorAdvice.getMessage());
         }
@@ -50,7 +49,6 @@ public class CategoriaService {
             ErrorAdvice errorAdvice= ErrorAdvice
                     .builder()
                     .message(":::::::NO SE HA CREADO LA CATEGORIA:::::::")
-                    .action("ERROR EJECUTANDO CON" + categoria.getNombre())
                     .build();
             throw new RuntimeException(errorAdvice.getMessage());
         }

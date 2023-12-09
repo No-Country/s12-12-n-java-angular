@@ -1,5 +1,7 @@
 package com.nocountry.recetas.domain.entities.receta;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.nocountry.recetas.domain.entities.categoria.Categoria;
 import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -20,18 +22,11 @@ public class Receta {
     private boolean visible;
     private int likes;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria_id", nullable = false)
+    @JsonBackReference
     private Categoria categoria;
 
-    @ManyToMany
-    @JoinTable(
-            name = "receta_ingredientes",
-            joinColumns = @JoinColumn(name = "receta_id"),
-            inverseJoinColumns = @JoinColumn(name = "ingrediente_id")
-    )
+    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Ingrediente> ingredientes;
-
-     */
 }
