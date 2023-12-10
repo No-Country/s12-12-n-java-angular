@@ -1,0 +1,30 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+
+.section {
+  padding: 7rem 0 3rem;
+}
+
+.categories {
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.875rem;
+
+    &--types {
+      background-color: $colWhite;
+      border-radius: 10px;
+      box-shadow: 50px 30px 150px 0px rgba(46, 4, 4, 0.25);
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.875rem;
+
+      p{
+        text-align: center;
+        font-size: 18px;
+      }
+    }
+  }
+}

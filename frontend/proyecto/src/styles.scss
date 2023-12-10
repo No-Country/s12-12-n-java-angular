@@ -1,4 +1,5 @@
 @import "node_modules/reset-css/sass/reset";
+@import '/src/app/stylesConfig/stylesConfig.scss';
 
 *,
 *::after,
@@ -11,5 +12,22 @@ html{
   scroll-behavior: smooth;
 }
 body {
+    background-color: $colBg;
     font-family: "Roboto", sans-serif;
+}
+h1,h2,h3{
+  font-family: "Oleo Script Swash Caps", cursive;
+}
+.container{
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.section__title{
+  font-size: 1.75rem;
+  text-align: start;
+  margin-bottom: 3.4375rem;
+  span{
+    color: $colPrime;
+  }
 }
