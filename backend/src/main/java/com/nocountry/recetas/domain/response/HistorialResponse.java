@@ -1,5 +1,6 @@
 package com.nocountry.recetas.domain.response;
 
+import com.nocountry.recetas.domain.entities.receta.Receta;
 import lombok.*;
 
 @Builder
@@ -11,4 +12,6 @@ import lombok.*;
 public class HistorialResponse {
 
     private Receta receta;
+
+
 }
