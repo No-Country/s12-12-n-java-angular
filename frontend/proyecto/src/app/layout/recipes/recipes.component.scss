@@ -11,8 +11,8 @@
   padding: 1rem 1.5rem;
   gap: 2rem 0;
   justify-items: center;
-  @media screen and (min-width:750px) {
-      gap: 2rem;
+  @media screen and (min-width:500px) {
+    gap: 2rem;
   }
 }
 .communityContainer{
@@ -44,6 +44,7 @@
   :host{
     display: grid;
     grid-template-columns: repeat(12,1fr);
+    align-items: flex-start;
   }
   .recipeContainer{
     grid-column: span 8;
