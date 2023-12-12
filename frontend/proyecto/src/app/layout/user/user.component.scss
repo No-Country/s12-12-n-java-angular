@@ -5,7 +5,9 @@
   overflow-x: hidden;
   max-height: 100%;
 }
-
+.section{
+  padding: 7rem 0 3rem;
+}
 /* Estilos para el contenedor padre con flexbox */
 .contenedor_user {
   display: flex;

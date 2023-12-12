@@ -7,8 +7,8 @@ const routes: Routes = [
     path: '', component: LayoutComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-      { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
-      { path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule) },
+      { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
+      { path: 'register', loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule) },
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
       { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
       { path: 'recipes/recipe-details', loadChildren: () => import('./recipe-details/recipe-details.module').then(m => m.RecipeDetailsModule) },

@@ -1,0 +1,118 @@
+@import 'src/app/stylesConfig/stylesConfig.scss';
+@import '../../../../../assets/scss/media-queries/_media-queries.scss';
+
+.section {
+    padding: 4rem 0 3rem;
+
+    @include tablet {
+        padding: 7rem 0 3rem;
+    }
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.about {
+
+    &__wrap {
+        row-gap: 8.5rem;
+
+        @include mobile-max {
+            row-gap: 6rem;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: center;
+        }
+
+        &--images {
+            position: relative;
+            width: 310px;
+            margin-top: 1.5rem;
+            justify-self: center;
+            transform: translate(-1rem);
+
+            @include mobile-max {
+                width: 248px;
+            }
+
+            @include tablet {
+                margin-top: 6rem;
+            }
+
+            @include desktop-xlarge {
+                width: 500px;
+                margin-top: 8rem;
+                transform: translate(-1rem);
+            }
+
+            &__one {
+                position: absolute;
+                width: 234px;
+                right: -1.5rem;
+                top: -9.5rem;
+
+                @include mobile-max {
+                    width: 180px;
+                    top: -7rem;
+                }
+
+                @include desktop-xlarge {
+                    width: 340px;
+                    right: -1.5rem;
+                    top: -7.5rem;
+                }
+            }
+
+            &__two {
+                position: relative;
+                width: 190px;
+                margin-left: 0.5rem;
+
+                @include mobile-max {
+                    width: 150px;
+                }
+
+                @include desktop-xlarge {
+                    width: 291px;
+                }
+            }
+        }
+
+        &--info {
+
+
+            &__text {
+                margin: 1rem 0 2rem;
+                line-height: 26px;
+                text-align: start;
+
+                @include mobile-max {
+                    font-size: 0.75rem;
+                }
+
+                @include tablet {
+                    width: 500px;
+                    font-size: 1rem;
+                }
+            }
+
+            &__button {
+                @include btnStyle();
+                box-shadow: none;
+                border-radius: 10px;
+                padding: 0.5rem 1rem;
+                width: 100px;
+                margin: 0;
+                font-size: 1rem;
+
+                @include desktop {
+                    width: 186px;
+                }
+            }
+        }
+    }
+}

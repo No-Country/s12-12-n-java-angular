@@ -1,66 +1,78 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
+@import '../../../assets//scss/media-queries/_media-queries.scss';
 
-// :host{
-//   flex-grow: 2;
-//   display: grid;
-//   background: linear-gradient(
-//       rgba(255, 255, 255, 0.4),
-//       rgba(255, 255, 255, 0.4)
-//     ),
-//     url("/assets/flourWoodWallpaper.jpg");
-//   background-position: left;
-//   background-size: cover;
-//   place-items: center;
-// }
+:host {
+    flex-grow: 2;
+    display: grid;
+
+}
+
 .section {
     padding: 7rem 0 2rem;
 }
 
 .home {
-    background-image: url(../../../assets/foodhero5.webp);
-    background-position: center;
+    background-image: url(../../../assets/foodhero2-2.webp);
+    background-position: right top;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
     position: relative;
 
-    &::before {
-        content: '';
-        background-color: $colBlack;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        opacity: 0.5;
+    @include tablet {
+
+        background-position: center top;
     }
+
+        // &::before {
+        //     content: '';
+        //     background-color: $colBlack;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     bottom: 0;
+        //     right: 0;
+        //     opacity: 0.1;
+        // }
 
     &__container {
         position: relative;
     }
 
     &__wrap {
-        color: $colWhite;
+        color: $colThird;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         min-height: calc(100vh - 235px);
+
+        @include tablet {
+            align-items: flex-start;
+        }
 
         &--title {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             gap: 2rem;
+
+            @include tablet {
+                align-items: flex-start;
+            }
         }
 
         &--text {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             gap: 1.25rem;
+
+            @include tablet {
+                align-items: flex-start;
+            }
 
             h1 {
                 font-size: 3.25rem;
@@ -68,9 +80,15 @@
             }
 
             p {
-                font-size: 1.625rem;
+                text-align: center;
+                font-size: 1.25rem;
                 font-family: 'Poppins', sans-serif;
-                font-weight: 300;
+                font-weight: 400;
+
+                @include tablet {
+                    font-size: 1.625rem;
+
+                }
             }
         }
 
@@ -79,9 +97,15 @@
             font-size: 16px;
             box-shadow: none;
             padding: 0.625rem 1.5rem;
-            width: 254px;
+            width: 154xpx;
+
+            @include tablet {
+                width: 254px;
+            }
         }
     }
+
+
 }
 
 // .home{

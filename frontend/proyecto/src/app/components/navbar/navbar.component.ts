@@ -12,16 +12,12 @@ export class NavbarComponent {
     public scrolled: boolean = false;
     navData = navbarData;
     private router = inject(Router);
-    iconCookingWhite = '../../../assets/icons/cook-icon.svg';
-    iconCookingBlack = '../../../assets/icons/cook-icon-black.svg';
+    iconCookingWhite = '../../../assets/icons/logo.svg';
+    iconCookingBlack = '../../../assets/icons/logo-black.svg';
 
     @HostListener('window:scroll', ['$event'])
     onScroll(): void {
-        if (window.scrollY > 80) {
-            this.scrolled = true;
-        } else {
-            this.scrolled = false;
-        }
+        this.scrolled = window.scrollY > 80 ? true : false;
     }
     /**
      * The function returns a cooking icon based on whether the page has been scrolled or not.
@@ -31,7 +27,7 @@ export class NavbarComponent {
      * "iconCookingWhite".
      */
     get iconCooking(): string {
-        return this.scrolled ? this.iconCookingBlack : this.iconCookingWhite;
+        return this.scrolled ? this.iconCookingWhite : this.iconCookingBlack;
     }
     toggleMenu() {
         console.log('toggleMenu abierto');

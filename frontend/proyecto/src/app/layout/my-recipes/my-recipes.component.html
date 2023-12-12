@@ -1,16 +1,19 @@
-<app-search-box [btnRedirection]="'crear receta'"></app-search-box>
-<div class="recipeContainer">
-  <app-my-recipe-card></app-my-recipe-card>
-  <app-my-recipe-card></app-my-recipe-card>
-  <app-my-recipe-card></app-my-recipe-card>
-  <app-my-recipe-card></app-my-recipe-card>
-  <app-my-recipe-card></app-my-recipe-card>
-  <app-my-recipe-card></app-my-recipe-card>
-  <app-my-recipe-card></app-my-recipe-card>
-</div>
-<button
-  (click)="createList()"
-  class="createListBtn">
-  <img src="assets/list-icon.svg" alt="list-icon">
-  <span>Generar Lista</span>
-</button>
+<section class="section">
+    <app-search-box [btnRedirection]="'crear receta'"></app-search-box>
+    <div class="recipe container">
+        <article class="recipe__wrap">
+            <app-my-recipe-card></app-my-recipe-card>
+            <app-my-recipe-card></app-my-recipe-card>
+            <app-my-recipe-card></app-my-recipe-card>
+            <app-my-recipe-card></app-my-recipe-card>
+            <app-my-recipe-card></app-my-recipe-card>
+            <app-my-recipe-card></app-my-recipe-card>
+            <app-my-recipe-card></app-my-recipe-card>
+        </article>
+        <button (click)="createList()" class="createListBtn">
+            <img src="assets/list-icon.svg" alt="list-icon">
+            <span>Generar Lista</span>
+        </button>
+    </div>
+
+</section>

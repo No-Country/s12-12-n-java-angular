@@ -1,4 +1,4 @@
-@import "/src/app/stylesConfig/stylesConfig.scss";
+@import "../../../stylesConfig/stylesConfig.scss";
 
 :host {
   display: grid;
@@ -11,6 +11,7 @@
   background-position: left;
   place-items: center;
 }
+
 /* ----------------------------------------estilos del formulario */
 .form {
   max-width: min(100%, 400px);

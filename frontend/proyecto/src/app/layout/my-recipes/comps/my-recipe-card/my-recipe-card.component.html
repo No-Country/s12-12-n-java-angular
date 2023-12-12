@@ -1,9 +1,35 @@
-<div class="header">
-    <button (click)="isCheck = !isCheck" class="header__check">
-      <img
-      [src]="isCheck?'assets/checked.svg':'assets/uncheck.svg'"
-      alt="check-icon">
-    </button>
+<div class="card">
+  <img src="../../../../../assets/icons/recipes-card.png" alt="recipes-card" class="card__img">
+  <div class="card__body">
+    <div class="card__body--title">
+      <h4>Name of dishes</h4>
+      <div class="card__body--quantity">
+        <div clasS="card__body--quantity__content">
+          <button type="button" class="card__body--quantity__btn">
+            <img src="../../../../../assets/icons/heart.svg" alt="heart" class="card__body--quantity__actions">
+          </button>
+          <span>289</span>
+        </div>
+        <img src="../../../../../assets/icons/dots-vertical.svg" alt="dots-vertical" class="card__body--quantity__dots">
+      </div>
+    </div>
+    <div class="card__body--mins">
+      <img src="../../../../../assets/icons/clock.svg" alt="clock">
+      <span>30 min</span>
+    </div>
+    <div class="card__body--user">
+      <div class="card__body--user__info">
+        <img src="../../../../../assets/icons/avatar.svg" alt="user">
+        <span>Juan delgadillo</span>
+      </div>
+      <button type="button" class="card__body--btn" (click)="toDetail()">Preparación</button>
+    </div>
+  </div>
+</div>
+<!-- <div class="header">
+  <button (click)="isCheck = !isCheck" class="header__check">
+    <img [src]="isCheck?'assets/checked.svg':'assets/uncheck.svg'" alt="check-icon">
+  </button>
   <div class="header__info">
     <p class="header__info__title">Calamares en su tinta</p>
     <p class="header__info__author">Juanito Alimaña Navaja</p>
@@ -22,4 +48,4 @@
 <div class="actions">
   <button (click)="toDetail()" class="actions__more"> Leer mas ...</button>
   <button (click)="toEdit()" class="actions__edit"> editar </button>
-</div>
+</div> -->
