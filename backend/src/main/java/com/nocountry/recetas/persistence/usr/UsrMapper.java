@@ -19,6 +19,9 @@ public interface UsrMapper {
     @Select("SELECT * FROM usuarios WHERE id = #{id}")
     UsrResponse findById(@Param("id") Long id);
 
+    /*@Select("SELECT * FROM usuarios WHERE email = #{email}")
+    UsrResponse findByEmail(@Param("email") String email);*/
+
     @Insert("INSERT INTO usuarios(nombre, email, password) VALUES(#{nombre}, #{email}, #{password})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void save(Map<String, Object> request);
