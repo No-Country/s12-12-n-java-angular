@@ -20,7 +20,7 @@ import com.nocountry.recetas.domain.response.RepositorioResponse;
 import lombok.RequiredArgsConstructor;
 
 @Component
-public class RepositorySupplier implements Supplier<Optional<List<RepositorioResponse>>> {       
+public class ListRepositorySupplier implements Supplier<Optional<List<RepositorioResponse>>> {       
 
     @Autowired
     private  RepositoryMapper repositoryMapper;

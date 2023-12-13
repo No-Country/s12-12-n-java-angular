@@ -25,9 +25,15 @@ public interface RepositoryMapper {
   })
   List<Repositorio> getRepositorysMapper();
 
+  @Insert("INSERT INTO repositorio (receta_id, usuario_id) VALUES (#{receta.id}, #{usuario.id})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    void createRepositorio(Repositorio repositorio);
+
+//     INSERT INTO `recetas_db`.`repositorio` (`receta_id`, `usuario_id`) VALUES ('4', '1');
 }
 // @Select("SELECT r.id as id, u.id as iduser, u.nombre as usuario, rec.nombre
 // as receta, rec.id as idreceta " +
 // "FROM repositorio r " +
 // "JOIN usuarios u ON r.usuario_id = u.id " +
 // "JOIN recetas rec ON r.receta_id = rec.id")
+

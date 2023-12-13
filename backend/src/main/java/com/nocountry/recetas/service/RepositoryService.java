@@ -6,10 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nocountry.recetas.domain.entities.categoria.Categoria;
+import com.nocountry.recetas.domain.entities.repositorio.Repositorio;
 import com.nocountry.recetas.domain.response.CategoriaResponse;
 import com.nocountry.recetas.domain.response.RepositorioResponse;
+import com.nocountry.recetas.infra.exeption.ErrorAdvice;
 import com.nocountry.recetas.persistence.categoria.CategoriaSupplier;
-import com.nocountry.recetas.persistence.repository.RepositorySupplier;
+import com.nocountry.recetas.persistence.repository.CreateRepositorySupplier;
+import com.nocountry.recetas.persistence.repository.ListRepositorySupplier;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +26,10 @@ import lombok.extern.slf4j.Slf4j;
 public class RepositoryService {
 
 @Autowired
-    private RepositorySupplier repositorySupplier;
+    private ListRepositorySupplier repositorySupplier;
+
+    @Autowired
+    private CreateRepositorySupplier createRepositorySupplier;
 
     public List<RepositorioResponse> getRepositorios(){
         Optional<List<RepositorioResponse>> repositorioResponses= repositorySupplier.get();
@@ -36,5 +43,18 @@ public class RepositoryService {
     // public List<RepositorioResponse> getRepositories() {
     //     return repositorySupplier.getRepositories();
     // }
+    public RepositorioResponse createRepositorio(Repositorio repositorio){
+        Optional<RepositorioResponse> repositorioResponse = createRepositorySupplier.apply(repositorio);
+        if(repositorioResponse.isEmpty()){
+            log.error(":::::::NO EXISTEN DATOS EN REPOSITORIOS:::::::");
+            ErrorAdvice errorAdvice= ErrorAdvice
+                    .builder()
+                    .message(":::::::NO SE HA CREADO LA CATEGORIA:::::::")
+                    .build();
+            throw new RuntimeException(errorAdvice.getMessage());
+        }
+        return repositorioResponse.get();
+    }
+
     
 }
