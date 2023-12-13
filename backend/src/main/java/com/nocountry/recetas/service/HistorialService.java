@@ -1,7 +1,9 @@
 package com.nocountry.recetas.service;
 
 
+import com.nocountry.recetas.domain.entities.historial.Historial;
 import com.nocountry.recetas.domain.response.HistorialResponse;
+import com.nocountry.recetas.infra.exeption.ErrorAdvice;
 import com.nocountry.recetas.persistence.historial.CreateHistorialSupplier;
 import com.nocountry.recetas.persistence.historial.DeleteHistorialSupplier;
 import com.nocountry.recetas.persistence.historial.GetHistorialSupplier;
@@ -36,6 +38,27 @@ public class HistorialService {
         }
         return historialResponses.get();
     }
+    public HistorialResponse createHistorial(Historial historial){
+        Optional<HistorialResponse> historialResponse = createHistorialSupplier.apply(historial);
+        if(historialResponse.isEmpty()){
+            log.error(":::::::NO EXISTEN DATOS EN HISTORIAL:::::::");
+            ErrorAdvice errorAdvice= ErrorAdvice
+                    .builder()
+                    .message(":::::::NO SE HA CREADO EL HISTORIAL:::::::")
+                    .build();
+            throw new RuntimeException(errorAdvice.getMessage());
+        }
+        return historialResponse.get();
+    }
+
+    public void deleteHistorial(Long id){
+        try{
+            deleteHistorialSupplier.apply(id);
+        }catch (Exception e){
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
 
 
 }
