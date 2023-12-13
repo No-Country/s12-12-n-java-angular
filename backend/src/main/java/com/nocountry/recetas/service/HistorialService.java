@@ -2,6 +2,8 @@ package com.nocountry.recetas.service;
 
 
 import com.nocountry.recetas.domain.response.HistorialResponse;
+import com.nocountry.recetas.persistence.historial.CreateHistorialSupplier;
+import com.nocountry.recetas.persistence.historial.DeleteHistorialSupplier;
 import com.nocountry.recetas.persistence.historial.GetHistorialSupplier;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,15 @@ import java.util.Optional;
 public class HistorialService {
 
     @Autowired
+    private GetHistorialSupplier gethistorialSupplier;
+
+    @Autowired
+    private CreateHistorialSupplier createHistorialSupplier;
+
+    @Autowired
+    private DeleteHistorialSupplier deleteHistorialSupplier;
+
+    @Autowired
     private GetHistorialSupplier getHistorialSupplier;
 
     public List<HistorialResponse> getHistorial(){
@@ -25,5 +36,6 @@ public class HistorialService {
         }
         return historialResponses.get();
     }
+
 
 }
