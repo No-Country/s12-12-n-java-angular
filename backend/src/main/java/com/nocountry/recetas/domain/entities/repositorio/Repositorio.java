@@ -36,15 +36,24 @@ public class Repositorio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id", nullable = false)
     @JsonBackReference
     private Usr usuario;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "receta_id", nullable = false)
     @JsonBackReference
     private Receta receta;
+
+
+    public Receta getReceta() {
+        return receta;
+    }
+
+    public Usr getUsuario(){
+        return usuario;
+    }
 }
 
 

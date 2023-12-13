@@ -29,6 +29,10 @@ public interface RepositoryMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void createRepositorio(Repositorio repositorio);
 
+
+    @Delete("DELETE FROM repositorio WHERE id = #{id}")
+    void deleteRepositorioById(@Param("id") Long id);
+
 //     INSERT INTO `recetas_db`.`repositorio` (`receta_id`, `usuario_id`) VALUES ('4', '1');
 }
 // @Select("SELECT r.id as id, u.id as iduser, u.nombre as usuario, rec.nombre

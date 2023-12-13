@@ -13,6 +13,7 @@ import com.nocountry.recetas.domain.response.RepositorioResponse;
 import com.nocountry.recetas.infra.exeption.ErrorAdvice;
 import com.nocountry.recetas.persistence.categoria.CategoriaSupplier;
 import com.nocountry.recetas.persistence.repository.CreateRepositorySupplier;
+import com.nocountry.recetas.persistence.repository.DeleteRepositorySupplier;
 import com.nocountry.recetas.persistence.repository.ListRepositorySupplier;
 
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,9 @@ public class RepositoryService {
 
     @Autowired
     private CreateRepositorySupplier createRepositorySupplier;
+
+    @Autowired
+    private DeleteRepositorySupplier deleteRepositorySupplier;
 
     public List<RepositorioResponse> getRepositorios(){
         Optional<List<RepositorioResponse>> repositorioResponses= repositorySupplier.get();
@@ -49,11 +53,19 @@ public class RepositoryService {
             log.error(":::::::NO EXISTEN DATOS EN REPOSITORIOS:::::::");
             ErrorAdvice errorAdvice= ErrorAdvice
                     .builder()
-                    .message(":::::::NO SE HA CREADO LA CATEGORIA:::::::")
+                    .message(":::::::NO SE HA CREADO EL REPOSITORIO:::::::")
                     .build();
             throw new RuntimeException(errorAdvice.getMessage());
         }
         return repositorioResponse.get();
+    }
+
+    public void deleteRepositorio(Long id){
+        try{
+        deleteRepositorySupplier.apply(id);
+        }catch (Exception e){
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
     

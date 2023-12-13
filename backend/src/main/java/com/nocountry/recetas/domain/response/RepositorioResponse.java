@@ -27,10 +27,6 @@ public class RepositorioResponse {
 
     private  Receta receta;
 
- 
-    
-    
 
-    
 }
 
