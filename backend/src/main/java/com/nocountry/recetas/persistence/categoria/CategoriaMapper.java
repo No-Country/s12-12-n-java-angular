@@ -1,7 +1,6 @@
 package com.nocountry.recetas.persistence.categoria;
 
 import com.nocountry.recetas.domain.entities.categoria.Categoria;
-import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

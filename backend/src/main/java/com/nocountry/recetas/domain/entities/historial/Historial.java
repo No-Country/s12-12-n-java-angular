@@ -1,5 +1,6 @@
 package com.nocountry.recetas.domain.entities.historial;
 
+import com.nocountry.recetas.domain.entities.receta.Receta;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,5 +22,7 @@ public class Historial {
     private Receta receta;
 
 
-
+    public Receta getReceta() {
+        return receta;
+    }
 }

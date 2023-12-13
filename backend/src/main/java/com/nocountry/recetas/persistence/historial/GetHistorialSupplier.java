@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 @Component
 
-public class HistorialSupplier implements Supplier<Optional<List<HistorialResponse>>>{
+public class GetHistorialSupplier implements Supplier<Optional<List<HistorialResponse>>>{
 
     @Autowired
     private HistorialMapper historialMapper;
