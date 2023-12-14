@@ -1,24 +1,16 @@
 <div class="overlay"></div>
-<header class="header">
+<header class="header" [ngClass]="  scrolled ? 'scrolled' : ''">
     <nav class="nav container">
         <div class="nav__logo">
             <a class="nav__logo--text">
-                <p>Foodie <span>List</span></p>
+                <img [src]=[iconCooking] alt="logo" class="nav__logo--img">
             </a>
         </div>
         <div class="menu" [ngClass]="showMenu ? 'show-menu' : ''">
             <ul class="menu__list">
-                <li class="menu__items">
-                    <a routerLink="/home" class="menu__link">Inicio</a>
-                </li>
-                <li class="menu__items">
-                    <a routerLink="/home" class="menu__link">Nosotros</a>
-                </li>
-                <li class="menu__items">
-                    <a routerLink="/recipes" class="menu__link">Recetas</a>
-                </li>
-                <li class="menu__items">
-                    <a routerLink="mylist" class="menu__link">Mi lista</a>
+                <li class="menu__items" *ngFor="let data of navData">
+                    <a [routerLink]="[data.routerLink]" class="menu__link"
+                        [ngClass]="scrolled ? 'scrolled-link':''">{{data.label}}</a>
                 </li>
             </ul>
             <div class="menu__close">
@@ -30,12 +22,10 @@
         <div class="icons">
             <ul class="icons__menu">
                 <li class="icons__items dropdown">
-                    <p>Juan reynaldo dosantos</p>
-                    <button
-                    (click)="userRedirect()"
-                    type="button"
-                    class="icons__items--link dropdown__button">
+                    <!-- <p>Juan reynaldo dosantos</p> -->
+                    <button (click)="userRedirect()" type="button" class="icons__items--link dropdown__button">
                         <i class='bx bx-user icons__items--img'></i>
+
                     </button>
                     <!-- <ul class="dropdown__menu" >
                         <li class="dropdown__item">
@@ -48,7 +38,7 @@
                 </li>
                 <li class="icons__toggle icons__items">
                     <button type="button" class="icons__items--link" (click)="toggleMenu()">
-                        <i class="bx bx-menu-alt-right icons__items--img"></i>
+                        <i class="bx bx-menu-alt-right icons__items--img" [ngClass]="scrolled ? 'scrolled-user':''"></i>
                     </button>
                 </li>
             </ul>

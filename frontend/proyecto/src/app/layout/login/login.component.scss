@@ -3,14 +3,16 @@
 
 :host{
   overflow-x: hidden;
+  padding: 7rem 0 3rem;
 }
 
 /* Estilos para el contenedor que envuelve las dos cajas*/
 .contenedor {
-  display: grid;
+ display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  height: 100%;
+  height: 60vh; /* esto hace que tenga el mismo alto que register */
+
 }
 
 /*Estilos para las dos cajas*/
@@ -20,7 +22,7 @@
   align-items: center; /* Centra los elementos verticalmente */
   justify-content: center; /* Centra los elementos horizontalmente */
   padding: 10px;
-  max-height: 100vh;/* El alto máximo es de 100vh */
+  /* max-height: 100vh; */ /* El alto máximo es de 100vh */
 }
 
 /* Estilos de la linea horizontal --ok */
