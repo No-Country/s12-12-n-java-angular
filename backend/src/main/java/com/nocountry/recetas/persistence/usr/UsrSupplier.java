@@ -22,6 +22,10 @@ public class UsrSupplier {
         return mapper.findById(id);
     }
 
+    public UsrResponse findByEmail(String email) {
+        return mapper.findByEmail(email);
+    }
+
     public UsrResponse save(UsrRequest request) {
         Map<String, Object> body = new HashMap<>();
         body.put("nombre", request.getNombre());
@@ -38,6 +42,5 @@ public class UsrSupplier {
     public void deleteById(Long id) {
         mapper.deleteById(id);
     }
-
 
 }

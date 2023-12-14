@@ -21,9 +21,17 @@ public class UsrService {
         return supplier.findById(id);
     }
 
+    public UsrResponse findByEmail(String email) {
+        return supplier.findByEmail(email);
+    }
+
     public UsrResponse save(UsrRequest request) {
         return supplier.save(request);
     }
+
+    /*public UsrResponse update(UsrRequest request, Long id) {
+
+    }*/
 
     public void deleteById(Long id) {
         supplier.deleteById(id);

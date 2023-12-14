@@ -1,9 +1,12 @@
 package com.nocountry.recetas.domain.entities.usr;
 
+import com.nocountry.recetas.domain.entities.historial.Historial;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,5 +27,7 @@ public class Usr implements Serializable {
     private String email;
     private String password;
 
-    //private List<Historial> historial;
+    @ManyToOne
+    @JoinColumn(name = "historial_id")
+    private Historial historial;
 }
