@@ -4,6 +4,7 @@ $mobile-large-breakpoint: 576px;
 $tablet-breakpoint: 767px;
 $desktop-breakpoint: 1023px;
 $desktop-large-breakpoint: 1054px;
+$desktop-xlarge-breakpoint: 1124px;
 
 @mixin mobile {
     @media screen and (min-width: #{$mobile-breakpoint}) {
@@ -39,6 +40,11 @@ $desktop-large-breakpoint: 1054px;
 }
 @mixin desktop-large{
     @media screen and (min-width: #{$desktop-large-breakpoint}) {
+        @content;
+    }
+}
+@mixin desktop-xlarge{
+    @media screen and (min-width: #{$desktop-xlarge-breakpoint}) {
         @content;
     }
 }
