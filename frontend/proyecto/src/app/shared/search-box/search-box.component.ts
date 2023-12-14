@@ -6,20 +6,20 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent {
-  categories:string[] = ["Guisos", "Postres", "Ensalada", "Jugos", "Fritura"];
+  categories: string[] = ["Guisos", "Postres", "Ensalada", "Jugos", "Fritura"];
   sizeRecipes = 2500;
-  selectedCategory="categoria";
-  fieldSearch="";
+  selectedCategory = "categoria";
+  fieldSearch = "";
 
-  @Input() btnRedirection!:String;
+  @Input() btnRedirection!: String;
 
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.selectedCategory)
   }
 
-  redirectTo(){
-    if(this.btnRedirection === 'mis recetas'){
+  redirectTo() {
+    if (this.btnRedirection === 'Mis recetas') {
       return "../myrecipes"
     }
     return "../createrecipe"

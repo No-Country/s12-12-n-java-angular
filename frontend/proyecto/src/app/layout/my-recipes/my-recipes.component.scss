@@ -1,22 +1,37 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
-:host{
-  flex-grow: 2;
-  display: flex;
-  flex-direction: column;
-  background-color: $colBg;
-  // position: relative;
+
+// :host{
+//   flex-grow: 2;
+//   display: flex;
+//   flex-direction: column;
+//   background-color: $colBg;
+//   // position: relative;
+// }
+.section {
+  padding: 7rem 0 3rem;
 }
-.recipeContainer{
-  display: grid;
-  grid-template-columns: repeat(12,1fr);
-  padding: 1rem 1.5rem;
-  gap: 2rem 0;
-  justify-items: center;
-  @media screen and (min-width:750px) {
+
+.recipe {
+  margin-top:2rem;
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
 }
-.createListBtn{
+
+// .recipeContainer {
+//   display: grid;
+//   grid-template-columns: repeat(12, 1fr);
+//   gap: 2rem 0;
+//   justify-items: center;
+
+//   @media screen and (min-width:750px) {
+//     gap: 2rem;
+//   }
+// }
+
+.createListBtn {
   all: initial;
   position: fixed;
   bottom: 1rem;
@@ -35,13 +50,14 @@
   transform: scale(0.8);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
   @include transitionFast;
-  &:hover{
+
+  &:hover {
     transform: scale(1);
   }
 }
 
 @media screen and (min-width:1000px) {
-  .recipeContainer>app-recipe-card{
-    grid-column: span 4 ;
+  .recipeContainer>app-recipe-card {
+    grid-column: span 4;
   }
 }
