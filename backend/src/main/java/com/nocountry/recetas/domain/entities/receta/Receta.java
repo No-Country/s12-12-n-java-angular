@@ -27,6 +27,6 @@ public class Receta {
     @JsonBackReference
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Ingrediente> ingredientes;
 }

@@ -10,11 +10,12 @@ import java.util.List;
 @Builder
 @Data
 public class RecetaResponse {
+    private Long id;
     private String nombre;
     private String procedimientos;
     private boolean visible;
     private int likes;
     private Categoria categoria;
-    private List<Ingrediente> ingredientes;
+    private List<IngredienteResponse> ingredientes;
 
 }

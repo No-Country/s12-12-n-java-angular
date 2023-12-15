@@ -9,11 +9,13 @@ import java.util.List;
 
 @Mapper
 public interface RecetaMapper {
-    @Select("SELECT * FROM recetas")
+    @Select("SELECT r.id, r.id as receta_id, r.nombre, r.procedimientos, r.visible, r.likes, " +
+            "r.categoria_id " +
+            "FROM recetas r ")
     @Results({
             @Result(column = "categoria_id", property = "categoria",
                     javaType = Categoria.class, one = @One(select = "com.nocountry.recetas.persistence.categoria.CategoriaMapper.getCategoriaById")),
-            @Result(column = "id", property = "ingredientes",
+            @Result(column = "receta_id", property = "ingredientes",
                     javaType = List.class, many = @Many(select = "com.nocountry.recetas.persistence.ingrediente.IngredienteMapper.getIngredientesByRecetaId"))
     })
     List<Receta> getRecetasMapper();

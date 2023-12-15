@@ -2,6 +2,7 @@ package com.nocountry.recetas.persistence.receta;
 
 import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
 import com.nocountry.recetas.domain.entities.receta.Receta;
+import com.nocountry.recetas.domain.response.IngredienteResponse;
 import com.nocountry.recetas.domain.response.RecetaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,11 +23,18 @@ public class RecetaSupplier implements Supplier<Optional<List<RecetaResponse>>> 
         if(!CollectionUtils.isEmpty(recetas)){
             List<RecetaResponse> recetaResponses = recetas.stream()
                     .map(receta -> RecetaResponse.builder()
+                            .id(receta.getId())
                             .nombre(receta.getNombre())
                             .procedimientos(receta.getProcedimientos())
                             .likes(receta.getLikes())
                             .categoria(receta.getCategoria())
-                            .ingredientes(receta.getIngredientes())
+                            .ingredientes(receta.getIngredientes().stream().map(
+                                    ingrediente -> IngredienteResponse.builder()
+                                            .nombre(ingrediente.getNombre())
+                                            .cantidad(ingrediente.getCantidad())
+                                            .tipo_medida(ingrediente.getTipo_medida())
+                                            .build()
+                            ).toList())
                             .build())
                     .toList();
             return  Optional.of(recetaResponses);
