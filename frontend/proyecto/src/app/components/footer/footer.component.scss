@@ -1,16 +1,24 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
+@import '../../../assets/scss/media-queries/media-queries.scss';
 
 .footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // align-items: center;
 
   &__wrap {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 72px 0 44px;
+    row-gap: 2rem;
+
+
+    @include tablet {
+      flex-direction: row;
+      
+    }
 
     &--logo {
       display: flex;
@@ -28,9 +36,10 @@
   &__menu {
     &--list {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      column-gap: 2rem;
+      gap: 16px 12px;
     }
 
     &--items {
@@ -55,7 +64,10 @@
 
 .copyright {
   text-align: center;
-  padding: 44px;
-  color:#6E6D7A;
+  padding: 32px 0;
+  color: #6E6D7A;
   font-size: 0.875rem;
+  @include tablet { 
+    padding:44px 0;
+   }
 }

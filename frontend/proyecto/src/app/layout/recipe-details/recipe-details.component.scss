@@ -11,7 +11,18 @@
 
 .details__container {
     max-width: 1060px;
-    margin: 0 auto;
+    margin-right: 1rem;
+    margin-left: 1rem;
+
+    @include tablet {
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+    }
+
+    @include desktop-large {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /*========== HEADER ==========*/
@@ -19,28 +30,23 @@
     font-family: 'Poppins', sans-serif;
 
     &__wrap {
-
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: 1.25rem;
         margin-bottom: 0.9375rem;
 
         @include tablet {
-            flex-direction: row;
             justify-content: flex-start;
             align-items: center;
         }
 
         &--text {
-            font-size: 1.5rem;
-            text-align: center;
+            font-size: 1.25rem;
             font-family: 'Poppins', sans-serif;
 
-            @include tablet {
-                font-size: 2rem;
-                text-align: initial;
+            @include mobile-xlarge {
+                font-size: 1.5rem;
             }
         }
 
@@ -55,13 +61,13 @@
             }
 
             img {
-                width: 16px;
-                height: 16px;
+                width: 13px;
+                height: 13px;
             }
 
             p {
-                font-size: 13px;
-                text-align: center;
+                font-size: 12px;
+                // text-align: center;
                 font-weight: 600;
                 color: #FF0000;
             }
@@ -71,8 +77,9 @@
     &__subheader {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
         margin-bottom: 1.875rem;
+        padding: 14px 0 10px;
         width: 100%;
 
         @include tablet {
@@ -84,9 +91,16 @@
 
         &--content {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
             gap: 0.75rem;
+
+            @include mobile-xlarge {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
 
             &__calendar {
                 display: flex;
@@ -97,6 +111,15 @@
                 img {
                     width: 20px;
                     height: 20px;
+                }
+
+            }
+
+            &__text {
+                font-size: 12px;
+
+                @include tablet {
+                    font-size: 14px;
                 }
             }
         }
@@ -114,15 +137,24 @@
             }
 
             &__text {
-                font-size: 14px;
+                font-size: 12px;
+
+                @include tablet {
+                    font-size: 14px;
+                }
             }
         }
 
         &--dishes {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            column-gap: 1.5625rem;
+            gap: 1rem;
+
+            @include tablet {
+                gap: 1.5625rem;
+            }
 
             &__items {
                 display: flex;
@@ -191,20 +223,33 @@
 
 .instructions {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     gap: 1.25rem;
     margin-bottom: 2.5rem;
+
+    @include tablet {
+        flex-direction: row;
+    }
 
     &__wrap {
         background-color: $colBg;
         padding: 1.25rem;
         border-radius: 10px;
         height: 100%;
+
         &--title {
-            font-size: 1.125rem;
-            text-align: flex-start;
+            font-size: 14px;
             margin-bottom: 3rem;
             font-family: 'Poppins', sans-serif;
+
+            @include mobile-xlarge {
+                font-size: 1rem;
+            }
+            @include tablet { 
+                font-size: 1.125rem;
+             }
+
         }
 
         &--list {
@@ -213,8 +258,12 @@
             gap: 1rem;
 
             @include tablet {
-                width: 350px;
+                width: 250px;
                 gap: 1.5rem;
+            }
+
+            @include desktop {
+                width: 350px;
             }
 
         }
@@ -224,12 +273,31 @@
             justify-content: space-between;
             align-items: center;
 
+            span {
+                font-size: 14px;
+                color: #6A6969;
+
+                @include mobile-xlarge {
+                    font-size: 1rem;
+                }
+            }
 
             &__name {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 0.5rem;
+
+                p {
+                    font-size: 14px;
+                    font-weight: 500;
+
+                    @include mobile-xlarge {
+                        font-size: 1rem;
+                    }
+
+                }
+
             }
         }
 
@@ -239,12 +307,22 @@
         background-color: $colBg;
         padding: 1.25rem;
         border-radius: 10px;
-        &--title{
-            font-size: 1.125rem;
+
+        &--title {
+            font-size: 14px;
             text-align: flex-start;
             margin-bottom: 3rem;
             font-family: 'Poppins', sans-serif;
+
+            @include mobile-xlarge {
+                font-size: 1rem;
+            }
+            @include tablet { 
+                font-size: 1.125rem;
+             }
+
         }
+
         &--list {
             list-style-type: decimal;
             display: flex;
@@ -254,24 +332,35 @@
         }
 
         &--text {
+            font-size: 14px;
             line-height: 1.4;
+
+            @include mobile-xlarge {
+                font-size: 1rem;
+            }
         }
     }
 }
-.comments{
-    &__title{
-        font-size: 1.5rem;
-        text-align: flex-start;
+
+.comments {
+    &__title {
+        font-size: 1.125rem;
         margin-bottom: 3rem;
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
+
+        @include tablet {
+            font-size: 1.25rem;
+        }
     }
-    &__wrap{
+
+    &__wrap {
         display: flex;
         flex-direction: column;
         gap: 1.25rem;
         margin-bottom: 2.5rem;
-        &--content{
+
+        &--content {
             border: 1px solid #E5E5E5;
             border-radius: 10px;
             padding: 0.625rem;
@@ -280,24 +369,38 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 0.625rem;
-            &__user{
+
+            &__user {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
                 gap: 0.625rem;
-                span{
-                    font-size: 16px;
+
+                span {
+                    font-size: 14px;
                     font-weight: 500;
+
+                    @include tablet {
+                        font-size: initial;
+                    }
                 }
             }
-            p{
-                font-size: 14px;
-                color:#535353;
+
+            p {
+                font-size: 12px;
+                color: #535353;
+                line-height: 1.4;
+
+                @include tablet {
+                    font-size: 14px;
+                    line-height: initial;
+                }
             }
         }
     }
 }
-.comments-img{
+
+.comments-img {
     width: 35px;
     height: 35px;
     border-radius: 50%;

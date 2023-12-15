@@ -40,14 +40,13 @@
             }
 
             @include tablet {
-                margin-top: 6rem;
+                margin-top: 10rem;
             }
-
-            @include desktop-xlarge {
+            @include desktop { 
                 width: 500px;
                 margin-top: 8rem;
                 transform: translate(-1rem);
-            }
+             }
 
             &__one {
                 position: absolute;
@@ -59,12 +58,14 @@
                     width: 180px;
                     top: -7rem;
                 }
-
-                @include desktop-xlarge {
+                @include desktop { 
                     width: 340px;
                     right: -1.5rem;
                     top: -7.5rem;
-                }
+                 }
+                // @include desktop-xlarge {
+                   
+                // }
             }
 
             &__two {
@@ -75,15 +76,15 @@
                 @include mobile-max {
                     width: 150px;
                 }
-
-                @include desktop-xlarge {
+                @include desktop { 
                     width: 291px;
-                }
+                 }
+                // @include desktop-xlarge {
+                // }
             }
         }
 
         &--info {
-
 
             &__text {
                 margin: 1rem 0 2rem;
@@ -95,9 +96,15 @@
                 }
 
                 @include tablet {
-                    width: 500px;
+                    width: 350px;
                     font-size: 1rem;
                 }
+                @include desktop { 
+                    width:420px
+                 }
+                 @include desktop-large{
+                    width: 578px;
+                 }
             }
 
             &__button {

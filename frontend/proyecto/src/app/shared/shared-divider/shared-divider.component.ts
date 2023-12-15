@@ -10,12 +10,13 @@ import { Component } from '@angular/core';
           background-color: #ABABAB;
           height: 30px;
           width: 1px;
-    }
-    /* @media screen and (min-width: 767px) {
-       .divider{
           display:none;
+    }
+    @media screen and (min-width: 767px) {
+       .divider{
+          display:block;
        }
-    } */
+    }
   `]
 })
 export class SharedDividerComponent {

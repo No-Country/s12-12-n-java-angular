@@ -1,5 +1,5 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
-@import '/src/assets/scss/media-queries/media-queries.scss';
+@import '/src/assets/scss/media-queries/_media-queries.scss';
 
 // :host {
 //   grid-column: span 12;
@@ -36,9 +36,11 @@
 
 
 .card {
-  width: 222px;
+  width: 100%;
   border-radius: 10px;
   border: 1px solid #CDCDCD;
+
+  @include tablet {}
 
   &__img {
     width: 100%;

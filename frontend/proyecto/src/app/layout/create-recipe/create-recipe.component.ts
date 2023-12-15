@@ -9,7 +9,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateRecipeComponent {
   crearRecetaForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     // Inicializar los formularios
@@ -25,20 +25,20 @@ export class CreateRecipeComponent {
     console.log(this.crearRecetaForm);
   }
 
-    /**
-   * crea un formulario para crear receta
-   * @returns retorna un formGroup
-   */
-    initCrearRecetaForm() {
-      return this.fb.group({
-        nombreReceta: ['', [Validators.required]],
-        categoriaReceta: ['', [Validators.required]],
-        urlImgReceta: ['', [Validators.required]],
-        porcionesReceta: ['', [Validators.required]],
-        tiempoCocinado: ['', [Validators.required]],
-        nuevoIngrediente: ['', [Validators.required]],
-        cantidadIngrediente: ['', [Validators.required]],
-        preparacionReceta: ['', [Validators.required]],
-      });
-    }
+  /**
+ * crea un formulario para crear receta
+ * @returns retorna un formGroup
+ */
+  initCrearRecetaForm() {
+    return this.fb.group({
+      nombreReceta: ['', [Validators.required]],
+      categoriaReceta: ['', [Validators.required]],
+      urlImgReceta: ['', [Validators.required]],
+      porcionesReceta: ['', [Validators.required]],
+      tiempoCocinado: ['', [Validators.required]],
+      nuevoIngrediente: ['', [Validators.required]],
+      cantidadIngrediente: ['', [Validators.required]],
+      preparacionReceta: ['', [Validators.required]],
+    });
+  }
 }

@@ -1,277 +1,280 @@
-<form class="form" [formGroup]="editRecetaForm" (ngSubmit)="editReceta()">
-  <h2>Editar receta</h2>
-  <div class="primerosCampos">
-    <div class="camposReceta">
-      <div class="nombreycategoria">
-        <div class="field nombrereceta">
-          <label class="label" for="nombreReceta">Nombre de la receta</label>
+<section class="section">
+  <form class="form" [formGroup]="editRecetaForm" (ngSubmit)="editReceta()">
+    <h2>Editar receta</h2>
+    <div class="primerosCampos">
+      <div class="camposReceta">
+        <div class="nombreycategoria">
+          <div class="field nombrereceta">
+            <label class="label" for="nombreReceta">Nombre de la receta</label>
+            <input
+              class="input"
+              id="nombreReceta"
+              name="nombreReceta"
+              type="text"
+              formControlName="nombreReceta"
+              placeholder="Ingresa el nombre de la receta"
+            />
+          </div>
+          <div class="field categoria">
+            <label class="label" for="categoriaReceta">Categoria</label>
+            <input
+              class="input"
+              id="categoriaReceta"
+              name="categoriaReceta"
+              type="text"
+              formControlName="categoriaReceta"
+              placeholder="Ingresa el nombre de la categoria"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="urlImgReceta"
+            >Link de la imagen de la receta</label
+          >
           <input
             class="input"
-            id="nombreReceta"
-            name="nombreReceta"
+            id="urlImgReceta"
+            name="urlImgReceta"
             type="text"
-            formControlName="nombreReceta"
-            placeholder="Ingresa el nombre de la receta"
+            formControlName="urlImgReceta"
+            placeholder="Ingresa el enlace"
           />
         </div>
-        <div class="field categoria">
-          <label class="label" for="categoriaReceta">Categoria</label>
-          <input
-            class="input"
-            id="categoriaReceta"
-            name="categoriaReceta"
-            type="text"
-            formControlName="categoriaReceta"
-            placeholder="Ingresa el nombre de la categoria"
-          />
+        <div class="porcionesycoccion">
+          <div class="field porciones">
+            <label class="label" for="porcionesReceta">Porciones</label>
+            <input
+              class="input"
+              id="porcionesReceta"
+              name="porcionesReceta"
+              type="text"
+              formControlName="porcionesReceta"
+              placeholder="Ejm: 4"
+            />
+          </div>
+          <div class="field coccion">
+            <label class="label" for="tiempoCocinado">Tiempo de cocción</label>
+            <input
+              class="input"
+              id="tiempoCocinado"
+              name="tiempoCocinado"
+              type="text"
+              formControlName="tiempoCocinado"
+              placeholder="Ejm: 30min"
+            />
+          </div>
         </div>
       </div>
-      <div class="field">
-        <label class="label" for="urlImgReceta"
-          >Link de la imagen de la receta</label
-        >
-        <input
-          class="input"
-          id="urlImgReceta"
-          name="urlImgReceta"
-          type="text"
-          formControlName="urlImgReceta"
-          placeholder="Ingresa el enlace"
-        />
+      <!-- Botón para crear nueva receta con evento click crearReceta()-->
+      <div class="boton-flotante" (click)="editReceta()">
+        <button class="btnCrearReceta">GUARDAR</button>
       </div>
-      <div class="porcionesycoccion">
-        <div class="field porciones">
-          <label class="label" for="porcionesReceta">Porciones</label>
+    </div>
+    <!-- Ingredientes y procedimentos de la preparacion -->
+    <div class="ingredientesypreparacion">
+      <!-- campos de ingrediente y cantidad -->
+      <div class="camposIngredientes">
+        <h4>INGREDIENTES</h4>
+        <!-- campo añadir ingrediente -->
+        <div class="field ingredientes">
+          <label class="label" for="nuevoIngrediente">Nuevo ingrediente</label
+          ><!-- [(ngModel)]="nuevoIngrediente" -->
           <input
             class="input"
-            id="porcionesReceta"
-            name="porcionesReceta"
+            id="nuevoIngrediente"
+            name="nuevoIngrediente"
             type="text"
-            formControlName="porcionesReceta"
-            placeholder="Ejm: 4"
+            formControlName="nuevoIngrediente"
+            placeholder="Ingresa el nuevo ingrediente"
           />
         </div>
-        <div class="field coccion">
-          <label class="label" for="tiempoCocinado">Tiempo de cocción</label>
+        <!-- campo añadir cantidad -->
+        <div class="field cantidad">
+          <label class="label" for="cantidadIngrediente">Cantidad</label>
           <input
             class="input"
-            id="tiempoCocinado"
-            name="tiempoCocinado"
+            id="cantidadIngrediente"
+            name="cantidadIngrediente"
             type="text"
-            formControlName="tiempoCocinado"
-            placeholder="Ejm: 30min"
+            formControlName="cantidadIngrediente"
+            placeholder="Ingresa la cantidad"
           />
+        </div>
+        <!-- boton de añadir ingrediente y cantidad -->
+        <button>añadir</button>
+  
+        <!-- lista de ingredientes -->
+        <div class="listaIngredientes">
+          <ul>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+                <span>Calamar</span>
+              </div>
+              <p>20gr</p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+                <span>Calamar</span>
+              </div>
+              <p>20gr</p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+                <span>Calamar</span>
+              </div>
+              <p>20gr</p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+                <span>Calamar</span>
+              </div>
+              <p>20gr</p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+                <span>Calamar</span>
+              </div>
+              <p>20gr</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- campos del formulario de preparacion de receta -->
+      <div class="camposPreparacion">
+        <h4>PREPARACIÓN</h4>
+        <!-- Campo de nuevo procedimiento -->
+        <div class="field">
+          <label class="label" for="preparacionReceta">Nuevo procedimiento</label>
+          <textarea
+            class="textarea"
+            id="preparacionReceta"
+            name="preparacionReceta"
+            type="text"
+            formControlName="preparacionReceta"
+            placeholder="Ingresa el procedimiento"
+          ></textarea>
+        </div>
+        <!-- boton de añadir nuevo procedimiento -->
+        <button>añadir</button>
+        <br />
+        <!-- lista de procedimientos en la preparacion -->
+        <div class="listaPreparacion">
+          <ol>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+              </div>
+              <p class="procedimiento">
+                1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
+                dolores minima! Quam assumenda cum minus delectus necessitatibus
+                tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
+                ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Omnis itaque asperiores exercitationem maiores
+                rerum optio amet doloremque atque, explicabo, repudiandae suscipit
+                quidem, quam nobis rem corporis aliquam aut maxime velit!
+              </p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+              </div>
+              <p class="procedimiento">
+                1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
+                dolores minima! Quam assumenda cum minus delectus necessitatibus
+                tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
+                ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Omnis itaque asperiores exercitationem maiores
+                rerum optio amet doloremque atque, explicabo, repudiandae suscipit
+                quidem, quam nobis rem corporis aliquam aut maxime velit!
+              </p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+              </div>
+              <p class="procedimiento">
+                1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
+                dolores minima! Quam assumenda cum minus delectus necessitatibus
+                tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
+                ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Omnis itaque asperiores exercitationem maiores
+                rerum optio amet doloremque atque, explicabo, repudiandae suscipit
+                quidem, quam nobis rem corporis aliquam aut maxime velit!
+              </p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+              </div>
+              <p class="procedimiento">
+                1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
+                dolores minima! Quam assumenda cum minus delectus necessitatibus
+                tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
+                ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Omnis itaque asperiores exercitationem maiores
+                rerum optio amet doloremque atque, explicabo, repudiandae suscipit
+                quidem, quam nobis rem corporis aliquam aut maxime velit!
+              </p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+              </div>
+              <p class="procedimiento">
+                1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
+                dolores minima! Quam assumenda cum minus delectus necessitatibus
+                tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
+                ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Omnis itaque asperiores exercitationem maiores
+                rerum optio amet doloremque atque, explicabo, repudiandae suscipit
+                quidem, quam nobis rem corporis aliquam aut maxime velit!
+              </p>
+            </li>
+            <li>
+              <div class="itemI">
+                <button class="btnBorrar-x">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+              </div>
+              <p class="procedimiento">
+                1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
+                dolores minima! Quam assumenda cum minus delectus necessitatibus
+                tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
+                ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Omnis itaque asperiores exercitationem maiores
+                rerum optio amet doloremque atque, explicabo, repudiandae suscipit
+                quidem, quam nobis rem corporis aliquam aut maxime velit!
+              </p>
+            </li>
+          </ol>
         </div>
       </div>
     </div>
-    <!-- Botón para crear nueva receta con evento click crearReceta()-->
-    <div class="boton-flotante" (click)="editReceta()">
-      <button class="btnCrearReceta">GUARDAR</button>
-    </div>
-  </div>
-  <!-- Ingredientes y procedimentos de la preparacion -->
-  <div class="ingredientesypreparacion">
-    <!-- campos de ingrediente y cantidad -->
-    <div class="camposIngredientes">
-      <h4>INGREDIENTES</h4>
-      <!-- campo añadir ingrediente -->
-      <div class="field ingredientes">
-        <label class="label" for="nuevoIngrediente">Nuevo ingrediente</label
-        ><!-- [(ngModel)]="nuevoIngrediente" -->
-        <input
-          class="input"
-          id="nuevoIngrediente"
-          name="nuevoIngrediente"
-          type="text"
-          formControlName="nuevoIngrediente"
-          placeholder="Ingresa el nuevo ingrediente"
-        />
-      </div>
-      <!-- campo añadir cantidad -->
-      <div class="field cantidad">
-        <label class="label" for="cantidadIngrediente">Cantidad</label>
-        <input
-          class="input"
-          id="cantidadIngrediente"
-          name="cantidadIngrediente"
-          type="text"
-          formControlName="cantidadIngrediente"
-          placeholder="Ingresa la cantidad"
-        />
-      </div>
-      <!-- boton de añadir ingrediente y cantidad -->
-      <button>añadir</button>
-
-      <!-- lista de ingredientes -->
-      <div class="listaIngredientes">
-        <ul>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-              <span>Calamar</span>
-            </div>
-            <p>20gr</p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-              <span>Calamar</span>
-            </div>
-            <p>20gr</p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-              <span>Calamar</span>
-            </div>
-            <p>20gr</p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-              <span>Calamar</span>
-            </div>
-            <p>20gr</p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-              <span>Calamar</span>
-            </div>
-            <p>20gr</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- campos del formulario de preparacion de receta -->
-    <div class="camposPreparacion">
-      <h4>PREPARACIÓN</h4>
-      <!-- Campo de nuevo procedimiento -->
-      <div class="field">
-        <label class="label" for="preparacionReceta">Nuevo procedimiento</label>
-        <textarea
-          class="textarea"
-          id="preparacionReceta"
-          name="preparacionReceta"
-          type="text"
-          formControlName="preparacionReceta"
-          placeholder="Ingresa el procedimiento"
-        ></textarea>
-      </div>
-      <!-- boton de añadir nuevo procedimiento -->
-      <button>añadir</button>
-      <br />
-      <!-- lista de procedimientos en la preparacion -->
-      <div class="listaPreparacion">
-        <ol>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-            </div>
-            <p class="procedimiento">
-              1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
-              dolores minima! Quam assumenda cum minus delectus necessitatibus
-              tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
-              ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Omnis itaque asperiores exercitationem maiores
-              rerum optio amet doloremque atque, explicabo, repudiandae suscipit
-              quidem, quam nobis rem corporis aliquam aut maxime velit!
-            </p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-            </div>
-            <p class="procedimiento">
-              1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
-              dolores minima! Quam assumenda cum minus delectus necessitatibus
-              tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
-              ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Omnis itaque asperiores exercitationem maiores
-              rerum optio amet doloremque atque, explicabo, repudiandae suscipit
-              quidem, quam nobis rem corporis aliquam aut maxime velit!
-            </p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-            </div>
-            <p class="procedimiento">
-              1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
-              dolores minima! Quam assumenda cum minus delectus necessitatibus
-              tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
-              ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Omnis itaque asperiores exercitationem maiores
-              rerum optio amet doloremque atque, explicabo, repudiandae suscipit
-              quidem, quam nobis rem corporis aliquam aut maxime velit!
-            </p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-            </div>
-            <p class="procedimiento">
-              1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
-              dolores minima! Quam assumenda cum minus delectus necessitatibus
-              tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
-              ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Omnis itaque asperiores exercitationem maiores
-              rerum optio amet doloremque atque, explicabo, repudiandae suscipit
-              quidem, quam nobis rem corporis aliquam aut maxime velit!
-            </p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-            </div>
-            <p class="procedimiento">
-              1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
-              dolores minima! Quam assumenda cum minus delectus necessitatibus
-              tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
-              ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Omnis itaque asperiores exercitationem maiores
-              rerum optio amet doloremque atque, explicabo, repudiandae suscipit
-              quidem, quam nobis rem corporis aliquam aut maxime velit!
-            </p>
-          </li>
-          <li>
-            <div class="itemI">
-              <button class="btnBorrar-x">
-                <img src="assets/icon-delete.svg" alt="icono de borrar" />
-              </button>
-            </div>
-            <p class="procedimiento">
-              1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et,
-              dolores minima! Quam assumenda cum minus delectus necessitatibus
-              tenetur esse qui? Nisi recusandae repudiandae a molestiae nesciunt
-              ex, dicta dolor at? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Omnis itaque asperiores exercitationem maiores
-              rerum optio amet doloremque atque, explicabo, repudiandae suscipit
-              quidem, quam nobis rem corporis aliquam aut maxime velit!
-            </p>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</form>
+  </form>
+  
+</section>

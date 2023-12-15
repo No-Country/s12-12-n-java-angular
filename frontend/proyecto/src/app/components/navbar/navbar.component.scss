@@ -29,23 +29,9 @@
     align-items: center;
 
     &__logo {
-        &--text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.3125rem;
-            font-family: 'Oleo Script Swash Caps';
-            font-size: 1.5rem;
-            color: $colThird;
-
-            @include tablet {
-                font-size: 1.625rem;
-            }
-        }
 
         &--img {
-            width: 22px;
-            height: 22px;
+            width: 120px;
 
             @include tablet {
                 width: 100%;
@@ -148,7 +134,7 @@
         &--img {
             border: 1px solid $colThird;
             border-radius: 50%;
-            padding:0.125rem;
+            padding: 0.125rem;
             font-size: 18px;
             color: $colThird;
             font-weight: 500;

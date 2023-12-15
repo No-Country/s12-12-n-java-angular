@@ -4,16 +4,22 @@
   background: url("/assets/wallpaper404.jpg");
   background-position: left top;
   background-size: cover;
-  padding: 2rem .5rem;
+  padding: 7rem .5rem;
 }
-.boxTitle{
+
+.section {
+  padding: 7rem 0 2rem;
+}
+
+.boxTitle {
   font-size: 3rem;
-  color:$colWhite;
+  color: $colWhite;
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
 }
-.currentList{
+
+.currentList {
   background-color: changeOpacity($colBg, 0.5);
   backdrop-filter: blur(10px);
   border-radius: 0.5rem;
@@ -21,63 +27,78 @@
   margin-bottom: 1rem;
   width: min(550px, 100%);
   margin-inline: auto;
-  h3{
+
+  h3 {
     font-size: 2rem;
     margin-bottom: 3rem;
     text-align: center;
   }
-  &__recipeList{
+
+  &__recipeList {
     list-style-type: disc;
     line-height: 1.5rem;
     padding-left: 2rem;
     margin-bottom: 2rem;
   }
 
-  &__ingredientList{
+  &__ingredientList {
     margin-bottom: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  &__commentBox{
+  &__commentBox {
     text-align: justify;
     margin-bottom: 1rem;
   }
-  &__btns{
+
+  &__btns {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .btnDelete{
+
+    .btnDelete {
       @include btnStyle($colThird, $colBg);
       padding-inline: 1rem;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
       margin-bottom: 0.5rem;
     }
-    .btnExport{
+
+    .btnExport {
       @include btnStyle($colPrime, $colBg);
       padding-inline: 1rem;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
-      img{
+
+      img {
         margin-right: 0.5rem;
       }
     }
   }
 }
-.lists{
+
+.lists {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
+
 @media screen and (min-width:1000px) {
-  :host{
+  :host {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
   }
-  .boxTitle{grid-column: span 12;}
-  .currentList{grid-column:9/ span 4;}
-  .lists{
-    grid-column:1/ span 8;
+
+  .boxTitle {
+    grid-column: span 12;
+  }
+
+  .currentList {
+    grid-column: 9/ span 4;
+  }
+
+  .lists {
+    grid-column: 1/ span 8;
     grid-row: 2;
   }
 }
