@@ -69,6 +69,13 @@ public class RepositorioControlller {
         }
     }
     
+//     @PostMapping(value = "/save-repositorio", consumes = "application/json")
+// public ResponseEntity<HttpStatus> saveRepositorio(@Valid @RequestBody RepositorioRequest repositorioRequest) throws NameExistsException, IdNotFoundException {
+//     repositoryService.createRepositorio(RepositorioResponse);
+//     return new ResponseEntity<>(HttpStatus.CREATED);
+// }
+
+
 
       @DeleteMapping("/delete")
     public ResponseEntity<?> deleteRepositorio(@Valid @RequestParam Long id){

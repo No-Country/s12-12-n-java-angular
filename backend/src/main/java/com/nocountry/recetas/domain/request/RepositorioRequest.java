@@ -20,13 +20,12 @@ import lombok.NoArgsConstructor;
 
 public class RepositorioRequest {
 
-    private Long id;
 
      @Valid
-     @JsonProperty("usuario_id")
+    //  @JsonProperty(value = "usuario_id", access = JsonProperty.Access.READ_ONLY)
     private Usr usuario;
 
     @Valid
-    @JsonProperty("receta_id")
+    // @JsonProperty(value="receta_id", access = JsonProperty.Access.READ_ONLY)
     private Receta receta;
 }
