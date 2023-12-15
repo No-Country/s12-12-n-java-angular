@@ -38,12 +38,10 @@ public class Repositorio {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id", nullable = false)
-    @JsonBackReference
     private Usr usuario;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "receta_id", nullable = false)
-    @JsonBackReference
     private Receta receta;
 
 

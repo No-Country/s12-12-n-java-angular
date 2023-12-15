@@ -17,16 +17,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Data
-
 public class RepositorioRequest {
 
-    private Long id;
+    @NotBlank
+    private Long usuario;
 
-     @Valid
-     @JsonProperty("usuario_id")
-    private Usr usuario;
-
-    @Valid
-    @JsonProperty("receta_id")
-    private Receta receta;
+    @NotBlank
+    private Long receta;
 }

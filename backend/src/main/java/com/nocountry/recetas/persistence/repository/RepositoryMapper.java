@@ -1,6 +1,7 @@
 package com.nocountry.recetas.persistence.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import com.nocountry.recetas.domain.entities.receta.Receta;
 import com.nocountry.recetas.domain.entities.usr.Usr;
@@ -25,13 +26,13 @@ public interface RepositoryMapper {
   })
   List<Repositorio> getRepositorysMapper();
 
-  @Insert("INSERT INTO repositorio (receta_id, usuario_id) VALUES (#{receta.id}, #{usuario.id})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    void createRepositorio(Repositorio repositorio);
+  @Insert("INSERT INTO repositorio (receta_id, usuario_id) VALUES (#{receta}, #{usuario})")
+  @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+  void createRepositorio(Map<String,Object> params);
 
 
-    @Delete("DELETE FROM repositorio WHERE id = #{id}")
-    void deleteRepositorioById(@Param("id") Long id);
+  @Delete("DELETE FROM repositorio WHERE id = #{id}")
+  void deleteRepositorioById(@Param("id") Long id);
 
 //     INSERT INTO `recetas_db`.`repositorio` (`receta_id`, `usuario_id`) VALUES ('4', '1');
 }
