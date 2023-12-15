@@ -37,8 +37,8 @@ public class ListRepositorySupplier implements Supplier<Optional<List<Repositori
             });
     
             List<RepositorioResponse> repositoryResponses = repositorys.stream()
-                    .map(repositorio -> RepositorioResponse.builder()
-                            .id(repositorio.getId())
+               .map(repositorio -> RepositorioResponse.builder()
+            .id(repositorio.getId())
                            .usuario(repositorio.getUsuario())
                             .receta(repositorio.getReceta())
                             .build())

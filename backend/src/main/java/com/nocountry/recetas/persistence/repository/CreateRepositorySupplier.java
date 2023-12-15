@@ -1,5 +1,6 @@
 package com.nocountry.recetas.persistence.repository;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -35,14 +36,23 @@ public class CreateRepositorySupplier implements Function<RepositorioRequest, Op
 
         params.put("usuario",repositorioRequest.getUsuario());
         params.put("receta", repositorioRequest.getReceta());
+        
+        
 
         repositoryMapper.createRepositorio(params);
+
+        BigInteger repositorioIdBigInteger = (BigInteger) params.get("id");
+        Long repositorioId = repositorioIdBigInteger.longValue();
+        
         Receta receta=  recetaMapper.findById(repositorioRequest.getReceta());
         Usr usr= usrMapper.findByIdUsr(repositorioRequest.getUsuario());
+        
+        
 
 
         return Optional.of(RepositorioResponse
                 .builder()
+                .id(repositorioId)
                         .receta(receta)
                         .usuario(usr)
                 .build()

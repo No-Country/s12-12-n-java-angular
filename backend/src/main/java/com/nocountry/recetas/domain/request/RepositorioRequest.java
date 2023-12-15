@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class RepositorioRequest {
 
+  
     @NotBlank
     private Long usuario;
 

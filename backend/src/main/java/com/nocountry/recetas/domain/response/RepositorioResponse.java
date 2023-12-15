@@ -1,5 +1,7 @@
 package com.nocountry.recetas.domain.response;
 
+import java.math.BigInteger;
+
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;

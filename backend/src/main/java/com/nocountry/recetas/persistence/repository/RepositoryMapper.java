@@ -16,9 +16,11 @@ import com.nocountry.recetas.domain.response.UsrResponse;
 @Mapper
 public interface RepositoryMapper {
 
-  @Select("SELECT r.id, u.id as usuario_id, u.nombre as usuario_nombre, rec.id as receta_id, rec.nombre as receta_nombre FROM repositorio r " +
-          "JOIN usuarios u ON r.usuario_id = u.id " +
-          "JOIN recetas rec ON r.receta_id = rec.id")
+        @Select("SELECT r.id, u.id as usuario_id, u.nombre as usuario_nombre, rec.id as receta_id, rec.nombre as receta_nombre " +
+        "FROM repositorio r " +
+        "JOIN usuarios u ON r.usuario_id = u.id " +
+        "JOIN recetas rec ON r.receta_id = rec.id " +
+        "ORDER BY r.id ASC")
   @Results( {
           //descomentar cuando importes el metodo get de usuarios del mapper que tiene alejandro
           @Result( column = "usuario_id", property = "usuario", javaType = Usr.class, one = @One(select = "com.nocountry.recetas.persistence.usr.UsrMapper.findByIdUsr")),
@@ -33,6 +35,10 @@ public interface RepositoryMapper {
 
   @Delete("DELETE FROM repositorio WHERE id = #{id}")
   void deleteRepositorioById(@Param("id") Long id);
+
+
+  @Select("SELECT * FROM repositorio WHERE id = #{id}")
+  Repositorio findByIdRepositorio(@Param("id") Long id);
 
 //     INSERT INTO `recetas_db`.`repositorio` (`receta_id`, `usuario_id`) VALUES ('4', '1');
 }
