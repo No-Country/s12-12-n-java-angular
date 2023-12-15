@@ -2,6 +2,10 @@
 :host {
   flex-grow: 2;
 }
+.section{
+  padding: 7rem 0 3rem;
+}
+
 .container{
   display: flex;
   flex-direction: column;
@@ -13,6 +17,7 @@
     url("/assets/foodhero5.webp");
   background-position: right top;
   background-size: cover;
+
 }
 .recipes {
   margin-block: 1rem;
@@ -81,6 +86,7 @@
     display: grid;
     grid-template-columns: repeat(10,1fr);
     align-items: flex-start;
+
     .recipes{
       grid-column: span 10;
     }

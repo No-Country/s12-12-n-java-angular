@@ -1,12 +1,12 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 
-// :host{
-//   flex-grow: 2;
+:host{
+  flex-grow: 2;
 //   display: flex;
 //   flex-direction: column;
 //   background-color: $colBg;
 //   // position: relative;
-// }
+}
 .section {
   padding: 7rem 0 3rem;
 }
