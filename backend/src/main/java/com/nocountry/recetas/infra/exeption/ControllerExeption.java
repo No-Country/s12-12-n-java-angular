@@ -13,8 +13,9 @@ public class ControllerExeption {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorAdvice exception(Exception ex) {
         log.error(":::: Error -  : {} ::::", ex.getMessage());
-        return ErrorAdvice.builder()
+        throw new RuntimeException(ex);
+       /* return ErrorAdvice.builder()
                 .message(ex.getMessage())
-                .build();
+                .build();*/
     }
 }

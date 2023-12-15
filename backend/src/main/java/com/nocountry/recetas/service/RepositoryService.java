@@ -3,6 +3,7 @@ package com.nocountry.recetas.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.nocountry.recetas.domain.request.RepositorioRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,12 +48,8 @@ public class RepositoryService {
     // public List<RepositorioResponse> getRepositories() {
     //     return repositorySupplier.getRepositories();
     // }
-
-
-
-    
-    public RepositorioResponse createRepositorio(Repositorio repositorio){
-        Optional<RepositorioResponse> repositorioResponse = createRepositorySupplier.apply(repositorio);
+    public RepositorioResponse createRepositorio(RepositorioRequest repositorioRequest){
+        Optional<RepositorioResponse> repositorioResponse = createRepositorySupplier.apply(repositorioRequest);
         if(repositorioResponse.isEmpty()){
             log.error(":::::::NO EXISTEN DATOS EN REPOSITORIOS:::::::");
             ErrorAdvice errorAdvice= ErrorAdvice

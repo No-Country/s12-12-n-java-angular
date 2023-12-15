@@ -21,12 +21,7 @@ import lombok.NoArgsConstructor;
 
 public class RepositorioResponse {
     private Long id;
-
-    
     private Usr  usuario;
-
     private  Receta receta;
-
-
 }
 
