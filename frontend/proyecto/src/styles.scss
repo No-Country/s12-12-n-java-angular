@@ -1,33 +1,67 @@
 @import "node_modules/reset-css/sass/reset";
 @import '/src/app/stylesConfig/stylesConfig.scss';
+@import 'src/assets/scss/media-queries/_media-queries.scss';
 
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-html{
+
+html {
   scroll-behavior: smooth;
 }
+
 body {
-    background-color: $colBg;
-    font-family: "Roboto", sans-serif;
+  background-color: $colWhite;
+  font-family: "Roboto", sans-serif;
 }
-h1,h2,h3{
+
+h1,
+h2,
+h3 {
   font-family: "Oleo Script Swash Caps", cursive;
 }
-.container{
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
+a{
+  text-decoration: none;
 }
-.section__title{
-  font-size: 1.75rem;
-  text-align: start;
+.container {
+  max-width: 1300px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+
+  @include tablet {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+ 
+
+  @include desktop-large {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.section__title {
+  font-size: 1.25rem;
+  text-align: center;
   margin-bottom: 3.4375rem;
-  span{
+  text-decoration: underline;
+
+  @include tablet {
+    text-align: start;
+    font-size: 1.5rem;
+  }
+
+  @include desktop {
+    font-size: 1.75rem;
+  }
+
+  span {
     color: $colPrime;
+    text-decoration: underline;
   }
 }

@@ -1,10 +1,12 @@
 /*Importación de los estilos globales*/
-@import "../../stylesConfig/stylesConfig.scss";
+@import "../../../stylesConfig/stylesConfig.scss";
 
 :host{
   overflow-x: hidden;
 }
-
+.section{
+  padding: 7rem 0 3rem;
+}
 /* Estilos para el contenedor que envuelve las dos cajas*/
 .contenedor {
   display: grid;

@@ -1,29 +1,60 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
+@import '../../../../../assets/scss/media-queries/media-queries';
 
 .section {
-  padding: 7rem 0 3rem;
+  padding: 4rem 0 3rem;
+
+  @include tablet {
+      padding: 7rem 0 3rem;
+  }
 }
 
 .categories {
 
   &__content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.875rem;
 
+    @include mobile-large {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
     &--types {
-      background-color: $colWhite;
+      background-color: $colBg;
       border-radius: 10px;
-      box-shadow: 50px 30px 150px 0px rgba(46, 4, 4, 0.25);
-      padding: 12px;
+      // box-shadow: 50px 30px 150px 0px rgba(46, 4, 4, 0.25);
+      padding: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 1.875rem;
 
-      p{
+      p {
         text-align: center;
-        font-size: 18px;
+        font-size: 14px;
+
+        @include mobile-large {
+          font-size: 16px;
+        }
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+
+        @include tablet {
+          width: 60px;
+          height: 60px;
+        }
       }
     }
   }

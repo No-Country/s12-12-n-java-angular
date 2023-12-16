@@ -7,15 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-recipe-card.component.scss']
 })
 export class MyRecipeCardComponent {
-  @Input() recipeCommunity:boolean = true;
+  @Input() recipeCommunity: boolean = true;
   isCheck = false;
+  showDropdown = false;
   constructor(
-    private router:Router
-  ){}
-  toDetail(){
+    private router: Router
+  ) { }
+  toDetail() {
     this.router.navigate(['recipes/recipe-details'])
   }
-  toEdit(){
+  toEdit() {
     this.router.navigate(['editrecipe'])
   }
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+    console.log('showDropdown', this.showDropdown);
+  }
+
 }

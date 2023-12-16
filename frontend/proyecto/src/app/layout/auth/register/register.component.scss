@@ -1,29 +1,35 @@
-@import "/src/app/stylesConfig/stylesConfig.scss";
+@import "../../../stylesConfig/stylesConfig.scss";
 
 :host {
   display: grid;
   flex-grow: 2;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.6)
-    ),
+  background: linear-gradient(rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)),
     url("/assets/oilWallpaper.jpg");
   background-position: left;
   place-items: center;
 }
+
+.section {
+  padding: 7rem 0 2rem;
+}
+
 /* ----------------------------------------estilos del formulario */
 .form {
   max-width: min(100%, 400px);
   margin: auto;
+
   &__title {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 600;
     margin-bottom: 2rem;
   }
+
   &__box {
     display: flex;
     flex-direction: column;
+
     /*---------------------------------------- estilos input */
     &__field {
       display: flex;
@@ -34,31 +40,38 @@
       background-color: white;
       margin-bottom: 1rem;
       transition: border 0.3s ease-in-out;
+
       &:focus-within {
         border: solid $colPrime 2px;
       }
+
       /* -----------------------------------inputs tipo password */
-      &__inputPass{
+      &__inputPass {
         display: flex;
-        input{
+
+        input {
           flex-grow: 2;
         }
-        .eyeBtn{
+
+        .eyeBtn {
           border: none;
           background-color: white;
           border-radius: 50%;
           cursor: pointer;
           margin-right: 0.5rem;
           @include transitionFast;
-          &__eye{
+
+          &__eye {
             width: 2rem;
             aspect-ratio: 1/1;
           }
-          &:hover{
+
+          &:hover {
             background-color: $colBg;
           }
         }
       }
+
       label {
         position: absolute;
         top: 0px;
@@ -68,6 +81,7 @@
         padding-inline: 0.25rem;
         border-radius: 0.2rem;
       }
+
       input {
         border-radius: 0.5rem;
         border: none;
@@ -75,47 +89,57 @@
         padding-block: 0.75rem;
         padding-left: 0.5rem;
         @include transitionFast;
+
         /*-------------------------borrando estilos del autocompletado */
         &:-webkit-autofill,
         &:-webkit-autofill:hover,
         &:-webkit-autofill:focus,
         &:-webkit-autofill:active {
-          -webkit-box-shadow: 0 0 0 30px white inset !important; /* Ajusta el color de fondo según tus necesidades */
+          -webkit-box-shadow: 0 0 0 30px white inset !important;
+          /* Ajusta el color de fondo según tus necesidades */
           -webkit-text-fill-color: inherit !important;
           caret-color: $colThird;
         }
       }
     }
+
     /*---------------------------------- estilos de validacion */
-    .errorField{
+    .errorField {
       border: solid 2px red;
       margin-bottom: 0;
     }
-    &__validateMessage>span{
+
+    &__validateMessage>span {
       display: block;
       padding-left: 0.5rem;
       margin-bottom: 1rem;
       color: rgb(200, 0, 0);
     }
+
     &__fieldCheck {
       margin-bottom: 1rem;
       align-self: flex-end;
     }
+
     &__btn {
       align-self: stretch;
+
       button {
         width: 100%;
         @include btnStyle;
       }
     }
+
     &__toLogin {
       align-self: flex-end;
+
       a {
         color: $colPrime;
       }
     }
   }
 }
+
 .leftBox {
   display: none;
 }
@@ -125,19 +149,19 @@
     background: white;
     grid-template-columns: 1fr 1fr;
   }
+
   .leftBox {
     display: grid;
     place-items: center;
     width: 100%;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.4)
-      ),
+    background: linear-gradient(rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.4)),
       url("/assets/oilWallpaper.jpg");
     background-position: left;
     background-size: cover;
     height: 100%;
     padding-inline: 1rem;
+
     h2 {
       font-size: 2rem;
       font-weight: bolder;

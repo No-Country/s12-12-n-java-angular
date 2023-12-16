@@ -2,9 +2,8 @@
 <header class="header" [ngClass]="  scrolled ? 'scrolled' : ''">
     <nav class="nav container">
         <div class="nav__logo">
-            <a class="nav__logo--text" [ngClass]="  scrolled ? 'scrolled-logo' : ''">
+            <a class="nav__logo--text">
                 <img [src]=[iconCooking] alt="logo" class="nav__logo--img">
-                <p>Foodie List</p>
             </a>
         </div>
         <div class="menu" [ngClass]="showMenu ? 'show-menu' : ''">
@@ -13,15 +12,6 @@
                     <a [routerLink]="[data.routerLink]" class="menu__link"
                         [ngClass]="scrolled ? 'scrolled-link':''">{{data.label}}</a>
                 </li>
-                <!-- <li class="menu__items">
-                    <a [routerLink]="[]" class="menu__link">{{navData}}</a>
-                </li>
-                <li class="menu__items">
-                    <a routerLink="/mylist" class="menu__link">Recetas</a>
-                </li>
-                <li class="menu__items">
-                    <a routerLink="/home" class="menu__link">Nosotros</a>
-                </li> -->
             </ul>
             <div class="menu__close">
                 <button class="icons__items--link" type="button" (click)="closeMenu()">
@@ -34,7 +24,8 @@
                 <li class="icons__items dropdown">
                     <!-- <p>Juan reynaldo dosantos</p> -->
                     <button (click)="userRedirect()" type="button" class="icons__items--link dropdown__button">
-                        <i class='bx bx-user icons__items--img' [ngClass]="scrolled ? 'scrolled-user':''"></i>
+                        <i class='bx bx-user icons__items--img'></i>
+                       
                     </button>
                     <!-- <ul class="dropdown__menu" >
                         <li class="dropdown__item">
@@ -47,7 +38,7 @@
                 </li>
                 <li class="icons__toggle icons__items">
                     <button type="button" class="icons__items--link" (click)="toggleMenu()">
-                        <i class="bx bx-menu-alt-right icons__items--img"></i>
+                        <i class="bx bx-menu-alt-right icons__items--img" [ngClass]="scrolled ? 'scrolled-user':''"></i>
                     </button>
                 </li>
             </ul>

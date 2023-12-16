@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class RecipeCardComponent {
   constructor(
-    private router:Router
-  ){}
-  toDetail(){
+    private router: Router
+  ) { }
+  toDetail() {
     this.router.navigate(['recipes/recipe-details'])
   }
 

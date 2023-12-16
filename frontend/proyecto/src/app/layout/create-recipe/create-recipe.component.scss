@@ -5,8 +5,12 @@
 :host {
   display: block;
   flex-grow: 2;
-  padding: 2rem 0.5rem;
 }
+
+.section {
+  padding: 7rem 0 2rem;
+}
+
 /* formulario para crear recetas */
 .form {
   background-color: $colBg;
@@ -14,15 +18,18 @@
   border-radius: 0.5rem;
   text-align: center;
   color: $colBlack;
+
   /* titulo de formulari */
   h2 {
     font-size: 1.5rem;
     margin-bottom: 4rem;
+
     @media screen and (min-width: 1000px) {
       font-size: 2rem;
     }
   }
 }
+
 /* estilos de cada campo */
 .field {
   display: flex;
@@ -33,9 +40,11 @@
   background-color: white;
   margin-bottom: 1rem;
   transition: border 0.3s ease-in-out;
+
   &:focus-within {
     border: solid $colPrime 2px;
   }
+
   /* etiquetas de los campos */
   .label {
     position: absolute;
@@ -46,6 +55,7 @@
     padding-inline: 0.25rem;
     border-radius: 0.2rem;
   }
+
   /* estilos de los inputs (ingreso de texto) */
   .input {
     border-radius: 0.5rem;
@@ -54,16 +64,19 @@
     padding-block: 0.75rem;
     padding-left: 0.5rem;
     @include transitionFast;
+
     /*-------------------------borrando estilos del autocompletado */
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      -webkit-box-shadow: 0 0 0 30px white inset !important; /* Ajusta el color de fondo según tus necesidades */
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+      /* Ajusta el color de fondo según tus necesidades */
       -webkit-text-fill-color: inherit !important;
       caret-color: $colThird;
     }
   }
+
   /* estilo del textarea */
   textarea {
     border: none;
@@ -76,19 +89,23 @@
     outline: none;
   }
 }
+
 /* boton crear receta (boton flotante en pantallas pequeñas) */
 .boton-flotante {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 999; /* Asegura que el botón esté sobre otros elementos */
+  z-index: 999;
+  /* Asegura que el botón esté sobre otros elementos */
 }
+
 /* div que contiene el boton de crear receta */
 .btnCrearReceta {
   border-radius: 50%;
   width: auto;
   min-height: 90px;
 }
+
 /* estilos de los botones */
 button {
   background-color: $colFourth;
@@ -109,6 +126,7 @@ button:hover {
 button:focus {
   outline: none;
 }
+
 h4 {
   display: flex;
   justify-content: flex-start;
@@ -125,10 +143,12 @@ li {
   margin-bottom: 1rem;
   margin-right: 1rem;
 }
+
 .itemI {
   display: flex;
   align-items: center;
 }
+
 .btnBorrar-x {
   width: 1em;
   height: 1em;
@@ -139,9 +159,11 @@ li {
   border-radius: 100%;
   padding: 0;
 }
+
 .procedimiento {
   text-align: justify;
 }
+
 /* ************************************************************************************************* */
 /* ************************************* MEDIA QUERY *********************************************** */
 /* ************************************************************************************************* */
@@ -149,31 +171,38 @@ li {
   :host {
     padding: 2rem 10vw;
   }
+
   /* estilos del form */
   .form {
     padding-inline: 5vw;
   }
+
   /* los campos para colocar nombre de la receta, categoria, url de la imagen, porciones y tiempo de coccion  */
   .primerosCampos {
     display: flex;
     flex-wrap: wrap;
   }
+
   .camposReceta {
     flex-grow: 2;
   }
+
   /* estilos del boton crear receta */
   .boton-flotante {
     flex-grow: 1;
     position: static;
     bottom: 0;
     right: 0;
-    z-index: 0 !important; /* en pantallas grandes, el boton flotante se coloca junto a los campos de receta */
+    z-index: 0 !important;
+
+    /* en pantallas grandes, el boton flotante se coloca junto a los campos de receta */
     .btnCrearReceta {
       border-radius: 5%;
       padding: 50px;
       font-size: 1.5rem;
     }
   }
+
   /* coloca estos campos uno al lado del otro cuando es pantalla grande*/
   .nombreycategoria,
   .porcionesycoccion {
@@ -181,15 +210,19 @@ li {
     justify-content: space-evenly;
     gap: 10px;
   }
+
   .nombrereceta {
     flex-grow: 1;
   }
+
   .categoria {
     flex-grow: 1;
   }
+
   .porciones {
     flex-grow: 1;
   }
+
   .coccion {
     flex-grow: 1;
   }
@@ -204,12 +237,14 @@ li {
 
   .camposIngredientes {
     flex-grow: 1;
+
     .ingredientes,
     .cantidad {
       margin-left: 2rem;
       margin-right: 2rem;
     }
   }
+
   .camposPreparacion {
     flex-grow: 2;
   }
