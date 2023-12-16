@@ -1,14 +1,14 @@
-<div class="overlay"></div>
 <header class="header" [ngClass]="  scrolled ? 'scrolled' : ''">
     <nav class="nav container">
         <div class="nav__logo">
-            <a class="nav__logo--text">
+            <a class="nav__logo--text" [routerLink]="['/home']" >
                 <img [src]=[iconCooking] alt="logo" class="nav__logo--img">
             </a>
         </div>
+        <div class="overlay" (click)="closeMenu()" [ngClass]="showMenu ? 'show-overlay':''"></div>
         <div class="menu" [ngClass]="showMenu ? 'show-menu' : ''">
             <ul class="menu__list">
-                <li class="menu__items" *ngFor="let data of navData">
+                <li class="menu__items" *ngFor="let data of navData" (click)="closeMenu()">
                     <a [routerLink]="[data.routerLink]" class="menu__link"
                         [ngClass]="scrolled ? 'scrolled-link':''">{{data.label}}</a>
                 </li>
@@ -25,7 +25,7 @@
                     <!-- <p>Juan reynaldo dosantos</p> -->
                     <button (click)="userRedirect()" type="button" class="icons__items--link dropdown__button">
                         <i class='bx bx-user icons__items--img'></i>
-                       
+
                     </button>
                     <!-- <ul class="dropdown__menu" >
                         <li class="dropdown__item">

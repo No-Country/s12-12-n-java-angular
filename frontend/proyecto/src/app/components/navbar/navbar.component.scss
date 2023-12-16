@@ -172,3 +172,24 @@
 .scrolled-user {
     color: $colBlack;
 }
+
+.overlay{
+    position: fixed;
+    left: 0;
+    top:0;
+    z-index:2;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: all .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+.show-overlay{
+    opacity: 1;
+    visibility: visible;
+}
