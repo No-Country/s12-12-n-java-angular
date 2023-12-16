@@ -1,17 +1,17 @@
 @import "../../../stylesConfig/stylesConfig.scss";
 
 :host {
-  display: grid;
   flex-grow: 2;
-  background: linear-gradient(rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.6)),
-    url("/assets/oilWallpaper.jpg");
-  background-position: left;
-  place-items: center;
 }
 
 .section {
-  padding: 7rem 0 2rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.6),
+  rgba(255, 255, 255, 0.6)),
+  url("/assets/oilWallpaper.jpg");
+  background-position: left;
+  display: grid;
+  place-items: center;
+  padding: 7rem 2rem 2rem 2rem;
 }
 
 /* ----------------------------------------estilos del formulario */
@@ -127,6 +127,10 @@
       button {
         width: 100%;
         @include btnStyle;
+        &:disabled{
+          opacity: .7;
+          box-shadow: none;
+        }
       }
     }
 
@@ -145,7 +149,7 @@
 }
 
 @media screen and (min-width: 650px) {
-  :host {
+  .section {
     background: white;
     grid-template-columns: 1fr 1fr;
   }

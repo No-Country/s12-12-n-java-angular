@@ -1,12 +1,6 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 @import '../../../assets/scss/media-queries/media-queries.scss';
 
-// :host {
-//   // flex-grow: 2;
-//   // flex-direction: column;
-//   // background-color: $colBg;
-// }
-
 .section {
   padding: 7rem 0 2rem;
 }
@@ -30,10 +24,10 @@
     @include mobile-large {
       grid-template-columns: repeat(2, 1fr);
     }
-    @include desktop { 
+    @include desktop {
       grid-template-columns: repeat(3, 1fr);
      }
-     @include desktop-large { 
+     @include desktop-large {
       grid-template-columns: repeat(4, 1fr);
      }
   }
@@ -62,75 +56,3 @@
     }
   }
 }
-
-// .recipeContainer {
-//   display: grid;
-//   grid-template-columns: repeat(12, 1fr);
-//   padding: 1rem 1.5rem;
-//   gap: 2rem 0;
-//   justify-items: center;
-
-//   @media screen and (min-width:500px) {
-//     gap: 2rem;
-//   }
-// }
-
-// .communityContainer {
-//   padding: 1rem 2rem;
-
-//   .mostLike,
-//   .recommendations {
-//     padding-inline: 0.5rem;
-//     background-color: white;
-//     margin-bottom: 1rem;
-
-//     &__header {
-//       display: flex;
-//       justify-content: space-between;
-//       font-size: 18px;
-//       padding: 2rem 1rem;
-//     }
-
-//     &__recipes {
-//       display: flex;
-//       flex-direction: column;
-//       gap: 0.5rem;
-//     }
-//   }
-
-//   @media screen and (min-width:750px) {
-//     display: flex;
-
-//     .mostLike,
-//     .recommendations {
-//       flex-grow: 2;
-//     }
-//   }
-// }
-
-// @media screen and (min-width:1000px) {
-//   :host {
-//     display: grid;
-//     grid-template-columns: repeat(12, 1fr);
-//     align-items: flex-start;
-//   }
-
-//   .recipeContainer {
-//     grid-column: span 8;
-//   }
-
-//   .communityContainer {
-//     grid-column: span 4;
-//     display: block;
-//   }
-// }
-
-// @media screen and (min-width:1250px) {
-//   .recipeContainer {
-//     grid-column: span 9;
-//   }
-
-//   .communityContainer {
-//     grid-column: span 3;
-//   }
-// }

@@ -1,8 +1,5 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 @import '/src/assets/scss/media-queries/_media-queries.scss';
-// :host{
-//   width: 100%;
-// }
 
 .form {
   display: flex;
@@ -83,89 +80,3 @@
   }
 
 }
-
-// .form{
-//   display: grid;
-//   grid-template-columns: repeat(12, 1fr);
-//   gap: 1rem;
-//   margin: 0.5rem;
-// align-items: center;
-//   &__field{
-//     grid-column: span 12;
-//     position: relative;
-//     input{
-//       width: 100%;
-//       padding-block: 0.8rem;
-//       border: none;
-//       border-radius: 1rem;
-//       padding-left: 3rem;
-//       &:focus{
-//         outline: solid $colFourth 2px;
-//       }
-//     }
-//     button{
-//       border: none;
-//       outline: none;
-//       background-color: transparent;
-//       border-radius: 50%;
-//       position: absolute;
-//       padding: 2px;
-//       left: 0.5rem;
-//       top: 50%;
-//       transform: translateY(-50%);
-//       cursor: pointer;
-//       @include transitionFast;
-//       &:hover{
-//         background-color: $colBg;
-//       }
-//     }
-//   }
-//   &__category{
-//     grid-column: span 6;
-//     padding: 1rem 0.5rem;
-//     border-radius: 2rem;
-//     border: none;
-//     &:focus{
-//       outline: solid 2px $colFourth;
-//     }
-//   }
-//   &__redirect{
-//     grid-column: span 6;
-//     text-decoration: none;
-//     align-self: center;
-//     padding-block: 1rem;
-//     color: $colBg;
-//     background-color: $colFourth;
-//     text-align: center;
-//     border-radius: 2rem;
-//     cursor: pointer;
-//     white-space: nowrap;
-//     padding-inline: 0.5rem;
-//     @include transitionFast;
-//     &:hover{
-//       box-shadow: 0 5px 2px -1px rgba(0, 0, 0, 0.5);
-//       transform: translateY(-2px);
-//     }
-//   }
-//   &__paragraph{
-//     grid-column: span 12;
-//     text-align: center;
-//   }
-// }
-// @media screen and (min-width:600px) {
-//   .form{
-//     &__field{grid-column: span 6;}
-//     &__category, &__redirect{grid-column: span 3;}
-//     &__paragraph{text-align: start;}
-//   }
-// }
-// @media screen and (min-width:900px) {
-//   .form{
-//     &__category, &__redirect{grid-column: span 1;}
-//   }
-// }
-// @media screen and (min-width:1000px) {
-//   :host{
-//     grid-column: span 12;
-//   }
-// }

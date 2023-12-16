@@ -1,40 +1,6 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 @import '/src/assets/scss/media-queries/_media-queries.scss';
 
-// :host {
-//   grid-column: span 12;
-//   display: flex;
-//   flex-direction: column;
-//   background-color: white;
-//   border-radius: 0.5rem;
-//   max-width: 300px;
-//   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.5);
-//   overflow: hidden;
-//   @include transitionFast;
-
-//   @media screen and ( min-width:500px ) {
-//    grid-column: span 6;
-//   }
-//   @media screen and ( min-width:750px ) {
-//    grid-column: span 4;
-//   }
-//   @media screen and ( min-width:1250px ) {
-//    grid-column: span 3;
-//   }
-//   @include hoverRaised;
-//   &:hover{
-//     transform: scale(1.05);
-
-//   }
-
-// @include hoverRaised;
-
-// &:hover {
-//   transform: scale(1.05);
-// }
-// }
-
-
 .card {
   width: 100%;
   border-radius: 10px;
@@ -181,57 +147,3 @@
     }
   }
 }
-
-// .main{
-//   img{
-//     width: 100%;
-//     aspect-ratio: 13/9;
-//   }
-//   &__info{
-//     margin-top: 0.5rem;
-//     padding-inline: 1rem;
-//     &__header{
-//       display: flex;
-//       justify-content: space-between;
-//       text-transform: uppercase;
-//       font-size: 12px;
-//       &__like{
-//         display: flex;
-//         align-items: center;
-//         color: red;
-//         img{
-//           display: block;
-//           width: 1rem;
-//         }
-//       }
-//     }
-//     &__time{
-//       display: flex;
-//       align-items: center;
-//       color: #AFAFAF;
-//       img{
-//         width: 1rem;
-//         aspect-ratio: 1;
-//       }
-//     }
-//   }
-// }
-// .footer{
-//   display: flex;
-//   margin-top: 0.5rem;
-//   justify-content: space-between;
-//   align-items: center;
-//   font-size: 10px;
-//   margin-bottom: 0.5rem;
-//   padding-inline: 0.5rem;
-//   &__detailBtn{
-//     margin-inline: 0.5rem;
-//     max-width: 120px;
-//     flex-grow: 2;
-//     @include btnStyle($colBg, $colThird);
-//     margin-bottom: 0;
-
-//     box-shadow: none;
-//     font-weight: bold;
-//   }
-// }
