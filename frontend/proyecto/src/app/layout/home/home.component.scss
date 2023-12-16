@@ -13,27 +13,27 @@
 
 .home {
     background-image: url(../../../assets/foodhero2-2.webp);
-    background-position: right top;
+    background-position: -335px center;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
     position: relative;
 
+    // opacity: 0.5;
     @include tablet {
-
         background-position: center top;
     }
 
-        // &::before {
-        //     content: '';
-        //     background-color: $colBlack;
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     bottom: 0;
-        //     right: 0;
-        //     opacity: 0.1;
-        // }
+    // &::before {
+    //     content: '';
+    //     background-color: $colBlack;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     bottom: 0;
+    //     right: 0;
+    //     opacity: 0.6;
+    // }
 
     &__container {
         position: relative;
@@ -69,6 +69,7 @@
             justify-content: center;
             align-items: center;
             gap: 1.25rem;
+            // color: $colWhite;
 
             @include tablet {
                 align-items: flex-start;
