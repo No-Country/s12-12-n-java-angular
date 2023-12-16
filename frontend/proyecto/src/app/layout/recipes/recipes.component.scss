@@ -1,5 +1,8 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 @import '../../../assets/scss/media-queries/media-queries.scss';
+:host{
+  flex-grow: 2;
+}
 
 .section {
   padding: 7rem 0 2rem;
