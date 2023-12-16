@@ -1,37 +1,34 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 @import '/src/assets/scss/media-queries/media-queries.scss';
-// :host{
-//   grid-column: span 12;
-//   display: flex;
-//   flex-direction: column;
-//   background-color: white;
-//   border-radius: 0.5rem;
-//   max-width: 400px;
-//   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5);
-//   @include transitionFast;
-//   &:hover{
-//     transform: scale(1.05);
-//   }
-//   @media screen and ( min-width:750px ) {
-//    grid-column: span 4;
-//   }
-//   @media screen and ( min-width:1250px ) {
-//    grid-column: span 3;
-//   }
-// }
 
 
 .card {
-  // width: 222px;
   border-radius: 10px;
   border: 1px solid #CDCDCD;
-
+  position: relative;
   &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+  }
+
+  &__check{
+    all: initial;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    cursor: pointer;
+    @include transitionFast;
+    border-radius: 50%;
+    img{
+      display: block;
+    }
+    &:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 3px 2px 0px rgba(0, 0, 0, .5);
+    }
   }
 
   &__body {
@@ -162,8 +159,6 @@
           }
         }
       }
-
-
     }
 
     &--btn {
@@ -239,66 +234,5 @@
 .dropdown__active{
   display: block;
 }
-// .header{
-//   display: flex;
-//   padding: 1rem;
-//   align-items: center;
-//   &__check{
-//     all: initial;
-//     cursor: pointer;
-//     @include transitionFast;
-//     border-radius: 50%;
-//     img{
-//       display: block;
-//     }
-//     &:hover{
-//       transform: translateY(-2px);
-//       box-shadow: 0 3px 2px 0px rgba(0, 0, 0, .5);
-//     }
-//   }
-//   &__info{
-//     flex-grow: 2;
-//     margin-left: 0.5rem;
-//     &__title{ font-weight: bold;}
-//     &__author{ font-size: 14px;}
-//   }
-//   &__options{
-//     width: 2rem;
-//     aspect-ratio: 1;
-//     display: grid;
-//     place-items: center;
-//   }
-// }
-// .main{
-//   img{
-//     width: 100%;
-//     aspect-ratio: 13/9;
-//   }
-//   &__info{
-//     margin-top: 1rem;
-//     padding-inline: 1rem;
-//     line-height: 1.5rem;
-//     &__servings{
-//       font-size: 14px;
-//     }
-//   }
-// }
-// .actions{
-//   display: flex;
-//   margin-top: 2rem;
-//   justify-content: space-evenly;
-//   button{
-//     flex-grow: 2;
-//     margin-inline: 0.5rem;
-//     max-width: 120px;
-//   }
-//   &__more{
-//     @include btnStyle($colBg, $colThird);
-//     border: 1px solid $colThird;
-//     box-shadow: none;
-//   }
-//   &__edit{
-//     @include btnStyle($colFourth, $colBg);
-//     box-shadow: none;
-//   }
-// }
+
+

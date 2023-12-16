@@ -1,13 +1,9 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
 @import '../../../assets/scss/media-queries/media-queries.scss';
 
-// :host{
-//   flex-grow: 2;
-//   display: flex;
-//   flex-direction: column;
-//   background-color: $colBg;
-//   // position: relative;
-// }
+:host{
+  flex-grow: 2;
+}
 .section {
   padding: 7rem 0 3rem;
 }
@@ -26,22 +22,11 @@
     @include tablet {
       grid-template-columns: repeat(3, 1fr);
     }
-    @include desktop { 
+    @include desktop {
       grid-template-columns: repeat(4, 1fr);
      }
   }
 }
-
-// .recipeContainer {
-//   display: grid;
-//   grid-template-columns: repeat(12, 1fr);
-//   gap: 2rem 0;
-//   justify-items: center;
-
-//   @media screen and (min-width:750px) {
-//     gap: 2rem;
-//   }
-// }
 
 .createListBtn {
   position: fixed;
