@@ -3,24 +3,26 @@ package com.nocountry.recetas.domain.entities.receta;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.nocountry.recetas.domain.entities.categoria.Categoria;
 import com.nocountry.recetas.domain.entities.ingredientes.Ingrediente;
+import com.nocountry.recetas.domain.entities.repositorio.Repositorio;
+import com.nocountry.recetas.domain.entities.usr.Usr;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
-
 
 @Entity
 @Table(name = "recetas")
 @Data
 public class Receta {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
-    private String procedimientos;
-    private boolean visible;
-    private int likes;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+        private String nombre;
+        private String procedimientos;
+        private boolean visible;
+        private int likes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", nullable = false)
