@@ -18,7 +18,7 @@ public class CreateHistorialSupplier implements Function<Historial, Optional<His
 
     @Override
     public Optional<HistorialResponse> apply(Historial historial) {
-        HistorialMapper.createHistorial(historial);
+        historialMapper.createHistorial(historial);
         return Optional.of(HistorialResponse
                 .builder()
                 .receta(historial.getReceta())
