@@ -31,10 +31,10 @@ public class HistorialController {
                         .receta(historialRequest.getReceta())
                         .build()
         );
-        if(historialResponse.getReceta().isEmpty()){
+        if(historialResponse.getReceta()==null){
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok().body(historialResponse.getReceta());
+        return ResponseEntity.ok().body(historialResponse.getReceta().getNombre());
     }
 
     @DeleteMapping("/delete-historial")
