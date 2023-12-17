@@ -12,9 +12,9 @@ public class ControllerExeption {
     @ExceptionHandler(value = Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorAdvice exception(Exception ex) {
-        log.error(":::: Error -  : {} ::::", ex);
+        log.error(":::: Error -  : {} ::::", ex.getMessage());
         return ErrorAdvice.builder()
-                .message(String.valueOf(ex))
+                .message(ex.getMessage())
                 .build();
     }
 }
