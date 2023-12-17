@@ -24,7 +24,7 @@ public interface RepositoryMapper {
   @Results( {
           //descomentar cuando importes el metodo get de usuarios del mapper que tiene alejandro
           @Result( column = "usuario_id", property = "usuario", javaType = Usr.class, one = @One(select = "com.nocountry.recetas.persistence.usr.UsrMapper.findByIdUsr")),
-          @Result( column = "receta_id", property = "receta", javaType = Receta.class, one = @One(select = "com.nocountry.recetas.persistence.receta.RecetaMapper.findById"))
+          @Result( column = "receta_id", property = "receta", javaType = Receta.class, one = @One(select = "com.nocountry.recetas.persistence.receta.RecetaMapper.getRecetaById"))
   })
   List<Repositorio> getRepositorysMapper();
 

@@ -1,24 +1,17 @@
 package com.nocountry.recetas.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.nocountry.recetas.domain.request.RepositorioRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.nocountry.recetas.domain.entities.categoria.Categoria;
-import com.nocountry.recetas.domain.entities.repositorio.Repositorio;
-import com.nocountry.recetas.domain.response.CategoriaResponse;
 import com.nocountry.recetas.domain.response.RepositorioResponse;
 import com.nocountry.recetas.infra.exeption.ErrorAdvice;
-import com.nocountry.recetas.persistence.categoria.CategoriaSupplier;
 import com.nocountry.recetas.persistence.repository.CreateRepositorySupplier;
 import com.nocountry.recetas.persistence.repository.DeleteRepositorySupplier;
 import com.nocountry.recetas.persistence.repository.ListRepositorySupplier;
-
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 
 

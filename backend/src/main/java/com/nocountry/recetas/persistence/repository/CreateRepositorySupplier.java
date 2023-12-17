@@ -44,7 +44,7 @@ public class CreateRepositorySupplier implements Function<RepositorioRequest, Op
         BigInteger repositorioIdBigInteger = (BigInteger) params.get("id");
         Long repositorioId = repositorioIdBigInteger.longValue();
         
-        Receta receta=  recetaMapper.findById(repositorioRequest.getReceta());
+        Receta receta=  recetaMapper.getRecetaById(repositorioRequest.getReceta());
         Usr usr= usrMapper.findByIdUsr(repositorioRequest.getUsuario());
         
         
