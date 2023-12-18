@@ -1,93 +1,123 @@
 /* Importación de la configuración de los estilos */
 @import "/src/app/stylesConfig/stylesConfig.scss";
 
-/* Tomé algunos estilos de app-create-list los modifiqué en este archivo */
 :host {
   display: block;
   flex-grow: 2;
+  min-width: 100vh;
+  background: linear-gradient(to top, white 70%, transparent 50%),
+    linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
+    url("../../../assets/recipe-1ok.png");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+.itemIngredient {
+  list-style: none;
+}
+
+.listaIngredientes,
+.listaPreparacion {
+  margin-top: 2rem;
+}
+
+.btnDelete {
+  all: initial;
+  border-radius: 50%;
+  img {
+    display: block;
+  }
+  cursor: pointer;
+  @include transitionFast;
+  &:hover {
+    box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
 }
 
 .section {
   padding: 7rem 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* formulario para crear recetas */
 .form {
-  background-color: $colBg;
-  padding: 2rem 0.25rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  color: $colBlack;
+  background-color: transparent;
 
   /* titulo de formulari */
   h2 {
     font-size: 1.5rem;
     margin-bottom: 4rem;
+    color: $colWhite;
 
     @media screen and (min-width: 1000px) {
-      font-size: 2rem;
+      font-size: 3rem;
     }
+  }
+  .primerosCampos,
+  .camposIngredientes,
+  .camposPreparacion {
+    background-color: $colWhite;
+    position: relative;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
   }
 }
 
-/* estilos de cada campo */
+.etiqueta-esquina {
+  position: absolute;
+  background-color: $colPrime;
+  color: $colWhite;
+  top: 0;
+  left: 0;
+  border: 2px 0 1px;
+  padding: 1.5rem 2.5rem;
+  border-bottom-right-radius: 38px;
+}
+
+/* los campos con el nuevo estilo */
 .field {
   display: flex;
   flex-direction: column;
-  position: relative;
-  border: 2px solid black;
-  border-radius: 0.5rem;
-  background-color: white;
-  margin-bottom: 1rem;
-  transition: border 0.3s ease-in-out;
+  gap: 10px;
+}
 
-  &:focus-within {
-    border: solid $colPrime 2px;
-  }
+/* agrego estos estilos nuevos */
+input,
+textarea,
+button,
+.select-con-borde {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: transparent;
+}
 
-  /* etiquetas de los campos */
-  .label {
-    position: absolute;
-    top: 0px;
-    left: 1rem;
-    transform: translateY(-50%);
-    background-color: white;
-    padding-inline: 0.25rem;
-    border-radius: 0.2rem;
-  }
+label {
+  color: $colPrime;
+  margin-top: 1rem;
+}
 
-  /* estilos de los inputs (ingreso de texto) */
-  .input {
-    border-radius: 0.5rem;
-    border: none;
-    outline: none;
-    padding-block: 0.75rem;
-    padding-left: 0.5rem;
-    @include transitionFast;
+label:not(:first-child) {
+  width: 50%;
+  flex-wrap: wrap;
+}
 
-    /*-------------------------borrando estilos del autocompletado */
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-webkit-autofill:active {
-      -webkit-box-shadow: 0 0 0 30px white inset !important;
-      /* Ajusta el color de fondo según tus necesidades */
-      -webkit-text-fill-color: inherit !important;
-      caret-color: $colThird;
-    }
-  }
+.nombrereceta,
+.ingredientes,
+.preparacion {
+  margin-top: 3rem;
+}
 
-  /* estilo del textarea */
-  textarea {
-    border: none;
-    resize: none;
-    border-radius: 0.5rem;
-    height: 100px;
-    width: 100%;
-    padding-block: 0.75rem;
-    padding-left: 0.5rem;
-    outline: none;
-  }
+button {
+  color: $colPrime;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 90px;
 }
 
 /* boton crear receta (boton flotante en pantallas pequeñas) */
@@ -101,22 +131,13 @@
 
 /* div que contiene el boton de crear receta */
 .btnCrearReceta {
-  border-radius: 50%;
-  width: auto;
-  min-height: 90px;
-}
-
-/* estilos de los botones */
-button {
-  background-color: $colFourth;
+  background-color: $colPrime;
   color: $colWhite;
   box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
   border: none;
-  padding: 10px 20px;
-  margin-bottom: 1rem;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50%;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 button:hover {
@@ -127,14 +148,17 @@ button:focus {
   outline: none;
 }
 
-h4 {
+h2 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  text-align: center;
   font-size: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-
+ul {
+  list-style-image: none;
+}
 li {
   display: flex;
   justify-content: space-between;
@@ -149,24 +173,23 @@ li {
   align-items: center;
 }
 
-.btnBorrar-x {
-  width: 1em;
-  height: 1em;
-  margin-right: 20px;
-  background-color: $colWhite;
-  flex-grow: 1;
-  box-shadow: none;
-  border-radius: 100%;
-  padding: 0;
-}
-
 .procedimiento {
   text-align: justify;
 }
 
-/* ************************************************************************************************* */
-/* ************************************* MEDIA QUERY *********************************************** */
-/* ************************************************************************************************* */
+/* ************************************* MEDIA QUERY ********************************************* */
+
+@media screen and (min-width: 990px) {
+  input,
+  textarea,
+  .select-con-borde {
+    width: auto;
+  }
+  .btnCrearReceta {
+    height: 170px;
+    width: 130px;
+  }
+}
 @media screen and (min-width: 650px) {
   :host {
     padding: 2rem 10vw;
@@ -187,34 +210,20 @@ li {
     flex-grow: 2;
   }
 
-  /* estilos del boton crear receta */
-  .boton-flotante {
-    flex-grow: 1;
-    position: static;
-    bottom: 0;
-    right: 0;
-    z-index: 0 !important;
-
-    /* en pantallas grandes, el boton flotante se coloca junto a los campos de receta */
-    .btnCrearReceta {
-      border-radius: 5%;
-      padding: 50px;
-      font-size: 1.5rem;
-    }
+  /* en pantallas grandes, el boton flotante se coloca junto a los campos de receta */
+  .btnCrearReceta {
+    min-height: 170px;
+    width: 180px;
+    font-size: 1.5rem;
   }
 
   /* coloca estos campos uno al lado del otro cuando es pantalla grande*/
-  .nombreycategoria,
   .porcionesycoccion {
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
+    flex-wrap: wrap;
   }
-
-  .nombrereceta {
-    flex-grow: 1;
-  }
-
   .categoria {
     flex-grow: 1;
   }
@@ -228,25 +237,20 @@ li {
   }
 
   /* estilos para que ambos formularios se ubique uno al lado del otro */
-  .ingredientesypreparacion {
+  .camposIngredientes {
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
-    width: 100%;
   }
 
-  .camposIngredientes {
+  .ingredientesycantidad {
     flex-grow: 1;
-
-    .ingredientes,
-    .cantidad {
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
   }
 
-  .camposPreparacion {
-    flex-grow: 2;
+  .listaIngredientes {
+    flex-grow: 1;
   }
-
+  .listaPreparacion {
+    margin-top: 1rem;
+  }
 }
