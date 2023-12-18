@@ -24,8 +24,8 @@ public class GetHistorialSupplier implements Supplier<Optional<List<HistorialRes
         if(!CollectionUtils.isEmpty(historial)){
             List<HistorialResponse> historialResponses = historial.stream()
                     .map(historial2 -> HistorialResponse.
-                            builder().
-                            receta(historial2.getReceta())
+                            builder()
+                          //  receta(historial2.getReceta())
                             .build())
                     .toList();
             return Optional.of(historialResponses);

@@ -9,7 +9,7 @@ import lombok.Data;
 import java.util.List;
 
 
-@Entity
+@Entity(name = "Receta")
 @Table(name = "recetas")
 @Data
 public class Receta {
@@ -24,7 +24,7 @@ public class Receta {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", nullable = false)
-    @JsonBackReference
+    //@JsonBackReference
     private Categoria categoria;
 
     @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

@@ -21,7 +21,7 @@ public class CreateHistorialSupplier implements Function<Historial, Optional<His
         historialMapper.createHistorial(historial);
         return Optional.of(HistorialResponse
                 .builder()
-                .receta(historial.getReceta())
+                //.receta(historial.getReceta())
                 .build());
     }
 

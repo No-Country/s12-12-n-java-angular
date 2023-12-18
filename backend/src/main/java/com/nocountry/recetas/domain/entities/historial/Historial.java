@@ -19,10 +19,6 @@ public class Historial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Receta receta;
-
-
-    public Receta getReceta() {
-        return receta;
-    }
+   /* @Column(name = "receta")
+    private Receta receta;*/
 }

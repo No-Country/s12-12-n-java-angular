@@ -28,7 +28,7 @@ public class HistorialController {
         HistorialResponse historialResponse= historialService.createHistorial(
                 Historial
                         .builder()
-                        .receta(historialRequest.getReceta())
+                        //.receta(historialRequest.getReceta())
                         .build()
         );
         if(historialResponse.getReceta()==null){
