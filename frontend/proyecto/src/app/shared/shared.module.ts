@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ShortenStringPipe } from '../layout/pipes/shorten-string.pipe';
 import { SharedDividerComponent } from './shared-divider/shared-divider.component';
+import { SearchPipe } from '../layout/pipes/search.pipe';
 
 
 @NgModule({
   declarations: [
     SearchBoxComponent,
     ShortenStringPipe,
-    SharedDividerComponent
+    SharedDividerComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { SharedDividerComponent } from './shared-divider/shared-divider.componen
   exports: [
     SearchBoxComponent,
     ShortenStringPipe,
-    SharedDividerComponent
+    SharedDividerComponent,
+    SearchPipe
   ]
 })
 export class SharedModule { }

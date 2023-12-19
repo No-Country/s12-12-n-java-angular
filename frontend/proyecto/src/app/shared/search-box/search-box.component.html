@@ -1,19 +1,40 @@
-<div class="container">
+<div class="container" *ngIf="categories.length !==0, else loader">
   <form class="form" (ngSubmit)="onSubmit()">
     <div class="form__box">
-      <input name="fieldSearch" [(ngModel)]="fieldSearch" type="text" class="form__box--input"
-        placeholder="¿Que estas buscando? ">
+      <input
+      name="fieldSearch"
+      [(ngModel)]="fieldSearch"
+      type="text"
+      class="form__box--input"
+      placeholder="¿Que estas buscando?"
+      (input)="emit()"
+      >
       <button type="submit" class="form__box--btn">
         <img src="assets/search-icon.svg" alt="search-icon">
       </button>
     </div>
-    <select class="form__box--input" name="selectedCategory" [(ngModel)]="selectedCategory">
-      <option value="categoria" selected>Selecciona una categoria</option>
-      <option *ngFor="let category of categories">{{category}}</option>
+    <select
+    class="form__box--input"
+    name="selectedCategory"
+    [(ngModel)]="selectedCategory"
+    (ngModelChange)="emit()"
+    >
+      <option
+       value="categoria"
+       selected>Selecciona una categoria</option>
+      <option
+      [value]="category.nombre"
+      *ngFor="let category of categories"
+      >{{category.nombre}}</option>
     </select>
-    <a class="form__redirect" [routerLink]="[redirectTo()]">{{btnRedirection}}</a>
+    <a class="form__redirect"
+    [routerLink]="[redirectTo()]"
+    >{{btnRedirection}}</a>
   </form>
   <div class="search">
     <p class="search__results">Tienes {{sizeRecipes}} recetas para encontrar</p>
   </div>
 </div>
+<ng-template #loader>
+  <p>.....aqui ira el loader</p>
+</ng-template>
