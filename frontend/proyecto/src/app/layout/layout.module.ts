@@ -7,7 +7,7 @@ import { LayoutComponent } from './layout.component';
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     CommonModule,

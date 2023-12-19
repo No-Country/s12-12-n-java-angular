@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IrecipeResponse } from 'src/app/interfaces/receta.interface';
 
 @Component({
   selector: 'app-recipe-mini-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipe-mini-card.component.scss']
 })
 export class RecipeMiniCardComponent {
-
+  @Input() miniRecipeData!:IrecipeResponse;
 }

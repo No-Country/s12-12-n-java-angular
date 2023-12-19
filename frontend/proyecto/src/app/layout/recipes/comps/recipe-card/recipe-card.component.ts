@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { IrecipeResponse } from 'src/app/interfaces/receta.interface';
 
 @Component({
   selector: 'app-recipe-card',
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./recipe-card.component.scss']
 })
 export class RecipeCardComponent {
+  @Input() data!:IrecipeResponse;
   constructor(
     private router: Router
   ) { }

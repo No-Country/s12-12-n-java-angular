@@ -1,27 +1,17 @@
-<section class="section">
-  <app-search-box [btnRedirection]="'Mis recetas'"></app-search-box>
+<section class="section"
+*ngIf="recipes.length !== 0, else loader">
+  <app-search-box
+  [btnRedirection]="'Mis recetas'"
+  (sendFilteredData)="receiveFilters($event)"
+  ></app-search-box>
   <div class="recipe container">
     <article class="recipe__content">
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
-      <app-recipe-card></app-recipe-card>
+      <app-recipe-card
+      *ngFor="let recipe of recipes
+      | search:filters.searchText:filters.category"
+      [data]="recipe"
+
+      ></app-recipe-card>
     </article>
     <aside class="recipe__aside">
       <div class="recipe__aside--content">
@@ -29,11 +19,10 @@
           <h4>Mas seguidos</h4>
         </div>
         <div class="recipe__aside--content__body">
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
+          <app-recipe-mini-card
+          *ngFor="let recipeMost of recipeMostLike"
+          [miniRecipeData]="recipeMost"
+          ></app-recipe-mini-card>
         </div>
       </div>
       <div class="recipe__aside--content">
@@ -41,13 +30,15 @@
           <h4>Recomendaciones</h4>
         </div>
         <div class="recipe__aside--content__body">
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
-          <app-recipe-mini-card></app-recipe-mini-card>
+          <app-recipe-mini-card
+          *ngFor="let recipeRandom of randomRecipes"
+          [miniRecipeData]="recipeRandom"
+          ></app-recipe-mini-card>
         </div>
       </div>
     </aside>
   </div>
 </section>
+<ng-template #loader>
+  <p>.......................Aqui deberia estar el loader</p>
+</ng-template>
