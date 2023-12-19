@@ -1,17 +1,13 @@
-<!-- <img
-  src="assets/recipe-1.png" class="imagen"
-  alt="Descripción de la imagen"
-/> -->
 <section class="section">
   <form class="form" [formGroup]="crearRecetaForm" (ngSubmit)="crearReceta()">
     <h2>Crea tu receta</h2>
     <div class="primerosCampos">
-      <span class="etiqueta-esquina">Informacion</span>
+      <span class="etiqueta-esquina">Información</span>
       <div class="camposReceta">
         <div class="nombreycategoria">
           <div class="field nombrereceta">
             <label class="label" for="nombreReceta">
-              <img src="../../../assets/icons/cup.svg"> Título de la receta</label>
+              <img src="assets/icons/cup.svg"> Título de la receta</label>
             <input
               class="input"
               id="nombreReceta"
@@ -25,7 +21,7 @@
         </div>
         <div class="field">
           <label class="label" for="urlImgReceta"
-            ><img src="../../../assets/icons/picture.svg"> Link de la imagen de la receta</label
+            ><img src="assets/icons/picture.svg"> Link de la imagen de la receta</label
           >
           <input
             class="input"
@@ -38,7 +34,7 @@
         </div>
         <div class="porcionesycoccion">
           <div class="field porciones">
-            <label class="label" for="porcionesReceta"><img src="../../../assets/icons/cookie.svg"> Porciones</label>
+            <label class="label" for="porcionesReceta"><img src="assets/icons/cookie.svg"> Porciones</label>
             <input
               class="input"
               id="porcionesReceta"

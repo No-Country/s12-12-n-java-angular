@@ -91,10 +91,16 @@ input,
 textarea,
 button,
 .select-con-borde {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   background-color: transparent;
+}
+
+input{
+  transition: border 0.3s ease-in-out;
+  &:focus-within {
+    border: solid $colPrime 2px;}
 }
 
 label {
