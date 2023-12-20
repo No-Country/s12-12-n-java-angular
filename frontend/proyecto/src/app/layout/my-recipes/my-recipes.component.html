@@ -1,14 +1,19 @@
-<section class="section">
-    <app-search-box [btnRedirection]="'crear receta'"></app-search-box>
+<section
+class="section"
+*ngIf="myRecipes.length !==0, else loader"
+>
+    <app-search-box
+    [btnRedirection]="'crear receta'"
+    (sendFilteredData)="receiveFilters($event)"
+    [sizeRecipes]="myRecipes.length"
+    ></app-search-box>
     <div class="recipe container">
         <article class="recipe__wrap">
-            <app-my-recipe-card></app-my-recipe-card>
-            <app-my-recipe-card></app-my-recipe-card>
-            <app-my-recipe-card></app-my-recipe-card>
-            <app-my-recipe-card></app-my-recipe-card>
-            <app-my-recipe-card></app-my-recipe-card>
-            <app-my-recipe-card></app-my-recipe-card>
-            <app-my-recipe-card></app-my-recipe-card>
+            <app-my-recipe-card
+            *ngFor="let recipe of myRecipes | searchMyRecipe:filters.searchText:filters.category"
+            [data]="recipe"
+            (emitRecipe)="receiveRecipes($event)"
+            ></app-my-recipe-card>
         </article>
         <button type="button" (click)="createList()" class="createListBtn">
             <img src="assets/list-icon.svg" alt="list-icon">
@@ -16,3 +21,6 @@
         </button>
     </div>
 </section>
+<ng-template #loader>
+  <p>---loader</p>
+</ng-template>

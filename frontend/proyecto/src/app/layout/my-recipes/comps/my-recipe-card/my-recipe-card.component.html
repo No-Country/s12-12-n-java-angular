@@ -6,7 +6,7 @@
   />
   <div class="card__body">
     <div class="card__body--title">
-      <h4>Name of dishes</h4>
+      <h4>{{data.receta.nombre}}</h4>
       <div class="card__body--quantity">
         <div clasS="card__body--quantity__content">
           <button type="button" class="card__body--quantity__btn">
@@ -16,7 +16,7 @@
               class="card__body--quantity__actions"
             />
           </button>
-          <span>289</span>
+          <span>{{data.receta.likes}}</span>
         </div>
         <div class="dropdown">
           <button
@@ -35,7 +35,9 @@
             [ngClass]="showDropdown ? 'dropdown__active' : ''"
           >
             <li class="dropdown__menu--item">
-              <a class="dropdown__menu--items dropdown__button--item">
+              <a
+              (click)="deleteRecipe(data.id)"
+              class="dropdown__menu--items dropdown__button--item">
                 Eliminar
               </a>
             </li>
@@ -55,14 +57,14 @@
     <div class="card__body--user">
       <div class="card__body--user__info">
         <img src="/assets/icons/avatar.svg" alt="user" />
-        <span>Juan delgadillo</span>
+        <span>{{data.usuario.nombre}}</span>
       </div>
       <button type="button" class="card__body--btn" (click)="toDetail()">
         Preparación
       </button>
     </div>
   </div>
-  <div (click)="isCheck = !isCheck" class="card__check">
+  <div (click)="sendRecipe()" class="card__check">
     <img [src]="isCheck?'assets/checked.svg':'assets/uncheck.svg'" alt="check-icon">
   </div>
 </div>
