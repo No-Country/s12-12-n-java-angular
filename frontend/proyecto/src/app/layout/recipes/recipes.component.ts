@@ -16,6 +16,7 @@ export class RecipesComponent {
     category:"",
     searchText:""
   };
+
   constructor(
     private recipeServ:RecipeService
   ){}

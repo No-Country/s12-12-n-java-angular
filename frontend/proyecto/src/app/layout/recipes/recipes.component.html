@@ -3,6 +3,7 @@
   <app-search-box
   [btnRedirection]="'Mis recetas'"
   (sendFilteredData)="receiveFilters($event)"
+  [sizeRecipes]="recipes.length"
   ></app-search-box>
   <div class="recipe container">
     <article class="recipe__content">
