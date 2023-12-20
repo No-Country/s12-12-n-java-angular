@@ -13,12 +13,26 @@
               id="nombreReceta"
               name="nombreReceta"
               type="text"
-              formControlName="nombreReceta"
+              formControlName="nombre"
               placeholder="Ingresa el título de la receta"
             />
           </div>
 
         </div>
+
+        <div class="field">
+          <label class="label" for="visible"
+          ><img src="assets/icons/picture.svg"> Visible</label
+        >
+        <input
+          class="checkbox"
+          id="visible"
+          name="visible"
+          type="checkbox"
+          formControlName="visible"
+
+        />
+      </div>
         <div class="field">
           <label class="label" for="urlImgReceta"
             ><img src="assets/icons/picture.svg"> Link de la imagen de la receta</label
@@ -60,8 +74,8 @@
             <select id="categoriaReceta"
             name="categoriaReceta"
             type="text"
-            formControlName="categoriaReceta" class="select-con-borde">
-            <option value="categoria" selected>Selecciona una categoria</option>
+            formControlName="categoria" class="select-con-borde">
+            <option value="8" selected>Selecciona una categoria</option>
             <option *ngFor="let category of categories">{{category}}</option>
             </select>
 
@@ -69,8 +83,8 @@
         </div>
       </div>
       <!-- Botón para crear nueva receta con evento click crearReceta()-->
-      <div class="boton-flotante" (click)="crearReceta()">
-        <button class="btnCrearReceta">CREAR</button>
+      <div class="boton-flotante">
+        <button class="btnCrearReceta" type="submit" (click)="crearReceta()">CREAR</button>
       </div>
     </div>
     <!-- Ingredientes y procedimentos de la preparacion -->
@@ -181,7 +195,7 @@
             id="preparacionReceta"
             name="preparacionReceta"
             type="text"
-            formControlName="preparacionReceta"
+            formControlName="procedimientos"
             cols="50" rows="4"
             placeholder="Ingresa el procedimiento"
           ></textarea>
