@@ -6,3 +6,6 @@ export interface IRepositoryRes {
   usuario: IUser;
   receta: IrecipeResponse;
 }
+export interface IRepositoryEmit extends IRepositoryRes{
+  actions:string
+}

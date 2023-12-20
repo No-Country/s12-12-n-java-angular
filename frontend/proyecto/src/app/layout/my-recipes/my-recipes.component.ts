@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IRepositoryRes } from 'src/app/interfaces/repository.interface';
+import { IRepositoryEmit, IRepositoryRes } from 'src/app/interfaces/repository.interface';
 import { IFilterSearch } from 'src/app/interfaces/searchFilter.interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
@@ -11,6 +11,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class MyRecipesComponent {
    myRecipes:IRepositoryRes[] = [];
+   selectedRecipes:IRepositoryRes[]=[]
    filters:IFilterSearch={
     category:"",
     searchText:""
@@ -35,4 +36,13 @@ export class MyRecipesComponent {
     this.filters = filters;
     console.log(filters)
   }
+  receiveRecipes(data:IRepositoryEmit){
+    if(data.actions === "add"){
+      this.selectedRecipes.push(data);
+    }
+    else{
+      this.selectedRecipes = this.selectedRecipes.filter(item=>item.id !== data.id)
+    }
+  }
+
 }

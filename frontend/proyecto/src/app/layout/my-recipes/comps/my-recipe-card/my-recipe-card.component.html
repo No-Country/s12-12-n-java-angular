@@ -35,7 +35,9 @@
             [ngClass]="showDropdown ? 'dropdown__active' : ''"
           >
             <li class="dropdown__menu--item">
-              <a class="dropdown__menu--items dropdown__button--item">
+              <a
+              (click)="deleteRecipe(data.id)"
+              class="dropdown__menu--items dropdown__button--item">
                 Eliminar
               </a>
             </li>
@@ -62,7 +64,7 @@
       </button>
     </div>
   </div>
-  <div (click)="isCheck = !isCheck" class="card__check">
+  <div (click)="sendRecipe()" class="card__check">
     <img [src]="isCheck?'assets/checked.svg':'assets/uncheck.svg'" alt="check-icon">
   </div>
 </div>

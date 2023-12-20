@@ -12,6 +12,7 @@ class="section"
             <app-my-recipe-card
             *ngFor="let recipe of myRecipes | searchMyRecipe:filters.searchText:filters.category"
             [data]="recipe"
+            (emitRecipe)="receiveRecipes($event)"
             ></app-my-recipe-card>
         </article>
         <button type="button" (click)="createList()" class="createListBtn">

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ENVIROMENT } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IrecipeResponse } from '../interfaces/receta.interface';
 import { IcategoryRes } from '../interfaces/category.interface';
 import { IRepositoryRes } from '../interfaces/repository.interface';
@@ -24,5 +24,12 @@ export class RecipeService {
 
   getAllRecipesById(){
     return this.http.get<IRepositoryRes[]>(this.APIREPOSITORY+"/list")
+  }
+
+  deleteRecipeById(id:number){
+    return this.http.delete(this.APIREPOSITORY+"/delete?id="+id)
+  }
+  updateRecipeById(){
+
   }
 }
