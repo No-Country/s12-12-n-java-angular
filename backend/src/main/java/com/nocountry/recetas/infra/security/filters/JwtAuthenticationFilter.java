@@ -1,10 +1,18 @@
-package com.purcocktel.webapp.security.filtros;
+package com.nocountry.recetas.infra.security.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.purcocktel.webapp.models.dto.LoginDto;
-import com.purcocktel.webapp.models.entities.Usuario;
-import com.purcocktel.webapp.security.utils.JwtUtil;
-import com.purcocktel.webapp.services.IUsuarioService;
+import com.nocountry.recetas.domain.entities.usr.Usr;
+import com.nocountry.recetas.domain.request.LoginDTO;
+import com.nocountry.recetas.infra.security.utils.JwtUtil;
+import com.nocountry.recetas.service.UsrService;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,40 +22,32 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
+@RequiredArgsConstructor
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final JwtUtil jwtUtil;
-
-    private final IUsuarioService iUsuarioService;
-
-    public JwtAuthenticationFilter(JwtUtil jwtUtil, IUsuarioService iUsuarioService) {
-        this.jwtUtil = jwtUtil;
-        this.iUsuarioService = iUsuarioService;
-    }
+    private final UsrService usrService;
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
         HttpServletResponse response) throws AuthenticationException {
-        LoginDto userAuth;
+
+        LoginDTO userAuth = null;
+        String username;
+        String password;
 
         try {
             //Receptor de datos de login y mapeo
-            userAuth = new ObjectMapper().readValue(request.getInputStream(), LoginDto.class);
+            userAuth = new ObjectMapper().readValue(request.getInputStream(), LoginDTO.class);
+            username = userAuth.getEmail();
+            password = userAuth.getPassword();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-            userAuth.getEmail(), userAuth.getPasswd());
+            username, password);
 
         return getAuthenticationManager().authenticate(authenticationToken);
     }
@@ -56,11 +56,14 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request,
         HttpServletResponse response, FilterChain chain, Authentication authResult)
         throws IOException, ServletException {
+
         User user = (User) authResult.getPrincipal();
 
-        Usuario userEntity = iUsuarioService.obtenerUsuarioPorEmailSvc(user.getUsername())
-            .orElseThrow(
-                () -> new UsernameNotFoundException("not found user: " + user.getUsername()));
+        Usr userEntity = usrService.findByEmail(user.getUsername());
+
+        if (userEntity == null) {
+            throw new UsernameNotFoundException("not found user: " + user.getUsername());
+        }
 
         String token = jwtUtil.tokenGeneration(userEntity);
 
@@ -69,8 +72,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         Map<String, Object> httpResponse = new HashMap<>();
         httpResponse.put("token", token);
-        httpResponse.put("Message", "Autenticacion Correcta");
-        httpResponse.put("Username", user.getUsername());
+        httpResponse.put("message", "Autenticación Correcta");
+        httpResponse.put("username", user.getUsername());
         httpResponse.put("id", userEntity.getId());
 
         response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));

@@ -1,5 +1,6 @@
 package com.nocountry.recetas.persistence.usr;
 
+import com.nocountry.recetas.domain.entities.usr.Usr;
 import com.nocountry.recetas.domain.request.UsrRequest;
 import com.nocountry.recetas.domain.response.UsrResponse;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class UsrSupplier {
         return mapper.findById(id);
     }
 
-    public UsrResponse findByEmail(String email) {
+    public Usr findByEmail(String email) {
         return mapper.findByEmail(email);
     }
 

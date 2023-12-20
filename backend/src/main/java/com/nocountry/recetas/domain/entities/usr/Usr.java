@@ -1,6 +1,7 @@
 package com.nocountry.recetas.domain.entities.usr;
 
 import com.nocountry.recetas.domain.entities.historial.Historial;
+import com.nocountry.recetas.domain.entities.role.ERole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,4 +31,6 @@ public class Usr implements Serializable {
     @ManyToOne
     @JoinColumn(name = "historial_id")
     private Historial historial;
+
+    private ERole roles;
 }

@@ -1,10 +1,11 @@
-package com.purcocktel.webapp.security.services;
+package com.nocountry.recetas.infra.security.service;
 
-import com.nocountry.recetas.domain.response.UsrResponse;
+import com.nocountry.recetas.domain.entities.usr.Usr;
 import com.nocountry.recetas.service.UsrService;
 import java.util.Collection;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -13,23 +14,27 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
-public class UserDetailsServiceImplementation implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
-    UsrService usrService;
+    private final UsrService usrService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        UsrResponse user = usrService.findByEmail(email);
-        if (user == null) {
+
+        Usr userEntity = usrService.findByEmail(email);
+
+        if (userEntity == null) {
             throw new UsernameNotFoundException("not found user: " + email);
         }
-        Collection<? extends GrantedAuthority> authorities = List.of(
-            new SimpleGrantedAuthority("ROLE_" + userEntity.getRol().name()));
 
-        return new User(userEntity.getEmail(),
-            userEntity.getPasswd(),
+        Collection<? extends GrantedAuthority> authorities = List.of(
+            new SimpleGrantedAuthority("ROLE_USER"));
+
+        return new User(
+            userEntity.getEmail(),
+            userEntity.getPassword(),
             true,
             true,
             true,

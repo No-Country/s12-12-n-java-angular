@@ -1,5 +1,6 @@
 package com.nocountry.recetas.persistence.usr;
 
+import com.nocountry.recetas.domain.entities.usr.Usr;
 import com.nocountry.recetas.domain.response.UsrResponse;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public interface UsrMapper {
     UsrResponse findById(@Param("id") Long id);
 
     @Select("SELECT * FROM usuarios WHERE email = #{email}")
-    UsrResponse findByEmail(@Param("email") String email);
+    Usr findByEmail(@Param("email") String email);
 
     @Insert("INSERT INTO usuarios(nombre, email, password) VALUES(#{nombre}, #{email}, #{password})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")

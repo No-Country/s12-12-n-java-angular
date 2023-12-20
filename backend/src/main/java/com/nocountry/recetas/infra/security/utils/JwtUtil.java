@@ -1,32 +1,30 @@
-package com.purcocktel.webapp.security.utils;
+package com.nocountry.recetas.infra.security.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.purcocktel.webapp.models.entities.Usuario;
-
-import lombok.Value;
-import org.springframework.stereotype.Component;
+import com.nocountry.recetas.domain.entities.usr.Usr;
 import java.time.Duration;
 import java.time.Instant;
+import org.springframework.stereotype.Component;
 
 @Component
 public class JwtUtil {
 
 
     //@Value("${com.purcocktel.webapp.api.key}")
-    private final String secretKey="dkshlskajfopewirnj152kldjafslñkfjañiewlruoñajerflkasndflnrl8y";
+    private final String secretKey = "dkshlskajfopewirnj152kldjafslñkfjañiewlruoñajerflkasndflnrl8y";
 
-    public String tokenGeneration(Usuario userEntity) {
+    public String tokenGeneration(Usr userEntity) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secretKey);
             return JWT.create()
-                    .withSubject(userEntity.getEmail())
-                    .withClaim("id", userEntity.getId())
-                    .withExpiresAt(dueDateToken())
-                    .sign(algorithm);
+                .withSubject(userEntity.getEmail())
+                .withClaim("id", userEntity.getId())
+                .withExpiresAt(dueDateToken())
+                .sign(algorithm);
         } catch (JWTCreationException exception) {
             throw new RuntimeException();
         }
@@ -39,8 +37,8 @@ public class JwtUtil {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secretKey); // validando firma
             verifier = JWT.require(algorithm)
-                    .build()
-                    .verify(token);
+                .build()
+                .verify(token);
 
         } catch (JWTVerificationException exception) {
             System.out.println(exception.toString());
@@ -60,8 +58,8 @@ public class JwtUtil {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secretKey); // validando firma
             verifier = JWT.require(algorithm)
-                    .build()
-                    .verify(token);
+                .build()
+                .verify(token);
             verifier.getSubject();
         } catch (JWTVerificationException exception) {
             System.out.println(exception.toString());
@@ -76,7 +74,7 @@ public class JwtUtil {
 
 
     private Instant dueDateToken() {
-             return Instant.now().plus(Duration.ofHours(2));
+        return Instant.now().plus(Duration.ofHours(2));
     }
 
     private void notNullToken(String token) {

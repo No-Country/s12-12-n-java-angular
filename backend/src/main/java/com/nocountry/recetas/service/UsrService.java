@@ -1,5 +1,6 @@
 package com.nocountry.recetas.service;
 
+import com.nocountry.recetas.domain.entities.usr.Usr;
 import com.nocountry.recetas.domain.request.UsrRequest;
 import com.nocountry.recetas.domain.response.UsrResponse;
 import com.nocountry.recetas.persistence.usr.UsrSupplier;
@@ -21,7 +22,7 @@ public class UsrService {
         return supplier.findById(id);
     }
 
-    public UsrResponse findByEmail(String email) {
+    public Usr findByEmail(String email) {
         return supplier.findByEmail(email);
     }
 
