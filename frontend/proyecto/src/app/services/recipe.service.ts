@@ -3,6 +3,7 @@ import { ENVIROMENT } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { IrecipeResponse } from '../interfaces/receta.interface';
 import { IcategoryRes } from '../interfaces/category.interface';
+import { IRepositoryRes } from '../interfaces/repository.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { IcategoryRes } from '../interfaces/category.interface';
 export class RecipeService {
   private readonly APIRECIPE = ENVIROMENT.apiRecipe;
   private readonly APICATEGORY = ENVIROMENT.apiCategory
+  private readonly APIREPOSITORY = ENVIROMENT.apiRepository
   constructor(private http:HttpClient) { }
 
   getAllRecipes(){
@@ -18,5 +20,9 @@ export class RecipeService {
 
   getAllCategories(){
     return this.http.get<IcategoryRes[]>(this.APICATEGORY+"/get-categorias")
+  }
+
+  getAllRecipesById(){
+    return this.http.get<IRepositoryRes[]>(this.APIREPOSITORY+"/list")
   }
 }

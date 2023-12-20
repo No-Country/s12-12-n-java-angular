@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { IRepositoryRes } from 'src/app/interfaces/repository.interface';
 
 @Component({
   selector: 'app-my-recipe-card',
@@ -7,18 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-recipe-card.component.scss']
 })
 export class MyRecipeCardComponent {
-  @Input() recipeCommunity: boolean = true;
+  @Input() data!: IRepositoryRes;
   isCheck = false;
   showDropdown = false;
   constructor(
     private router: Router
   ) { }
+
   toDetail() {
     this.router.navigate(['recipes/recipe-details'])
   }
+
   toEdit() {
     this.router.navigate(['editrecipe'])
   }
+
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
     console.log('showDropdown', this.showDropdown);

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ShortenStringPipe } from '../layout/pipes/shorten-string.pipe';
 import { SharedDividerComponent } from './shared-divider/shared-divider.component';
 import { SearchPipe } from '../layout/pipes/search.pipe';
+import { SearchMyRecipePipe } from '../layout/pipes/search-my-recipe.pipe';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SearchPipe } from '../layout/pipes/search.pipe';
     SearchBoxComponent,
     ShortenStringPipe,
     SharedDividerComponent,
-    SearchPipe
+    SearchPipe,
+    SearchMyRecipePipe
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SearchPipe } from '../layout/pipes/search.pipe';
     SearchBoxComponent,
     ShortenStringPipe,
     SharedDividerComponent,
-    SearchPipe
+    SearchPipe,
+    SearchMyRecipePipe
   ]
 })
 export class SharedModule { }
