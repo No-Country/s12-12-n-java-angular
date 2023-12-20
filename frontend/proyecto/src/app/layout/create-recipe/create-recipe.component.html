@@ -84,9 +84,9 @@
     <!-- Ingredientes y procedimentos de la preparacion -->
     <!-- <div class="ingredientesypreparacion"> -->
       <!-- campos de ingrediente y cantidad -->
-      <div class="camposIngredientes">
+      <div class="camposIngredientes" formArrayName="ingredientes">
         <span class="etiqueta-esquina">Ingredientes</span>
-        <div class="ingredientesycantidad">
+        <div class="ingredientesycantidad"*ngFor="let ingrediente of ingredientesFormArray.controls; let i = index" [formGroupName]="i">
         <!-- campo añadir ingrediente -->
         <div class="field ingredientes">
           <label class="label" for="nuevoIngrediente"><img src="../../../assets/icons/cup.svg"> Nuevo ingrediente</label
@@ -96,7 +96,7 @@
             id="nuevoIngrediente"
             name="nuevoIngrediente"
             type="text"
-            formControlName="nuevoIngrediente"
+            formControlName="nombre"
             placeholder="Ingresa el nuevo ingrediente"
           />
         </div>
@@ -108,17 +108,26 @@
             id="cantidadIngrediente"
             name="cantidadIngrediente"
             type="text"
-            formControlName="cantidadIngrediente"
+            formControlName="cantidad"
             placeholder="Ingresa la cantidad"
           />
         </div>
         <!-- boton de añadir ingrediente y cantidad -->
-        <button>&plus; añadir</button>
+        <button type="submit"(click)="crearIngrediente()">&plus; añadir</button>
 </div>
         <!-- lista de ingredientes -->
         <div class="listaIngredientes">
           <ul>
-            <li>
+            <li  *ngFor="let ingrediente of listaIngredientes">
+              <div class="itemI">
+                <button class="btnDelete">
+                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
+                </button>
+                <span style="margin-left:1rem;"> {{ingrediente.nombre}}</span>
+              </div>
+              <p>{{ingrediente.cantidad}}</p>
+            </li>
+          <!--   <li>
               <div class="itemI">
                 <button class="btnDelete">
                   <img src="assets/icon-delete.svg" alt="icono de borrar" />
@@ -162,16 +171,7 @@
                 <span style="margin-left:1rem;"> Calamar</span>
               </div>
               <p>20gr</p>
-            </li>
-            <li>
-              <div class="itemI">
-                <button class="btnDelete">
-                  <img src="assets/icon-delete.svg" alt="icono de borrar" />
-                </button>
-                <span style="margin-left:1rem;"> Calamar</span>
-              </div>
-              <p>20gr</p>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

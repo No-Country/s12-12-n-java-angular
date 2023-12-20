@@ -14,7 +14,8 @@ export class CreateRecipeComponent {
   crearRecetaForm!: FormGroup;
   categories: string[] = ["Guisos", "Postres", "Ensalada", "Jugos", "Fritura"];
   categoria: string = 'categoria';
-
+ingredientes: any[] = [];
+listaIngredientes: any[] = [];
 
   constructor(private fb: FormBuilder, private recipeServ:RecipeService) { }
 
@@ -28,16 +29,38 @@ export class CreateRecipeComponent {
       urlImgReceta: [''],
       porcionesReceta: [''],
       tiempoCocinado: [''],
-      nuevoIngrediente: [''],
-      cantidadIngrediente: [''],
+      ingredientes: this.fb.array([
+        this.fb.group({
+          nombre: [''],
+          cantidad: [0],
+          tipo_medida: ['']
+        })
+      ]),
+    //  nuevoIngrediente: [''],
+    //  cantidadIngrediente: [''],
       procedimientos: [''],
     });
 
 
   }
+
+  get ingredientesFormArray(): FormArray {
+    return this.crearRecetaForm.get('ingredientes') as FormArray;
+  }
+
   // Metodo para agregar nuevo ingrediente
   crearIngrediente() {
-    console.log('crear ingrediente funcionando');
+ // Accede a los controles del FormArray 'ingredientes'
+ const ingredientesControls = this.ingredientesFormArray.controls;
+
+ // Itera sobre cada control (que es un FormGroup) y obtén sus valores
+ for (let i = 0; i < ingredientesControls.length; i++) {
+  // const nuevoIngrediente = ingredientesControls[i].value;
+   const nuevoIngrediente = ingredientesControls[ingredientesControls.length - 1].value;
+   // Agrega el nuevo ingrediente a la lista de ingredientes
+   this.listaIngredientes.push(nuevoIngrediente);
+ }
+    console.log('nuevoIngrediente');
   }
 
   // Metodo para crear nueva receta
@@ -47,9 +70,11 @@ export class CreateRecipeComponent {
     });
     console.log('Formulario:', this.crearRecetaForm);
     console.log('Valido:', this.crearRecetaForm.valid);
+    console.log(this.ingredientes);
+  //  this.crearRecetaForm.get('ingredientes').setValue(this.ingredientes);
     if (this.crearRecetaForm.valid) {
       const nuevaReceta = this.crearRecetaForm.value;
-
+      nuevaReceta.ingredientes = this.listaIngredientes;
       this.recipeServ.crearNuevaReceta(nuevaReceta).subscribe(
         (response) => {
           console.log('Receta creada con éxito:', response);
