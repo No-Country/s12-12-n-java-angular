@@ -30,7 +30,8 @@ export class MyRecipesComponent {
   }
 
   createList(){
-    this.route.navigate(['selectingredients'])
+    const data = JSON.stringify(this.selectedRecipes)
+    this.route.navigate(['selectingredients', data])
   }
   receiveFilters(filters:IFilterSearch){
     this.filters = filters;

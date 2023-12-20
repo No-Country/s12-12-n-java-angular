@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IIngredientCheck } from 'src/app/interfaces/ingredient.interface';
 
 @Component({
   selector: 'app-item-list',
@@ -6,5 +7,15 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./item-list.component.scss']
 })
 export class ItemListComponent {
-  @Input() isCheck = true;
+  @Input() ingredientCheck !: IIngredientCheck;
+  @Output() emitIngredient = new EventEmitter<IIngredientCheck>();
+
+  sendIngredient(){
+    const { isCheck } = this.ingredientCheck
+    const data:IIngredientCheck = {
+      ...this.ingredientCheck,
+      isCheck:!isCheck
+    }
+    this.emitIngredient.emit(data);
+  }
 }
