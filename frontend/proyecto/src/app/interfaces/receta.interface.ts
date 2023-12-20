@@ -1,5 +1,5 @@
 import { ICategory} from "./category.interface";
-import { IIngredient } from "./ingredient.interface";
+import { IIngredient, IIngredientCheck } from "./ingredient.interface";
 
 export interface IrecipeResponse{
   id:string,
@@ -9,4 +9,9 @@ export interface IrecipeResponse{
   likes:number,
   categoria:ICategory
   ingredientes:IIngredient[]
+}
+export interface IRecipeList{
+  id:number,
+  name:string,
+  ingredients:IIngredientCheck[]
 }
