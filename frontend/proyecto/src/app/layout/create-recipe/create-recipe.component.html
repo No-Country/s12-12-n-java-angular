@@ -6,8 +6,15 @@
       <div class="camposReceta">
         <div class="nombreycategoria">
           <div class="field nombrereceta">
-            <label class="label" for="nombreReceta">
-              <img src="assets/icons/cup.svg"> Título de la receta</label>
+            <label class="label" for="nombreReceta" style="display: flex; justify-content: space-between;">
+             <span><img src="assets/icons/cup.svg"> Título de la receta</span> <span><input
+              class="checkbox"
+              id="visible"
+              name="visible"
+              type="checkbox"
+              formControlName="visible"
+
+            /> Visible</span></label>
             <input
               class="input"
               id="nombreReceta"
@@ -20,19 +27,6 @@
 
         </div>
 
-        <div class="field">
-          <label class="label" for="visible"
-          ><img src="assets/icons/picture.svg"> Visible</label
-        >
-        <input
-          class="checkbox"
-          id="visible"
-          name="visible"
-          type="checkbox"
-          formControlName="visible"
-
-        />
-      </div>
         <div class="field">
           <label class="label" for="urlImgReceta"
             ><img src="assets/icons/picture.svg"> Link de la imagen de la receta</label
