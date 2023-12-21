@@ -1,0 +1,24 @@
+
+<div class="card">
+  <img src="/assets/icons/recipes-card.png" alt="recipes-card" class="card__img">
+  <div class="card__body">
+      <div class="card__body--title">
+          <h4>{{data.nombre}}</h4>
+          <div class="card__body--quantity">
+              <img src="/assets/icons/heart.svg" alt="heart">
+              <span>{{data.likes}}</span>
+          </div>
+      </div>
+      <div class="card__body--mins">
+          <img src="/assets/icons/clock.svg" alt="clock">
+          <span>30 min</span>
+      </div>
+      <div class="card__body--user">
+        <div class="card__body--user__info" >
+          <img src="/assets/icons/avatar.svg" alt="user">
+          <span>Juan delgadillo</span>
+        </div>
+        <button type="button" class="card__body--btn" (click)="toDetail()">Preparación</button>
+      </div>
+  </div>
+</div>

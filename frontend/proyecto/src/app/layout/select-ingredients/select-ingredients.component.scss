@@ -1,0 +1,103 @@
+@import "/src/app/stylesConfig/stylesConfig.scss";
+:host {
+  flex-grow: 2;
+  padding-top: 7rem;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("/assets/foodhero5.webp");
+  background-position: right top;
+  background-size: cover;
+}
+.recipes {
+  margin-block: 1rem;
+  background-color: changeOpacity(white, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 1rem;
+  padding: 1rem;
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  &__dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    select {
+      border-radius: 1rem;
+      background-color: $colFourth;
+      padding: 1rem 0.5rem;
+      color: white;
+      &:focus{
+        outline: solid 2px $colBg;
+      }
+    }
+  }
+  @media screen and (min-width: 550px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100%;
+    h3{margin: 0;}
+  }
+}
+.list {
+  padding-inline: 0.5rem;
+  min-width: min(100%, 350px);
+  margin-bottom: 1rem;
+}
+.actions {
+  padding-inline: 1rem;
+  line-height: 1.2rem;
+  text-align: center;
+  p {
+    margin-bottom: 0.5rem;
+  }
+  img {
+    display: none;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    @include btnStyle($colFourth, $colBg);
+  }
+}
+@media screen and (min-width: 750px) {
+  :host{
+    padding-inline: 10vw;
+  }
+  .container{
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .container{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    align-items: flex-start;
+    .recipes{
+      grid-column: span 10;
+    }
+    .list{
+      grid-column: span 6;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0.5rem;
+    }
+    .actions{
+      grid-column: span 4;
+      img{
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/9;
+      }
+    }
+  }
+}

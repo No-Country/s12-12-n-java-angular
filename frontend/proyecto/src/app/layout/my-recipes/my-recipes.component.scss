@@ -1,34 +1,98 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
+@import '../../../assets/scss/media-queries/media-queries.scss';
+
 :host{
   flex-grow: 2;
+}
+.section {
+  padding: 7rem 0 3rem;
+}
+
+.recipe {
+  margin-top: 2rem;
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @include mobile-large {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+     }
+  }
+}
+
+.createListBtn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: $colBg;
-}
-.recipeContainer{
-  display: grid;
-  grid-template-columns: repeat(12,1fr);
-  padding: 1rem 1.5rem;
-  gap: 2rem 0;
-  justify-items: center;
-  @media screen and (min-width:750px) {
-    gap: 2rem;
+  border-radius: 50%;
+  border: none;
+  padding: 1rem;
+  color: $colThird;
+  cursor: pointer;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .30);
+  width: max-content;
+  // z-index: 10;
+  // opacity: .9;
+  transition-duration: .3s;
+  transition-property: opacity;
+  animation: up 3s infinite;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
   }
 
 }
 
-@media screen and (min-width:1000px) {
-  .recipeContainer>app-recipe-card{
-    grid-column: span 4 ;
+.scrollup {
+  position: fixed;
+  bottom: -30%;
+  right: 3rem;
+  line-height: 0;
+  background-color: var(--container-color);
+  box-shadow: 0px 1px 10px rgba(0 0 0 /.30);
+  color: var(--first-color);
+  font-size: 2rem;
+  width: max-content;
+  padding: 0.4rem;
+  border-radius: 50%;
+
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(.45rem);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
-@media screen and (min-width:1250px) {
-  .recipeContainer>app-recipe-card{
-    grid-column: span 3 !important;
-  }
-}
-// @media screen and (min-width:1250px) {
-//   .recipeContainer{
-//     grid-column: span 9;
-//   }
-// }

@@ -1,10 +1,12 @@
-<div class="profile">
-  <span>J</span>
-</div>
-<div class="info">
-  <p class="info__title">Calamares en su tinta</p>
-  <p class="info__author">Juanito Alimaña Navaja</p>
-</div>
-<div class="picture">
-  <img src="assets/tableWallpaper.jpg" alt="recipe-picture">
+<div class="favorites" (click)="seeDetails()">
+    <div class="favorites__aside">
+        <div class="favorites__aside--user">
+            <span>J</span>
+        </div>
+        <div class="favorites__info">
+            <p class="favorites__info--title">{{miniRecipeData.nombre}}</p>
+            <p class="favorites__info--author">Juanito Alimaña</p>
+        </div>
+    </div>
+    <img src="assets/tableWallpaper.jpg" alt="recipe-picture" class="favorites__img">
 </div>

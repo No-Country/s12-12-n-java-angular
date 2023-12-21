@@ -1,0 +1,70 @@
+<div class="card">
+  <img
+    src="/assets/icons/recipes-card.png"
+    alt="recipes-card"
+    class="card__img"
+  />
+  <div class="card__body">
+    <div class="card__body--title">
+      <h4>{{data.receta.nombre}}</h4>
+      <div class="card__body--quantity">
+        <div clasS="card__body--quantity__content">
+          <button type="button" class="card__body--quantity__btn">
+            <img
+              src="/assets/icons/heart.svg"
+              alt="heart"
+              class="card__body--quantity__actions"
+            />
+          </button>
+          <span>{{data.receta.likes}}</span>
+        </div>
+        <div class="dropdown">
+          <button
+            type="button"
+            class="card__body--quantity__btn dropdown__button"
+            (click)="toggleDropdown()"
+          >
+            <img
+              src="/assets/icons/dots-vertical.svg"
+              alt="dots-vertical"
+              class="card__body--quantity__dots"
+            />
+          </button>
+          <ul
+            class="dropdown__menu"
+            [ngClass]="showDropdown ? 'dropdown__active' : ''"
+          >
+            <li class="dropdown__menu--item">
+              <a
+              (click)="deleteRecipe(data.id)"
+              class="dropdown__menu--items dropdown__button--item">
+                Eliminar
+              </a>
+            </li>
+            <li class="dropdown__menu--item">
+              <a class="dropdown__menu--items dropdown__button--item">
+                Editar
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card__body--mins">
+      <img src="/assets/icons/clock.svg" alt="clock" />
+      <span>30 min</span>
+    </div>
+    <div class="card__body--user">
+      <div class="card__body--user__info">
+        <img src="/assets/icons/avatar.svg" alt="user" />
+        <span>{{data.usuario.nombre}}</span>
+      </div>
+      <button type="button" class="card__body--btn" (click)="toDetail()">
+        Preparación
+      </button>
+    </div>
+  </div>
+  <div (click)="sendRecipe()" class="card__check">
+    <img [src]="isCheck?'assets/checked.svg':'assets/uncheck.svg'" alt="check-icon">
+  </div>
+</div>

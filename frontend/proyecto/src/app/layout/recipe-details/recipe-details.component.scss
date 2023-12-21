@@ -1,212 +1,412 @@
-@import '/src/app/stylesConfig/stylesConfig.scss';
-@import '/src/assets/scss/media-queries/media-queries';
+@import "/src/app/stylesConfig/stylesConfig.scss";
+@import "/src/assets/scss/media-queries/media-queries";
 
-.section {
-    padding: 4rem 0 2rem;
+:host {
+  flex-grow: 2;
 }
 
-.container {
-    max-width: 1054px;
-    margin: 0 1.25rem;
+.section {
+  padding: 7rem 0 2rem;
+}
 
-    @include mobile-max {
-        margin: 0 1rem;
-    }
+.details__container {
+  max-width: 1060px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+
+  @include tablet {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  @include desktop-large {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*========== HEADER ==========*/
+.header {
+  font-family: "Poppins", sans-serif;
+
+  &__wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 0.9375rem;
 
     @include tablet {
-        margin: 0 0.875rem;
+      justify-content: flex-start;
+      align-items: center;
     }
 
-    @include desktop {
-        margin: 0 1rem;
+    &--text {
+      font-size: 1.25rem;
+      font-family: "Poppins", sans-serif;
+      text-transform: capitalize;
+
+      @include mobile-xlarge {
+        font-size: 1.5rem;
+      }
     }
 
-    @include desktop-large {
-        margin: 0 auto;
+    &--quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3125rem;
+
+      @include tablet {
+        justify-content: flex-start;
+      }
+
+      img {
+        width: 13px;
+        height: 13px;
+      }
+
+      p {
+        font-size: 12px;
+        // text-align: center;
+        font-weight: 600;
+        color: #ff0000;
+      }
     }
+  }
+
+  &__subheader {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 1.875rem;
+    padding: 14px 0 10px;
+    width: 100%;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+    }
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.75rem;
+
+      @include mobile-xlarge {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      &__calendar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.625rem;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      &__text {
+        font-size: 12px;
+
+        @include tablet {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &--user {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.625rem;
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      &__text {
+        font-size: 12px;
+
+        @include tablet {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &--dishes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      @include tablet {
+        gap: 1.5625rem;
+      }
+
+      &__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.625rem;
+
+        p {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        span {
+          font-size: 12px;
+          color: #6a6969;
+        }
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.875rem;
+
+    &--primary {
+      @include btnStyle($colBag: $colPrime, $colFont: $colBg);
+      border-radius: 10px;
+      padding: 1rem 1rem;
+      width: 201px;
+      height: 54px;
+      box-shadow: none;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.9375rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    &--actions {
+      &:nth-child(2) {
+        border: 1px solid #e5e5e5;
+        border-radius: 50%;
+        padding: 0.5625rem;
+      }
+    }
+  }
 }
 
 .details {
-    &__title {
-        font-size: 1.5rem;
-        text-align: center;
-        margin-bottom: 3rem;
+  &__info {
+    margin-bottom: 2rem;
 
-        @include tablet {
-            font-size: 2rem;
-            text-align: initial;
-            margin-bottom: 1rem;
-        }
+    &--img {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 0.75rem;
+      border-radius: 1rem;
+    }
+  }
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
+  &__wrap {
+    background-color: $colBg;
+    padding: 1.25rem;
+    border-radius: 10px;
+    height: 100%;
+
+    &--title {
+      font-size: 14px;
+      margin-bottom: 3rem;
+      font-family: "Poppins", sans-serif;
+
+      @include mobile-xlarge {
+        font-size: 1rem;
+      }
+
+      @include tablet {
+        font-size: 1.125rem;
+      }
     }
 
-    &__header {
+    &--list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include tablet {
+        width: 250px;
+        gap: 1.5rem;
+      }
+
+      @include desktop {
+        width: 350px;
+      }
+    }
+
+    &--quantity {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      
+    }
+
+    &--items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        font-size: 14px;
+        color: #6a6969;
+
+        @include mobile-xlarge {
+          font-size: 1rem;
+        }
+      }
+
+      &__name {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-bottom: 1rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
 
-        @include tablet {
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
+        p {
+          font-size: 14px;
+          font-weight: 500;
+          text-transform: capitalize;
+
+          @include mobile-xlarge {
+            font-size: 1rem;
+          }
         }
+      }
+    }
+  }
 
-        &--letter {
-            background-color: $colFourth;
-            border-radius: 50%;
-            width: 2rem;
-            aspect-ratio: 1;
-            display: grid;
-            place-items: center;
-            color: $colWhite;
-        }
+  &__preparation {
+    background-color: $colBg;
+    padding: 1.25rem;
+    border-radius: 10px;
 
-        &--content {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 0.75rem;
-        }
+    &--title {
+      font-size: 14px;
+      text-align: flex-start;
+      margin-bottom: 3rem;
+      font-family: "Poppins", sans-serif;
 
-        &--calendar {
-            width: 20px;
-        }
+      @include mobile-xlarge {
+        font-size: 1rem;
+      }
 
+      @include tablet {
+        font-size: 1.125rem;
+      }
     }
 
-    &__info {
-        margin-bottom: 2rem;
-
-        &--img {
-            width: 100%;
-            max-width: 100%;
-            margin-bottom: 0.75rem;
-            border-radius: 1rem;
-        }
-
-        &--data {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            text-align: start;
-
-            &:nth-child(4) {
-                flex-direction: row;
-                gap: 1rem;
-            }
-
-            @include tablet {
-                text-align: center;
-            }
-        }
-
-        &--quantity {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-
-            @include mobile-large {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            @include tablet {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 1.5rem;
-            }
-
-            p {
-                color: #6a6969;
-                font-size: 0.875rem;
-                margin-bottom: 0.375rem;
-            }
-
-            span {
-                font-size: 0.9375rem;
-            }
-        }
-
-        &--button {
-            @include btnStyle($colBag: $colPrime, $colFont: $colBg);
-            border-radius: 10px;
-            padding: 0.5rem 1rem;
-            text-transform: capitalize;
-            margin: 0;
-            box-shadow: none;
-        }
-
-        &--heart {
-            width: 20px;
-            // margin: 0 auto;
-        }
+    &--list {
+      list-style-type: decimal;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 0 0 2rem 1rem;
     }
 
-    &__recipe {
+    &--text {
+      font-size: 14px;
+      line-height: 1.4;
+
+      @include mobile-xlarge {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.comments {
+  &__title {
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+
+    &--content {
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 0.625rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.625rem;
+
+      &__user {
         display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.625rem;
+
+        span {
+          font-size: 14px;
+          font-weight: 500;
+
+          @include tablet {
+            font-size: initial;
+          }
+        }
+      }
+
+      p {
+        font-size: 12px;
+        color: #535353;
+        line-height: 1.4;
 
         @include tablet {
-            flex-direction: row;
-            justify-content: space-between;
-            gap:3rem;
+          font-size: 14px;
+          line-height: initial;
         }
+      }
     }
+  }
+}
 
-    &__ingredients {
-
-        &--title {
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        &--list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            width: 100%;
-
-            @include tablet {
-                margin: 0 2rem;
-                width: 350px;
-                gap:1.5rem;
-            }
-
-        }
-
-        &--items {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-
-            &__name {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-            }
-        }
-
-    }
-
-    &__preparation {
-        &--list {
-            list-style-type: disc;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 0 0 2rem 1rem;
-
-            @include tablet {
-                margin: 0 2rem 0 0
-            }
-        }
-
-        &--text {
-            line-height: 1.4;
-        }
-    }
+.comments-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }

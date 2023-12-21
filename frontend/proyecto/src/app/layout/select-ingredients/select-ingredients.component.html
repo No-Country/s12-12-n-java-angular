@@ -1,0 +1,31 @@
+<div class="container">
+<div class="recipes">
+  <h3>Selecciona los ingredientes</h3>
+  <div class="recipes__dropdown">
+    <span>Recetas:</span>
+    <select
+    [(ngModel)]="selectedRecipe"
+    (ngModelChange)="changeCurrentRecipe()">
+      <option
+      *ngFor="let recipe of recipes"
+      [value]="recipe.id"
+      >{{recipe.receta.nombre}}</option>
+    </select>
+  </div>
+</div>
+<div class="list" [@scalingEffect]>
+  <app-item-list
+  *ngFor="let ingredient of currentRecipe.ingredients"
+  [ingredientCheck]="ingredient"
+  (emitIngredient)="receiveIngredients($event)"
+  ></app-item-list>
+</div>
+<div class="actions">
+  <img src="assets/tableWallpaper.jpg" alt="recipe-picture">
+  <p>Revisaste todas las listas? pincha aquí para general la lista total de ingredientes.</p>
+  <button
+  type="button"
+  (click)="toIngredients()"
+  >Generar Lista</button>
+</div>
+</div>

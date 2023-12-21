@@ -1,0 +1,151 @@
+/*Importación de los estilos globales*/
+@import "../../../stylesConfig/stylesConfig.scss";
+
+@import "../user.component.scss";
+
+.form__box {
+  /* Reutilizado del Register */
+
+  display: flex;
+  flex-direction: column;
+  /*---------------------------------------- estilos input */
+  &__field {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 100%;
+    position: relative;
+    border: 2px solid $colThird;
+    border-radius: 0.5rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    transition: border 0.3s ease-in-out;
+    &:focus-within {
+      border: solid $colPrime 2px;
+    }
+    /* -----------------------------------inputs tipo password */
+    &__inputPass {
+      display: flex;
+      input {
+        flex-grow: 2;
+      }
+      .eyeBtn {
+        border: none;
+        background-color: white;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-right: 0.5rem;
+        @include transitionFast;
+        &__eye {
+          width: 2rem;
+          aspect-ratio: 1/1;
+        }
+        &:hover {
+          background-color: $colBg;
+        }
+      }
+    }
+    label {
+      position: absolute;
+      top: 0px;
+      left: 1rem;
+      transform: translateY(-50%);
+      background-color: white;
+      padding-inline: 0.25rem;
+      border-radius: 0.2rem;
+    }
+    input {
+      border-radius: 0.5rem;
+      border: none;
+      outline: none;
+      padding-block: 0.75rem;
+      padding-left: 0.5rem;
+      @include transitionFast;
+
+      /*-------------------------borrando estilos del autocompletado */
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important; /* Ajusta el color de fondo según tus necesidades */
+        -webkit-text-fill-color: inherit !important;
+        caret-color: $colThird;
+      }
+    }
+  }
+  /* Estilos para que el input repetir contraseña coincida en ancho con los demás inputs */
+  .repetir_pass {
+    width: 72%;
+  }
+  /*---------------------------------- estilos de validacion */
+  .errorField {
+    border: solid 2px red;
+    margin-bottom: 0;
+  }
+  &__validateMessage > span {
+    display: flex; /* Permite en este formulario que los mensajes de error se ubiquen abajo de cada campo */
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    color: rgb(200, 0, 0);
+  }
+  &__fieldCheck {
+    margin-bottom: 1rem;
+    align-self: flex-end;
+  }
+
+  /* Estilos del contenedor de cada input */
+  .inputs {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .campo {
+    flex-grow: 2;
+  }
+}
+
+/* Estilos de botones de edicion (editar y guardar datos del usuario) */
+.botones_edicion {
+  display: flex;
+  float: right;
+  padding-right: 0;
+  
+}
+/* Estilo que invierte el color del SVG */
+.invertir-color-svg {
+  filter: invert(1);
+}
+/* Botones editar y guardar de perfil de usuario */
+.btnEdit,
+.btnSave {
+  background-color: $colBlack;
+  float: right;
+  cursor:pointer;
+  border-radius: 25%;
+  margin: 0 0 0 0.3rem;
+  padding: 0.3rem;
+}
+/* Media Queries */
+@media screen and (max-width: 650px) {
+  .inputs {
+    position: relative;
+    justify-content: space-between;
+  }
+  .campo {
+    margin-top: 3rem;
+
+    position: relative; /* Asegura que el input sea un elemento relativo */
+    z-index: 1;
+  }
+  .repetir_pass {
+    width: 100% !important;
+  }
+  .botones_edicion {
+    position: absolute;
+
+    top: 0;
+    right: 20;
+    z-index: 2;
+  }
+
+}

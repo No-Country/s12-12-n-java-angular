@@ -1,0 +1,115 @@
+/*Importación de los estilos globales*/
+@import "../../stylesConfig/stylesConfig.scss";
+
+:host {
+  overflow-x: hidden;
+  max-height: 100%;
+}
+.section{
+  padding: 7rem 0 3rem;
+}
+/* Estilos para el contenedor padre con flexbox */
+.contenedor_user {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  min-height: 100%;
+}
+
+/* Estilos para las dos cajas */
+.caja-1,
+.caja-2 {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px; /* Esto hace que ambas cajas tengan la misma anchura */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 10px;
+}
+
+/* Estilos para caja 1 */
+.caja-1 {
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
+    url("/assets/tableWallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  place-items: left;
+  min-height: 70vh;
+  text-align: center;
+  padding-left: 2rem;
+
+  /* Estilos contenedor del texto de la caja 1 */
+  .bienvenida {
+    margin-bottom: 1rem;
+    padding: 0;
+    color: white;
+    text-align: left;
+    /* Estilos de titulo Foodie List */
+    .titulo_foodielist {
+      font-size: 52px; /* probando */
+      margin-bottom: 16px;
+      font-weight: lighter;
+    }
+    /* Parrafo de slogan de Foodie List */
+    .slogan {
+      margin-bottom: 16px;
+    }
+    /* Estilos de botón de Empezar */
+    .button {
+      align-self: stretch;
+      width: 60%;
+      button {
+        width: 100%;
+        font-size: 1rem;
+        @include btnStyle;
+      }
+    }
+  }
+  /* Estilos caja-2 */
+  .caja-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    /* Formulario */
+    .formulario_user {
+      /* Estilos del cuadrado donde están los inputs y los botones */
+      text-align: center;
+      padding: 1.5rem 1rem 1rem 1rem;
+      margin-top: 1.5rem;
+      border-radius: 1rem;
+    }
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 650px) {
+  :host {
+    min-width: 100%;
+  }
+  .caja-1 {
+    display: none;
+  }
+  .caja-2 {
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
+      url("/assets/tableWallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 1rem;
+
+    .formulario_user {
+      background-color: rgba(217, 217, 217, 0.65);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      padding: 1.5rem 1rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 1rem;
+    }
+  }
+}

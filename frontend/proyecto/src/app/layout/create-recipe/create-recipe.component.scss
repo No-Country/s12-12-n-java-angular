@@ -1,0 +1,259 @@
+/* Importación de la configuración de los estilos */
+@import "/src/app/stylesConfig/stylesConfig.scss";
+
+:host {
+  flex-grow: 2;
+  background: linear-gradient(to top, white 80%, transparent 50%),
+    url("../../../assets/recipe-book.png");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+.itemIngredient {
+  list-style: none;
+}
+
+.listaIngredientes,
+.listaPreparacion {
+  margin-top: 2rem;
+}
+
+.btnDelete {
+  all: initial;
+  border-radius: 50%;
+  img {
+    display: block;
+  }
+  cursor: pointer;
+  @include transitionFast;
+  &:hover {
+    box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+.section {
+  padding: 7rem 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* formulario para crear recetas */
+.form {
+  background-color: transparent;
+
+  /* titulo de formulari */
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: $colWhite;
+
+    @media screen and (min-width: 1000px) {
+     font-size: 3rem;
+    }
+  }
+  .primerosCampos,
+  .camposIngredientes,
+  .camposPreparacion {
+    background-color: $colWhite;
+    position: relative;
+    padding: 1rem;
+    margin: 0.2rem 0 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+  }
+}
+
+.etiqueta-esquina {
+  position: absolute;
+  background-color: $colPrime;
+  color: $colWhite;
+  top: 0;
+  left: 0;
+  border: 2px 0 1px;
+  padding: 1.5rem 2.5rem;
+  border-bottom-right-radius: 38px;
+}
+
+/* los campos con el nuevo estilo */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* agrego estos estilos nuevos */
+input,
+textarea,
+button,
+.select-con-borde {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: transparent;
+}
+
+input{
+  transition: border 0.3s ease-in-out;
+  &:focus-within {
+    border: solid $colPrime 2px;}
+}
+
+label {
+  color: $colPrime;
+  margin-top: 1rem;
+}
+
+label:not(:first-child) {
+  width: 50%;
+  flex-wrap: wrap;
+}
+
+.nombrereceta,
+.ingredientes,
+.preparacion {
+  margin-top: 3rem;
+}
+
+button {
+  color: $colPrime;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 90px;
+}
+
+/* boton crear receta (boton flotante en pantallas pequeñas) */
+.boton-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  /* Asegura que el botón esté sobre otros elementos */
+}
+
+/* div que contiene el boton de crear receta */
+.btnCrearReceta {
+  background-color: $colPrime;
+  color: $colWhite;
+  box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.75);
+  border: none;
+  border-radius: 50%;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+button:hover {
+  transform: scale(1.05) translateY(-0.2rem);
+}
+
+button:focus {
+  outline: none;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.itemI {
+  display: flex;
+  align-items: center;
+}
+
+.procedimiento {
+  text-align: justify;
+}
+
+/* ************************************* MEDIA QUERY ********************************************* */
+
+@media screen and (min-width: 990px) {
+  input,
+  textarea,
+  .select-con-borde {
+    width: auto;
+  }
+  .btnCrearReceta {
+    height: 170px;
+    width: 130px;
+  }
+}
+@media screen and (min-width: 650px) {
+  :host {
+    padding: 2rem 10vw;
+  }
+
+  /* estilos del form */
+  .form {
+    padding-inline: 5vw;
+  }
+
+  /* los campos para colocar nombre de la receta, categoria, url de la imagen, porciones y tiempo de coccion  */
+  .primerosCampos {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .camposReceta {
+    flex-grow: 2;
+  }
+
+  /* en pantallas grandes, el boton flotante se coloca junto a los campos de receta */
+  .btnCrearReceta {
+    min-height: 170px;
+    width: 180px;
+    font-size: 1.5rem;
+  }
+
+  /* coloca estos campos uno al lado del otro cuando es pantalla grande*/
+  .porcionesycoccion {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .categoria {
+    flex-grow: 1;
+  }
+
+  .porciones {
+    flex-grow: 1;
+  }
+
+  .coccion {
+    flex-grow: 1;
+  }
+
+  /* estilos para que ambos formularios se ubique uno al lado del otro */
+  .camposIngredientes {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+
+  .ingredientesycantidad {
+    flex-grow: 1;
+  }
+
+  .listaIngredientes {
+    flex-grow: 1;
+  }
+  .listaPreparacion {
+    margin-top: 1rem;
+    .boxItem{
+      justify-content: flex-start;
+    }
+  }
+}

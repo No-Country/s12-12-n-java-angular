@@ -1,4 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IcategoryRes } from 'src/app/interfaces/category.interface';
+import { IFilterSearch } from 'src/app/interfaces/searchFilter.interface';
+import { RecipeService } from 'src/app/services/recipe.service';
+
 
 @Component({
   selector: 'app-search-box',
@@ -6,23 +10,42 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent {
-  categories:string[] = ["Guisos", "Postres", "Ensalada", "Jugos", "Fritura"];
-  sizeRecipes = 2500;
-  selectedCategory="categoria";
-  fieldSearch="";
+  categories: IcategoryRes[] = [];
+  @Input() sizeRecipes = 0;
+  @Output() sendFilteredData = new EventEmitter<IFilterSearch>()
+  selectedCategory = "categoria";
+  fieldSearch = "";
 
-  @Input() btnRedirection!:String;
+  @Input() btnRedirection!: String;
 
+  constructor(
+    private recipeServ:RecipeService
+  ){
 
-  onSubmit(){
+  }
+  ngOnInit(){
+    this.recipeServ.getAllCategories().subscribe({
+      next:(res)=>{
+        this.categories=res;
+      }
+    })
+  }
+  onSubmit() {
     console.log(this.selectedCategory)
   }
 
-  redirectTo(){
-    if(this.btnRedirection === 'mis recetas'){
+  redirectTo() {
+    if (this.btnRedirection === 'Mis recetas') {
       return "../myrecipes"
     }
     return "../createrecipe"
+  }
+
+  emit(){
+    this.sendFilteredData.emit({
+      searchText:this.fieldSearch,
+      category:this.selectedCategory
+    })
   }
 
 }

@@ -1,120 +1,260 @@
 <section class="details section">
-    <div class="container">
-        <h2 class="details__title">Calamares en su tinta</h2>
-        <article class="details__header">
-            <div class="details__header--content">
-                <p class="details__header--letter">J</p>
-                <p class="details__header--text">Juanito alimaña navaja</p>
+  <div class="details__container">
+    <header class="header">
+      <div class="header__wrap">
+        <h2 class="header__wrap--text">{{recipeDetails.nombre}}</h2>
+        <div class="header__wrap--quantity">
+          <img src="../../../assets/icons/heart.svg" alt="heart" />
+          <p class="header__quantity--text">{{recipeDetails.likes}}</p>
+        </div>
+      </div>
+      <div class="header__subheader">
+        <div class="header__subheader--content">
+          <div class="header__subheader--user">
+            <img
+              src="../../../assets/icons/avatar.svg"
+              alt="avatar"
+              class="comments-img"
+            />
+            <p class="header__subheader--user__text">Juanito alimaña</p>
+          </div>
+          <div class="header__subheader--content__calendar">
+            <img
+              src="../../../assets/icons/calendar.svg"
+              alt="calendar"
+              class="header__subheader--content__img"
+            />
+            <p class="header__subheader--content__text">13 de Diciembre</p>
+          </div>
+        </div>
+        <ul class="header__subheader--dishes">
+          <li class="header__subheader--dishes__items">
+            <p>Cocinar</p>
+            <span>30 min</span>
+          </li>
+          <!-- <shared-divider></shared-divider> -->
+          <li class="header__subheader--dishes__items">
+            <p>Cantidad</p>
+            <span>4 personas</span>
+          </li>
+          <!-- <shared-divider></shared-divider> -->
+          <li class="header__subheader--dishes__items">
+            <p>Categoria</p>
+            <span>{{recipeDetails.categoria.nombre}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="header__btns">
+        <button type="button" class="header__btns--primary">
+          <img
+            src="../../../assets/icons/book-mark.svg"
+            alt="book-mark"
+            class="header__btns--actions"
+          />
+          Guarda la receta
+        </button>
+        <!-- <div class="header__btns--group"> -->
+        <img
+          src="../../../assets/icons/heart-solid.svg"
+          alt="header"
+          class="header__btns--actions"
+        />
+        <!-- </div> -->
+      </div>
+    </header>
+    <section>
+      <div class="details__info">
+        <img
+          src="../../../assets/foodieDetails.webp"
+          alt="foodhero2"
+          class="details__info--img"
+        />
+      </div>
+    </section>
+
+    <section class="instructions">
+      <article class="instructions__wrap">
+        <h3 class="instructions__wrap--title">Ingredientes</h3>
+        <ul class="instructions__wrap--list">
+          <li class="instructions__wrap--items" *ngFor="let recipeDetails of recipeDetails.ingredientes">
+            <div class="instructions__wrap--items__name">
+              <img
+                src="../../../assets/icons/list-item-ingredients.svg"
+                alt="list-item-ingredients"
+              />
+              <p>{{recipeDetails.nombre}}</p>
             </div>
-            <div class="details__header--content">
-                <img src="../../../assets/icons/calendar.svg" alt="calendar" class="details__header--calendar">
-                <p class="details__header--text">Viernes 13 de Diciembre</p>
+            <div class="instructions__wrap--quantity">
+              <p>{{recipeDetails.cantidad}}</p>
+              <span>{{recipeDetails.tipo_medida}}</span>
             </div>
-            <div class="details__header--rating">
-                <img src="../../../assets/star-icon.svg" alt="star-icon" class="details__header--star">
-                <img src="../../../assets/star-icon.svg" alt="star-icon" class="details__header--start">
-                <img src="../../../assets/star-icon.svg" alt="star-icon" class="details__header--start">
-                <img src="../../../assets/star-icon.svg" alt="star-icon" class="details__header--start">
-                <img src="../../../assets/star-icon.svg" alt="star-icon" class="details__header--start">
+          </li>
+          <!-- <li class="instructions__wrap--items">
+            <div class="instructions__wrap--items__name">
+              <img
+                src="../../../assets/icons/list-item-ingredients.svg"
+                alt="list-item-ingredients"
+              />
+              <p>Cebolla Blanca</p>
             </div>
-        </article>
-        <article class="details__info">
-            <img src="../../../assets/foodhero2.webp" alt="foodhero2" class="details__info--img">
-            <div class="details__info--quantity">
-                <div class="details__info--data">
-                    <p>Porciones</p>
-                    <span>4 personas</span>
-                </div>
-                <div class="details__info--data">
-                    <p>Tiempo de cocina</p>
-                    <span>30 minutos</span>
-                </div>
-                <div class="details__info--data">
-                    <p>Porciones</p>
-                    <span>4 personas</span>
-                </div>
-                <div class="details__info--data">
-                    <button class=" details__info--button">importar</button>
-                    <img src="../../../assets/icons/heart.svg" alt="heart" class="details__info--heart">
-                </div>
+            <span>2k</span>
+          </li>
+          <li class="instructions__wrap--items">
+            <div class="instructions__wrap--items__name">
+              <img
+                src="../../../assets/icons/list-item-ingredients.svg"
+                alt="list-item-ingredients"
+              />
+              <p>Limon</p>
             </div>
-        </article>
-        <article class="details__recipe">
-            <div class="details__ingredients">
-                <h3 class="details__ingredients--title">Ingredientes</h3>
-                <ul class="details__ingredients--list">
-                    <li class="details__ingredients--items">
-                        <div class="details__ingredients--items__name">
-                            <img src="../../../assets/icons/list-item-ingredients.svg" alt="list-item-ingredients">
-                            <p>calamar</p>
-                        </div>
-                        <span>{{ 20 | currency:'USD':'symbol-narrow'}}</span>
-                    </li>
-                    <li class="details__ingredients--items">
-                        <div class="details__ingredients--items__name">
-                            <img src="../../../assets/icons/list-item-ingredients.svg" alt="list-item-ingredients">
-                            <p>calamar</p>
-                        </div>
-                        <span>{{ 20 | currency:'USD':'symbol-narrow'}}</span>
-                    </li>
-                    <li class="details__ingredients--items">
-                        <div class="details__ingredients--items__name">
-                            <img src="../../../assets/icons/list-item-ingredients.svg" alt="list-item-ingredients">
-                            <p>calamar</p>
-                        </div>
-                        <span>{{ 20 | currency:'USD':'symbol-narrow'}}</span>
-                    </li>
-                    <li class="details__ingredients--items">
-                        <div class="details__ingredients--items__name">
-                            <img src="../../../assets/icons/list-item-ingredients.svg" alt="list-item-ingredients">
-                            <p>calamar</p>
-                        </div>
-                        <span>{{ 20 | currency:'USD':'symbol-narrow'}}</span>
-                    </li>
-                    <li class="details__ingredients--items">
-                        <div class="details__ingredients--items__name">
-                            <img src="../../../assets/icons/list-item-ingredients.svg" alt="list-item-ingredients">
-                            <p>calamar</p>
-                        </div>
-                        <span>{{ 20 | currency:'USD':'symbol-narrow'}}</span>
-                    </li>
-                    <li class="details__ingredients--items">
-                        <div class="details__ingredients--items__name">
-                            <img src="../../../assets/icons/list-item-ingredients.svg" alt="list-item-ingredients">
-                            <p>calamar</p>
-                        </div>
-                        <span>{{ 20 | currency:'USD':'symbol-narrow'}}</span>
-                    </li>
-                </ul>
+            <span>1 taza </span>
+          </li>
+          <li class="instructions__wrap--items">
+            <div class="instructions__wrap--items__name">
+              <img
+                src="../../../assets/icons/list-item-ingredients.svg"
+                alt="list-item-ingredients"
+              />
+              <p>calamar</p>
             </div>
-            <div class="details__preparation">
-                <h3 class="details__ingredients--title">Preparación</h3>
-                <div>
-                    <ul class="details__preparation--list">
-                        <li class="details__preparation--item">
-                            <p class="details__preparation--text"> Lorem ipsum dolor, sit amet consectetur adipisicing
-                                elit. Voluptatibus explicabo accusantium quisquam ex, velit officiis est nemo
-                                reprehenderit repellat eum incidunt alias numquam aliquam, odio, cupiditate sed
-                                quibusdam eius unde.</p>
-                        </li>
-                        <li class="details__preparation--item">
-                            <p class="details__preparation--text">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Minima quod ad, dicta laborum, totam molestiae ipsum placeat illo minus atque
-                                autem dolores nemo voluptatem dignissimos reiciendis sint quaerat labore dolor?</p>
-                        </li>
-                        <li class="details__preparation--item">
-                            <p class="details__preparation--text">Lorem ipsum dolor sit, amet consectetur adipisicing
-                                elit. Fugiat, cum ratione quod eligendi architecto eaque esse autem consequatur dolorem
-                                alias eum in ullam harum debitis accusamus atque aperiam animi modi!</p>
-                        </li>
-                        <li class="details__preparation--item">
-                            <p class="details__preparation--text">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                elit. Animi iusto amet sint autem. Optio et, repellat nemo maiores consequuntur possimus
-                                quam laborum sed doloremque! Hic fuga quisquam at laudantium magnam?</p>
-                        </li>
-                    </ul>
-                </div>
+            <span>3grs</span>
+          </li>
+          <li class="instructions__wrap--items">
+            <div class="instructions__wrap--items__name">
+              <img
+                src="../../../assets/icons/list-item-ingredients.svg"
+                alt="list-item-ingredients"
+              />
+              <p>calamar</p>
             </div>
-        </article>
-    </div>
+            <span>3grs</span>
+          </li>
+          <li class="instructions__wrap--items">
+            <div class="instructions__wrap--items__name">
+              <img
+                src="../../../assets/icons/list-item-ingredients.svg"
+                alt="list-item-ingredients"
+              />
+              <p>calamar</p>
+            </div>
+            <span>3grs</span>
+          </li> -->
+        </ul>
+      </article>
+      <article class="instructions__preparation">
+        <h3 class="instructions__preparation--title">Preparación</h3>
+        <ul class="instructions__preparation--list">
+          <li class="instructions__preparation--item" *ngFor="let instructions of recipeDetails.procedimientosArray">
+            <p class="instructions__preparation--text">{{ instructions}}
+            </p>
+          </li>
+          <!-- <li class="instructions__preparation--item">
+            <p class="instructions__preparation--text">
+              Senectus feugiat tincidunt egestas quam lacus egestas in augue
+              feugiat. Velit pretium tellus ut adipiscing elementum mauris.
+              Laoreet sit elementum viverra non orci vel non tempus. Facilisis
+              vitae neque quis dictum iaculis.
+            </p>
+          </li>
+          <li class="instructions__preparation--item">
+            <p class="instructions__preparation--text">
+              Volutpat iaculis phasellus eget fermentum. Scelerisque neque sed
+              malesuada blandit sit. Porta velit morbi in tempor sit. Vulputate
+              sed pulvinar malesuada tortor amet odio nec risus.
+            </p>
+          </li>
+          <li class="instructions__preparation--item">
+            <p class="instructions__preparation--text">
+              Dolor tellus nibh posuere turpis placerat purus feugiat auctor
+              suspendisse. Tempus sed ultricies consectetur netus et.
+              Sollicitudin pretium lectus odio a eleifend.
+            </p>
+          </li>
+          <li class="instructions__preparation--item">
+            <p class="instructions__preparation--text">
+              Ut nisl viverra viverra sem. Erat vel neque ac maecenas a egestas
+              laoreet. Venenatis justo pretium nullam ornare amet blandit
+              faucibus eleifend eu. Pretium urna pretium faucibus vulputate
+              quisque vitae.
+            </p>
+          </li>
+          <li class="instructions__preparation--item">
+            <p class="instructions__preparation--text">
+              Convallis id placerat non odio nulla habitasse sed pellentesque.
+              Urna scelerisque non maecenas fermentum scelerisque facilisis
+              scelerisque odio. Iaculis risus consequat pulvinar aliquet augue
+              aliquet risus leo orci. Viverra eu in non viverra eu lacinia.
+            </p>
+          </li>
+          <li class="instructions__preparation--item">
+            <p class="instructions__preparation--text">
+              Sit ullamcorper nisl porttitor nunc tempus in faucibus ut.
+              Pellentesque in neque aenean porttitor risus.
+            </p>
+          </li> -->
+        </ul>
+      </article>
+    </section>
+    <section class="comments">
+      <h3 class="comments__title">Comentarios(5)</h3>
+      <div class="comments__wrap">
+        <div class="comments__wrap--content">
+          <div class="comments__wrap--content__user">
+            <img
+              src="../../../assets/icons/avatar.svg"
+              alt="avatar"
+              class="comments-img"
+            />
+            <span class="comments__wrap--user__text">Juanito Alimaña</span>
+          </div>
+          <p class="comments__wrap--text">
+            Excelente receta, especialmente para las personas que buscan una
+            vida saludable
+          </p>
+        </div>
+        <div class="comments__wrap--content">
+          <div class="comments__wrap--content__user">
+            <img
+              src="../../../assets/icons/avatar.svg"
+              alt="avatar"
+              class="comments-img"
+            />
+            <span class="comments__wrap--user__text">Juanito Alimaña</span>
+          </div>
+          <p class="comments__wrap--text">
+            Excelente receta, especialmente para las personas que buscan una
+            vida saludable
+          </p>
+        </div>
+        <div class="comments__wrap--content">
+          <div class="comments__wrap--content__user">
+            <img
+              src="../../../assets/icons/avatar.svg"
+              alt="avatar"
+              class="comments-img"
+            />
+            <span class="comments__wrap--user__text">Juanito Alimaña</span>
+          </div>
+          <p class="comments__wrap--text">
+            Excelente receta, especialmente para las personas que buscan una
+            vida saludable
+          </p>
+        </div>
+        <div class="comments__wrap--content">
+          <div class="comments__wrap--content__user">
+            <img
+              src="../../../assets/icons/avatar.svg"
+              alt="avatar"
+              class="comments-img"
+            />
+            <span class="comments__wrap--user__text">Juanito Alimaña</span>
+          </div>
+          <p class="comments__wrap--text">
+            Excelente receta, especialmente para las personas que buscan una
+            vida saludable
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
 </section>

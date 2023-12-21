@@ -1,1 +1,208 @@
-<p>create-recipe works!</p>
+<section class="section">
+  <div class="form">
+    <h2>Crea tu receta</h2>
+    <!-- formulario de la receta ----------------------------------------------->
+    <form [formGroup]="infoRecipeForm" class="primerosCampos">
+      <span class="etiqueta-esquina">Información</span>
+      <div class="camposReceta">
+        <div class="nombreycategoria">
+          <div class="field nombrereceta">
+            <label
+              class="label"
+              for="nombreReceta"
+              style="display: flex; justify-content: space-between"
+            >
+              <span
+                ><img src="assets/icons/cup.svg" /> Título de la receta</span
+              >
+              <span
+                ><input
+                  class="checkbox"
+                  id="visible"
+                  name="visible"
+                  type="checkbox"
+                  formControlName="visible"
+                />
+                Visible</span
+              ></label
+            >
+            <input
+              class="input"
+              id="nombreReceta"
+              name="nombreReceta"
+              type="text"
+              formControlName="nombre"
+              placeholder="Ingresa el título de la receta"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="urlImgReceta"
+            ><img src="assets/icons/picture.svg" /> Link de la imagen de la
+            receta</label
+          >
+          <input
+            class="input"
+            id="urlImgReceta"
+            name="urlImgReceta"
+            type="text"
+            placeholder="Ingresa el enlace"
+          />
+        </div>
+        <div class="porcionesycoccion">
+          <div class="field porciones">
+            <label class="label" for="porcionesReceta"
+              ><img src="assets/icons/cookie.svg" /> Porciones</label
+            >
+            <input
+              class="input"
+              id="porcionesReceta"
+              name="porcionesReceta"
+              type="number"
+              placeholder="Ejm: 4"
+            />
+          </div>
+          <div class="field coccion">
+            <label class="label" for="tiempoCocinado"
+              ><img src="assets/icons/clock-2.svg" /> Tiempo de cocción</label
+            >
+            <input
+              class="input"
+              id="tiempoCocinado"
+              name="tiempoCocinado"
+              type="number"
+              placeholder="Ejm: 30min"
+            />
+          </div>
+          <div class="field categoria">
+            <label class="label" for="categoriaReceta"
+              ><img src="assets/icons/tag.svg" /> Categoria</label
+            >
+            <select
+              id="categoriaReceta"
+              name="categoriaReceta"
+              type="text"
+              formControlName="categoria"
+              class="select-con-borde"
+            >
+              <option value="8" selected>Selecciona un categoria</option>
+              <option *ngFor="let category of categories" [value]="category">
+                {{ category |titlecase }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Botón para crear nueva receta con evento click crearReceta()-->
+      <div class="boton-flotante">
+        <button class="btnCrearReceta" type="submit" (click)="crearReceta()">
+          CREAR
+        </button>
+      </div>
+    </form>
+    <!-- Ingredientes de la preparacion ---------------------------->
+    <form class="camposIngredientes" [formGroup]="infoIngredientForm">
+      <span class="etiqueta-esquina">Ingredientes</span>
+      <div class="ingredientesycantidad">
+        <!-- campo añadir ingrediente -->
+        <div class="field ingredientes">
+          <label class="label" for="nuevoIngrediente"
+          ><img src="/assets/icons/cup.svg" /> Nuevo ingrediente</label
+          >
+          <input
+          class="input"
+          id="nuevoIngrediente"
+          name="nuevoIngrediente"
+          type="text"
+          placeholder="Ingresa el nuevo ingrediente"
+          formControlName="nombre"
+          />
+        </div>
+        <!-- campo añadir cantidad -->
+        <div class="field cantidad">
+          <label class="label" for="cantidadIngrediente"
+            ><img src="/assets/icons/cup-straw.svg" /> Cantidad</label
+          >
+          <input
+            class="input"
+            id="cantidadIngrediente"
+            name="cantidadIngrediente"
+            type="text"
+            placeholder="Ingresa la cantidad"
+            formControlName="cantidad"
+          />
+        </div>
+        <div class="field cantidad">
+          <label class="label" for="cantidadIngrediente"
+            ><img src="/assets/icons/cup-straw.svg" /> Medida </label
+          >
+          <input
+            class="input"
+            id="tipoMedida"
+            name="tipoMedida"
+            type="text"
+            placeholder="Ingresa la medida"
+            formControlName="tipo_medida"
+          />
+        </div>
+        <!-- boton de añadir ingrediente y cantidad -->
+        <button type="submit" (click)="crearIngrediente()">
+          &plus; añadir
+        </button>
+      </div>
+      <!-- lista de ingredientes -->
+      <ul  class="listaIngredientes">
+        <li *ngFor="let ingredient of ingredientes, let i = index">
+          <div class="itemI">
+            <button class="btnDelete">
+              <img
+              (click)="borraIngrediente(i)"
+              src="assets/icon-delete.svg"
+               alt="icono de borrar" />
+            </button>
+            <span style="margin-left: 1rem"> {{ingredient.nombre | titlecase}}</span>
+          </div>
+          <p>{{ingredient.cantidad}} {{ingredient.tipo_medida}}</p>
+        </li>
+      </ul>
+    </form>
+    <!-- formulario de preparacion de receta--------------------------------- -->
+    <form class="camposPreparacion" [formGroup]="infoStepForm">
+      <span class="etiqueta-esquina">Preparación</span>
+      <!-- Campo de nuevo procedimiento -->
+      <div class="field preparacion">
+        <label class="label" for="preparacionReceta">
+          <img src="../../../assets/icons/file-text.svg" /> Nuevo
+          procedimiento</label
+        >
+        <textarea
+          class="textarea"
+          id="preparacionReceta"
+          name="preparacionReceta"
+          type="text"
+          cols="50"
+          rows="4"
+          formControlName="step"
+          placeholder="Ingresa el procedimiento"
+        ></textarea>
+      </div>
+      <!-- boton de añadir nuevo procedimiento -->
+      <button type="submit" (click)="crearProcedimientos()">&plus; añadir</button>
+      <br />
+      <!-- lista de procedimientos en la preparacion -->
+        <ol class="listaPreparacion">
+          <li class="boxItem" *ngFor="let step of listaProcedimientos, let i = index">
+            <div class="itemI">
+              <button class="btnDelete" (click)="borrarProcedimiento(i)">
+                <img src="assets/icon-delete.svg" alt="icono de borrar" />
+              </button>
+            </div>
+            <p class="procedimiento">
+              {{step}}
+            </p>
+          </li>
+        </ol>
+    </form>
+    <!-- </div> -->
+  </div>
+</section>

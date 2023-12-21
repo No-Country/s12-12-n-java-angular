@@ -1,0 +1,151 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+@import '/src/assets/scss/media-queries/_media-queries.scss';
+
+.card {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #CDCDCD;
+  &:hover{
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.5);
+  }
+  @include tablet {}
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
+
+    &--title {
+      display: flex;
+      // flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.3125rem;
+      padding: 0.625rem 0.625rem 0 0.625rem;
+
+      h4 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+
+        @include tablet {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &--quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.125rem;
+
+      img {
+        width: 12px;
+        height: 12px;
+      }
+
+      span {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        color: #FF0000;
+
+        @include tablet {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &--mins {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0 0.625rem;
+
+      img {
+        width: 10px;
+        height: 10px;
+
+        @include tablet {
+          width: 12px;
+          height: 12px;
+        }
+      }
+
+      span {
+        color: #AFAFAF;
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+
+        @include tablet {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &--user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.625rem 0.625rem 0.625rem;
+      margin-top: 0.75rem;
+
+
+      @include tablet {
+        margin-top: 0.875rem;
+      }
+
+      @include desktop {
+        margin-top: 1.25rem;
+      }
+
+      &__info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.3125rem;
+
+
+        img {
+
+          width: 18px;
+          height: 18px;
+        }
+
+        span {
+          font-family: 'Poppins', sans-serif;
+          font-size: 10px;
+
+          @include tablet {
+            font-size: 12px;
+          }
+        }
+      }
+
+
+    }
+
+    &--btn {
+      border-radius: 10px;
+      background-color: $colBg;
+      border: none;
+      color: $colThird;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      width: 80px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+}

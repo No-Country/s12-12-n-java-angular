@@ -1,1 +1,38 @@
-<p>my-list works!</p>
+<div class="boxTitle">
+  <h2>Mis Listas</h2>
+</div>
+<div #list class="currentList">
+  <h3>Lista {{currentList.createdAt | date}}</h3>
+  <ul class="currentList__recipeList">
+    <li *ngFor="let recipes of currentList.recipes">{{recipes}}</li>
+  </ul>
+  <div class="currentList__ingredientList">
+    <app-list-item
+    *ngFor="let ingredient of currentList.ingredients"
+    [ingredient]="ingredient"
+    ></app-list-item>
+  </div>
+  <div class="currentList__commentBox">
+    <p>{{currentList.message}}</p>
+  </div>
+  <div class="currentList__btns">
+    <button
+    #btnDelete
+    (click)="deleteList()"
+    class="btnDelete">Eliminar Lista</button>
+    <button
+    (click)="takeScreenshot()"
+    #btnExport
+    class="btnExport">
+      <img src="assets/icon-export.svg" alt="export-icon">
+      <span>Exportar</span>
+    </button>
+  </div>
+</div>
+<div class="lists">
+  <app-list-card
+  (click)="changeCurrentList(i)"
+  *ngFor="let list of data, let i = index"
+  [dataList]="list"
+  ></app-list-card>
+</div>

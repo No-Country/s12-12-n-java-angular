@@ -1,0 +1,12 @@
+<button
+  class="checkBtn"
+  (click)="isCheck = !isCheck">
+  <img
+  [src]="isCheck?
+  'assets/checkbox-true.svg':'assets/checkbox-false.svg'"
+  alt="checkbox-icon"
+  >
+</button>
+<span
+  [ngClass]="isCheck?'lineThrough':''"
+>{{ingredient}}</span>

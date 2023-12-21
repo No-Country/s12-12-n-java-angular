@@ -1,152 +1,110 @@
 @import '/src/app/stylesConfig/stylesConfig.scss';
-:host{
-  flex-grow: 2;
-  display: grid;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
-    url("/assets/flourWoodWallpaper.jpg");
-  background-position: left;
-  background-size: cover;
-  place-items: center;
-}
-.home{
-  display:grid;
-  width: 100%;
-  place-items: center;
-  min-height: 70vh;
-  text-align: center;
-  &__box{
-    &>*{margin-bottom: 1rem;}
-    h1{
-      font-size: 52px;
-    }
-    button{
-      @include btnStyle;
-      padding-inline: 3rem;
-      box-shadow: none;
-      &:hover{
-        box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.5);
-      }
-    }
-  }
-}
-.about{
+@import '../../../assets//scss/media-queries/_media-queries.scss';
 
-  h2{
-    font-size: 2rem;
-    text-align: center;
-  }
-  &__box{
-    &>*{ margin-bottom: 1rem; }
-    &__stripe{
-      min-height: 2rem;
-      background-color: $colFourth;
-      img{
-        display: none;
-      }
-    }
-    &__paragraph{
-      text-align: justify;
-      margin: 1rem;
-      padding: 0.5rem;
-      border: solid 1px $colThird;
-      border-radius: 0.5rem;
-      font-size: calc(15px + 0.390625vw);
-    }
-  }
-}
-.brown{
-  background-color: $colPrime;
-}
-@media screen and (min-width:700px) {
-  .about{
+:host {
+    flex-grow: 2;
     display: grid;
-    grid-template-rows: auto 1fr 1fr;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    .about__box{
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
-      &__stripe{ height: 100%; }
-      &__paragraph{
-        padding: 1.5rem;
-        box-shadow: 0 5px 10px -1px rgba(0, 0, 0, 0.7);
-      }
-    }
-    .green{
-      grid-column: 10 / span 3;
-      &~p{
-        grid-column: 1 / span 9;
-        grid-row: 1;
-        margin-left: 2rem;
 
-      }
-    }
-    .brown{
-      grid-column: span 3;
-      &~p{
-        grid-column: span 9;
-        margin-right: 2rem;
-      }
-    }
-  }
 }
-@media screen and (min-width:950px) {
-  .home{
-    background: linear-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
-    url("/assets/flourWoodWallpaper.jpg");
-  background-position: left top;
-  background-size: cover;
+
+.section {
+    padding: 7rem 0 2rem;
+}
+
+.home {
+    background-image: url(../../../assets/foodhero2-2.webp);
+    background-position: -335px center;
+    background-repeat: no-repeat;
+    background-size: cover;
     min-height: 100vh;
-    place-items: center end;
-    &__box{
-      text-align: end;
-      padding-right: 2rem;
+    position: relative;
+
+    // opacity: 0.5;
+    @include tablet {
+        background-position: center top;
     }
-  }
-  .about{
-    background-color: $colBg;
-    padding-top: 2rem;
-    &__box{
-      &__stripe{
+
+    // &::before {
+    //     content: '';
+    //     background-color: $colBlack;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     bottom: 0;
+    //     right: 0;
+    //     opacity: 0.4;
+    // }
+
+    &__container {
         position: relative;
-        img{
-          position: absolute;
-          display: block;
-          height: 80%;
-          top: 50%;
-          transform: translateY(-50%);
+    }
+
+    &__wrap {
+        color: $colThird;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 235px);
+
+        @include tablet {
+            align-items: flex-start;
         }
-      }
-      &__paragraph{
-        font-size: 1.5rem;
-      }
+
+        &--title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            @include tablet {
+                align-items: flex-start;
+            }
+        }
+
+        &--text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.25rem;
+            // color: $colWhite;
+
+            @include tablet {
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 3.25rem;
+                font-family: 'Oleo Script Swash Caps';
+            }
+
+            p {
+                text-align: center;
+                font-size: 1.25rem;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+
+                @include tablet {
+                    font-size: 1.625rem;
+
+                }
+            }
+        }
+
+        &--button {
+            @include btnStyle();
+            font-size: 16px;
+            box-shadow: none;
+            padding: 0.625rem 1.5rem;
+            width: 154xpx;
+
+            @include tablet {
+                width: 254px;
+            }
+        }
     }
-  }
-  .green{
-    img{ right: 50%; }
-    &~p{ grid-column: 1 / span 6 !important; }
-  }
-  .brown{
-    img{ left: 50%;}
-    &~p{grid-column: 7 / span 6 !important;}
-  }
-}
-@media screen and (min-width:1250px) {
-  .about{
-    h2{
-      font-size: 3rem;
-      margin-bottom: 3rem;
-    }
-  }
-  .about__box__paragraph{
-    font-size: 1.8rem;
-    line-height: 2.5rem;
-  }
+
+
 }

@@ -1,0 +1,21 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+:host {
+  display: flex;
+  align-items: center;
+  background-color: changeOpacity(white, 0.5);
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+  @include transitionFast;
+  &:hover{
+    background-color: white;
+  }
+}
+.item__ingredient {
+  flex-grow: 2;
+}
+button{
+  all:initial;
+  cursor: pointer;
+}

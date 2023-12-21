@@ -1,1 +1,30 @@
-<p>user works!</p>
+<!-- Contenedor de las dos cajas -->
+<section class="section">
+  <div class="contenedor_user">
+    <!-- Caja 1 -->
+    <div class="caja-1">
+      <div class="bienvenida">
+        <h1 class="titulo_foodielist">Foodie List</h1>
+        <h3 class="slogan">Despierta tus sentidos, comparte tus sabores.</h3>
+        <div class="button">
+          <button type="button" routerLink="/mylist">Empezar</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Caja 2 -->
+    <div class="caja-2">
+      <div class="usuario">
+        <!-- Photo de perfil -->
+        <app-profile-picture></app-profile-picture>
+      </div>
+  
+      <div class="formulario_user">
+        <!-- botones de cerrar sesion y de borrar cuenta -->
+        <app-logout-y-del-account></app-logout-y-del-account>
+        <app-edit-user></app-edit-user>
+      </div>
+    </div>
+  </div>
+  
+</section>

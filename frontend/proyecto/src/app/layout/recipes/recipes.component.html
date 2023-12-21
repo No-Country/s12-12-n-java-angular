@@ -1,38 +1,45 @@
-<app-search-box [btnRedirection]="'mis recetas'"></app-search-box>
-<div class="recipeContainer">
-  <app-recipe-card></app-recipe-card>
-  <app-recipe-card></app-recipe-card>
-  <app-recipe-card></app-recipe-card>
-  <app-recipe-card></app-recipe-card>
-  <app-recipe-card></app-recipe-card>
-  <app-recipe-card></app-recipe-card>
-  <app-recipe-card></app-recipe-card>
-</div>
-<div class="communityContainer">
-  <div class="mostLike">
-    <div class="mostLike__header">
-      <h4>Mas seguidos</h4>
-      <img src="assets/star-icon.svg" alt="star-icon">
-    </div>
-    <div class="mostLike__recipes">
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-    </div>
+<section class="section"
+*ngIf="recipes.length !== 0, else loader">
+  <app-search-box
+  [btnRedirection]="'Mis recetas'"
+  (sendFilteredData)="receiveFilters($event)"
+  [sizeRecipes]="recipes.length"
+  ></app-search-box>
+  <div class="recipe container">
+    <article class="recipe__content" [@scalingEffect]>
+      <app-recipe-card
+      *ngFor="let recipe of recipes
+      | search:filters.searchText:filters.category"
+      [data]="recipe"
+
+      ></app-recipe-card>
+    </article>
+    <aside class="recipe__aside">
+      <div class="recipe__aside--content">
+        <div class="recipe__aside--content__header">
+          <h4>Mas seguidos</h4>
+        </div>
+        <div class="recipe__aside--content__body">
+          <app-recipe-mini-card
+          *ngFor="let recipeMost of recipeMostLike"
+          [miniRecipeData]="recipeMost"
+          ></app-recipe-mini-card>
+        </div>
+      </div>
+      <div class="recipe__aside--content">
+        <div class="recipe__aside--content__header">
+          <h4>Recomendaciones</h4>
+        </div>
+        <div class="recipe__aside--content__body">
+          <app-recipe-mini-card
+          *ngFor="let recipeRandom of randomRecipes"
+          [miniRecipeData]="recipeRandom"
+          ></app-recipe-mini-card>
+        </div>
+      </div>
+    </aside>
   </div>
-  <div class="recommendations">
-    <div class="recommendations__header">
-      <h4>Recomendaciones</h4>
-      <img src="assets/star-icon.svg" alt="star-icon">
-    </div>
-    <div class="recommendations__recipes">
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-      <app-recipe-mini-card></app-recipe-mini-card>
-    </div>
-  </div>
-</div>
+</section>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

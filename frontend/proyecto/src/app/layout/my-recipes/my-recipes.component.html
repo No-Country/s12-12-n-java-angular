@@ -1,10 +1,27 @@
-<app-search-box [btnRedirection]="'crear receta'"></app-search-box>
-<div class="recipeContainer">
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-  <app-recipe-card [recipeCommunity]="false"></app-recipe-card>
-</div>
+<section
+class="section"
+*ngIf="myRecipes.length !==0, else loader"
+>
+    <app-search-box
+    [btnRedirection]="'crear receta'"
+    (sendFilteredData)="receiveFilters($event)"
+    [sizeRecipes]="myRecipes.length"
+    ></app-search-box>
+    <div class="recipe container">
+        <article class="recipe__wrap" [@scalingEffect]>
+            <app-my-recipe-card
+            *ngFor="let recipe of myRecipes | searchMyRecipe:filters.searchText:filters.category"
+            [data]="recipe"
+            (emitRecipe)="receiveRecipes($event)"
+            (emitDelete)="receiveDeleteId($event)"
+            ></app-my-recipe-card>
+        </article>
+        <button type="button" (click)="createList()" class="createListBtn">
+            <img src="assets/list-icon.svg" alt="list-icon">
+            <span>Generar</span>
+        </button>
+    </div>
+</section>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

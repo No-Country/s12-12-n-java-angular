@@ -1,10 +1,11 @@
-$colPrime: #CF8048;
+$colPrime: #F29C5E;
 $colSec: #D5B495;
 $colThird: #1F1F1F;
 $colFourth:#678C30;
-$colBg: #F0F3F4;
+$colBg: #F4F8F9;
 $colWhite:#FFFFFF;
 $colBlack:#000000;
+
 
 @function changeOpacity($color, $opacity){
   @return rgba($color, $opacity);
@@ -28,12 +29,11 @@ $colBlack:#000000;
   padding-block: 0.5rem;
   margin-bottom: 1rem;
   cursor: pointer;
-  @include transitionFast;
+
+}
+@mixin hoverRaised{
   &:hover{
-    transform: scale(1.05) translateY(-0.2rem);
-  }
-  &:disabled{
-    transform: none;
-    opacity: 0.7;
+    transform: scaleY(-2px);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
   }
 }

@@ -1,0 +1,28 @@
+@import '/src/app/stylesConfig/stylesConfig.scss';
+:host{
+  background-color: changeOpacity($colSec, .6);
+  backdrop-filter: blur(5px);
+  display: block;
+  color: $colBg;
+  text-align: center;
+  border-radius: .5rem;
+  padding-block: 1rem;
+  width: min(250px, 100%);
+  cursor: pointer;
+  @include transitionFast;
+  @include hoverRaised;
+  &:hover{
+    transform: scale(1.05);
+  }
+}
+.title{
+  margin-bottom: 1rem;
+  font-weight: bolder;
+}
+.recipesList{
+  padding-left: 2rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  list-style-type: circle;
+}

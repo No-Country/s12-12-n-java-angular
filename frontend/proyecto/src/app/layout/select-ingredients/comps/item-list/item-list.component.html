@@ -1,0 +1,9 @@
+  <button (click)="sendIngredient()">
+    <img
+    class="item__icon"
+    [src]="ingredientCheck.isCheck?'assets/checkbox-true.svg':'assets/checkbox-false.svg'"
+    alt="checkbox-icon">
+  </button>
+  <p class="item__ingredient">{{ingredientCheck.nombre}}</p>
+  <span class="item__weight">{{ingredientCheck.cantidad==0?"":ingredientCheck.cantidad}}
+     {{ingredientCheck.tipo_medida}}</span>

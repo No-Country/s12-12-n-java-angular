@@ -1,1 +1,40 @@
-<p>create-list works!</p>
+<section class="section">
+  <div class="form">
+    <h2>Lista de Ingredientes</h2>
+    <div class="form__recipes">
+      <ul>
+        <li *ngFor="let recipe of recipes">{{recipe}}</li>
+      </ul>
+    </div>
+    <div class="form__newField">
+      <button
+      (click)="addIngredient()"
+      type="button">
+        <img src="assets/add-icon.svg" alt="add-icon">
+      </button>
+      <input
+      [(ngModel)]="ingredientField"
+      type="text"
+      placeholder="Nuevo Ingrediente">
+    </div>
+    <div class="form__list">
+      <app-list-edit
+      *ngFor="let ingredient of ingredients, let i = index"
+      [id]="i"
+      [ingredient]="ingredient"
+      (emitIngredient)="receiveIngredient($event)"
+      ></app-list-edit>
+    </div>
+    <textarea
+    rows="10"
+    [(ngModel)]="ingredientMessage"
+    placeholder="Escribe tu comentario aquí."></textarea>
+    <div class="form__actions">
+      <button
+      (click)="saveList()"
+      type="button"
+      >Guardar Lista</button>
+    </div>
+  </div>
+
+</section>

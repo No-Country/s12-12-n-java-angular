@@ -1,0 +1,117 @@
+<div class=" section contenedor">
+  <div class="caja-1">
+    <!-- Formulario de Login -->
+
+    <div class="formulario-login">
+      <!--Reutilizado del Register-->
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2 class="form__title">¡Bienvenido Nuevamente!</h2>
+
+        <!-- Boton de inicio de sesión con Gmail -->
+        <div class="form__box">
+          <div class="form__box__btn">
+            <button class="boton-gmail" type="button">Ingresa con Gmail</button>
+          </div>
+
+          <!-- Linea horizontal -->
+          <div class="linea-horizontal"></div>
+
+          <!-- Campo de email -->
+          <div
+            [ngClass]="invalidateField('email') ? 'errorField' : ''"
+            class="form__box__field"
+          >
+            <label for="email">Correo</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              formControlName="email"
+              placeholder="Ingresa tu correo electronico"
+            />
+          </div>
+          <!-- Mensaje de error email -->
+          <div class="form__box__validateMessage">
+            <span *ngIf="invalidateField('email')">
+              {{ validationFieldMessage("email") }}
+            </span>
+          </div>
+
+          <!-- Campo de contraseña -->
+          <div
+            [ngClass]="invalidateField('password') ? 'errorField' : ''"
+            class="form__box__field"
+          >
+            <label for="pass">Contraseña</label>
+            <div class="form__box__field__inputPass">
+              <input
+                id="pass"
+                name="pass"
+                [type]="showPass ? 'text' : 'password'"
+                formControlName="password"
+                placeholder="Ingresa tu contraseña"
+              />
+              <!-- Botón (ojo) de visibilidad de contraseña -->
+              <button
+                (click)="showPass = !showPass"
+                type="button"
+                class="eyeBtn"
+              >
+                <img
+                  class="eyeBtn__eye"
+                  [src]="showPass ? 'assets/eye.svg' : 'assets/eye-slash.svg'"
+                  alt="eye_icon"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- Mensaje de error contraseña -->
+          <div class="form__box__validateMessage">
+            <span *ngIf="invalidateField('password')">
+              {{ validationFieldMessage("password") }}
+            </span>
+          </div>
+
+          <!-- Checkbox 'Mantenerme conectado' -->
+          <div>
+            <label class="label-check">
+              <input class="input-check" type="checkbox" [(ngModel)]="rememberMe" name="opcion" /> <!-- input password guardar passw buscar(en chat gpt) -->
+              Mantenerme conectado
+            </label>
+          </div>
+
+          <!-- Botón 'Ingresar' -->
+          <div class="form__box__btn">
+            <button
+              [disabled]="loginForm.invalid"
+              class="boton-login"
+              type="submit"
+            >
+              Ingresar
+            </button>
+          </div>
+          <!-- Linea horizontal -->
+          <div class="linea-horizontal"></div>
+
+          <!-- Hipervinculo al Register -->
+          <p>
+            ¿No tienes una cuenta?
+            <a routerLink="/register">Registrate aquí</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CAJA 2 -->
+  <div class="caja-2">
+    <div class="parrafo">
+      <h1>¡Nueva Recetas!</h1>
+      <p>
+        Estamos más que agradecidos con nuestra comunidad, por ellos tenemos
+        nuevas recetas para ti.
+      </p>
+    </div>
+  </div>
+</div>
