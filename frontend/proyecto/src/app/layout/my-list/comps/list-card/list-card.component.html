@@ -1,10 +1,4 @@
-<h3 class="title">Creado el 06/06/6666</h3>
+<h3 class="title">{{dataList.createdAt | date}}</h3>
 <ul class="recipesList">
-  <li>ollquito con charqui</li>
-  <li>ollquito con charqui</li>
-  <li>ollquito con charqui</li>
-  <li>ollquito con charqui</li>
-  <li>ollquito con charqui</li>
-  <li>ollquito con charqui</li>
-  <li>ollquito con charqui</li>
+  <li *ngFor="let recipe of dataList.recipes, let i = index">{{i+1}}-{{recipe}}</li>
 </ul>

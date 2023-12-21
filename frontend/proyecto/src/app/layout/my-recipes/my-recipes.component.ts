@@ -49,6 +49,7 @@ export class MyRecipesComponent {
     this.filters = filters;
     console.log(filters)
   }
+
   receiveRecipes(data:IRepositoryEmit){
     if(data.actions === "add"){
       this.selectedRecipes.push(data);
@@ -56,6 +57,9 @@ export class MyRecipesComponent {
     else{
       this.selectedRecipes = this.selectedRecipes.filter(item=>item.id !== data.id)
     }
+  }
+  receiveDeleteId(id:number){
+    this.myRecipes = this.myRecipes.filter(item=>item.id !== id)
   }
 
 }
