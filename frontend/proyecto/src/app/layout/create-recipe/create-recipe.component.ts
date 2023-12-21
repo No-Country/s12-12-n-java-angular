@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IrecipeResponse } from 'src/app/interfaces/receta.interface';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -8,37 +12,88 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CreateRecipeComponent {
   crearRecetaForm!: FormGroup;
+  categories: string[] = [];
+ingredientes: any[] = [];
+listaIngredientes: any[] = [];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private recipeServ:RecipeService) { }
 
   ngOnInit() {
     // Inicializar los formularios
-    this.crearRecetaForm = this.initCrearRecetaForm();
+
+    this.crearRecetaForm = this.fb.group({
+      categoria: ['8'],
+      visible: [false],
+      nombre: ['', [Validators.required]],
+      urlImgReceta: [''],
+      porcionesReceta: [''],
+      tiempoCocinado: [''],
+      ingredientes: this.fb.array([
+        this.fb.group({
+          nombre: [''],
+          cantidad: [0],
+          tipo_medida: ['']
+        })
+      ]),
+    //  nuevoIngrediente: [''],
+    //  cantidadIngrediente: [''],
+      procedimientos: [''],
+    });
+    this.loadCategories();
+
   }
+
+  get ingredientesFormArray(): FormArray {
+    return this.crearRecetaForm.get('ingredientes') as FormArray;
+  }
+
   // Metodo para agregar nuevo ingrediente
   crearIngrediente() {
-    console.log('crear ingrediente funcionando');
+ // Accede a los controles del FormArray 'ingredientes'
+ const ingredientesControls = this.ingredientesFormArray.controls;
+
+ // Itera sobre cada control (que es un FormGroup) y obtén sus valores
+ for (let i = 0; i < ingredientesControls.length; i++) {
+  // const nuevoIngrediente = ingredientesControls[i].value;
+   const nuevoIngrediente = ingredientesControls[ingredientesControls.length - 1].value;
+   // Agrega el nuevo ingrediente a la lista de ingredientes
+   this.listaIngredientes.push(nuevoIngrediente);
+ }
+    console.log('nuevoIngrediente');
   }
 
   // Metodo para crear nueva receta
   crearReceta() {
-    console.log(this.crearRecetaForm);
-  }
-
-  /**
- * crea un formulario para crear receta
- * @returns retorna un formGroup
- */
-  initCrearRecetaForm() {
-    return this.fb.group({
-      nombreReceta: ['', [Validators.required]],
-      categoriaReceta: ['', [Validators.required]],
-      urlImgReceta: ['', [Validators.required]],
-      porcionesReceta: ['', [Validators.required]],
-      tiempoCocinado: ['', [Validators.required]],
-      nuevoIngrediente: ['', [Validators.required]],
-      cantidadIngrediente: ['', [Validators.required]],
-      preparacionReceta: ['', [Validators.required]],
+    Object.values(this.crearRecetaForm.controls).forEach(control => {
+      control.markAsTouched();
     });
+    console.log('Formulario:', this.crearRecetaForm);
+    console.log('Valido:', this.crearRecetaForm.valid);
+    console.log(this.ingredientes);
+  //  this.crearRecetaForm.get('ingredientes').setValue(this.ingredientes);
+    if (this.crearRecetaForm.valid) {
+      const nuevaReceta = this.crearRecetaForm.value;
+      nuevaReceta.ingredientes = this.listaIngredientes;
+      this.recipeServ.crearNuevaReceta(nuevaReceta).subscribe(
+        (response) => {
+          console.log('Receta creada con éxito:', response);
+
+        },
+        (error) => {
+          console.error('Error al crear la receta:', error);
+        }
+      );
+    }
+  }
+  private loadCategories(): void {
+    this.recipeServ.getAllCategories().subscribe(
+      (categories) => {
+        // Suponiendo que IcategoryRes tiene una propiedad 'nombre' que es el nombre de la categoría
+        this.categories = categories.map((category) => category.nombre);
+      },
+      (error) => {
+        console.error('Error al cargar las categorías', error);
+      }
+    );
   }
 }

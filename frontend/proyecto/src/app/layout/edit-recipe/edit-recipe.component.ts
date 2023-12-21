@@ -8,12 +8,17 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditRecipeComponent {
   editRecetaForm!: FormGroup;
+  categories: string[] = ["Guisos", "Postres", "Ensalada", "Jugos", "Fritura"];
+  categoriaReceta: string = 'categoria';
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     // Inicializar los formularios
-    this.editRecetaForm = this.initEditRecetaForm();
+    //this.editRecetaForm = this.initEditRecetaForm();
+    this.editRecetaForm = this.fb.group({
+      categoriaReceta: ['categoria']
+    });
   }
   // Metodo para agregar nuevo ingrediente
   editIngrediente() {
