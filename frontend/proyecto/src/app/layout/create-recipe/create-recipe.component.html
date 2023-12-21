@@ -70,7 +70,7 @@
             type="text"
             formControlName="categoria" class="select-con-borde">
             <option value="8" selected>Selecciona una categoria</option>
-            <option *ngFor="let category of categories">{{category}}</option>
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
             </select>
 
           </div>

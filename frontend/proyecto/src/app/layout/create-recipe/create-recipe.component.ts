@@ -12,8 +12,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class CreateRecipeComponent {
   crearRecetaForm!: FormGroup;
-  categories: string[] = ["Guisos", "Postres", "Ensalada", "Jugos", "Fritura"];
-  categoria: string = 'categoria';
+  categories: string[] = [];
 ingredientes: any[] = [];
 listaIngredientes: any[] = [];
 
@@ -40,7 +39,7 @@ listaIngredientes: any[] = [];
     //  cantidadIngrediente: [''],
       procedimientos: [''],
     });
-
+    this.loadCategories();
 
   }
 
@@ -85,5 +84,16 @@ listaIngredientes: any[] = [];
         }
       );
     }
+  }
+  private loadCategories(): void {
+    this.recipeServ.getAllCategories().subscribe(
+      (categories) => {
+        // Suponiendo que IcategoryRes tiene una propiedad 'nombre' que es el nombre de la categoría
+        this.categories = categories.map((category) => category.nombre);
+      },
+      (error) => {
+        console.error('Error al cargar las categorías', error);
+      }
+    );
   }
 }
