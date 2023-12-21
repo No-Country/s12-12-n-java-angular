@@ -11,3 +11,9 @@ export interface IIngredientEmit extends IIngredient{
 export interface IIngredientCheck extends IIngredient{
   isCheck:boolean
 }
+export interface IIngredientDTO
+  extends Omit<IIngredient, "id">{
+    recetaId:number
+  }
+export interface IIngredientRes
+  extends Omit<IIngredient, "id">{}

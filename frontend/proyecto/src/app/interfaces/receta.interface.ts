@@ -17,3 +17,10 @@ export interface IRecipeList {
   name: string,
   ingredients: IIngredientCheck[]
 }
+
+export interface IRecipeDTO {
+  nombre: string,
+  procedimientos: string,
+  visible: boolean,
+  categoria: number
+}

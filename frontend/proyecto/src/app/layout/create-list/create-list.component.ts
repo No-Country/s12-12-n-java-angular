@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IListDTO, IListDataRoute, IListIngredient } from 'src/app/interfaces/list.interface';
+import {  IListDataRoute, IListIngredient } from 'src/app/interfaces/list.interface';
 import { DATA } from 'src/app/layout/my-list/data'
 
 @Component({

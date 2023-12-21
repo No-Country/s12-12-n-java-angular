@@ -2,7 +2,6 @@
 @import "/src/app/stylesConfig/stylesConfig.scss";
 
 :host {
- display: flex;
   flex-grow: 2;
   background: linear-gradient(to top, white 80%, transparent 50%),
     url("../../../assets/recipe-book.png");
@@ -253,5 +252,8 @@ li {
   }
   .listaPreparacion {
     margin-top: 1rem;
+    .boxItem{
+      justify-content: flex-start;
+    }
   }
 }
