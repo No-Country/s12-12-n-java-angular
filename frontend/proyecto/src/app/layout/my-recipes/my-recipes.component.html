@@ -8,7 +8,7 @@ class="section"
     [sizeRecipes]="myRecipes.length"
     ></app-search-box>
     <div class="recipe container">
-        <article class="recipe__wrap">
+        <article class="recipe__wrap" [@scalingEffect]>
             <app-my-recipe-card
             *ngFor="let recipe of myRecipes | searchMyRecipe:filters.searchText:filters.category"
             [data]="recipe"
@@ -22,5 +22,5 @@ class="section"
     </div>
 </section>
 <ng-template #loader>
-  <p>---loader</p>
+  <app-loader></app-loader>
 </ng-template>

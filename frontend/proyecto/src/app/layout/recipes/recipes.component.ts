@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { scaling } from 'src/app/animations/animation';
 import { IrecipeResponse } from 'src/app/interfaces/receta.interface';
 import { IFilterSearch } from 'src/app/interfaces/searchFilter.interface';
 import { RecipeService } from 'src/app/services/recipe.service';
@@ -6,7 +7,8 @@ import { RecipeService } from 'src/app/services/recipe.service';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  styleUrls: ['./recipes.component.scss'],
+  animations:[scaling]
 })
 export class RecipesComponent {
   recipes:IrecipeResponse[] = [];

@@ -1,32 +1,44 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { scaling } from 'src/app/animations/animation';
 import { IIngredientCheck } from 'src/app/interfaces/ingredient.interface';
 import { IRecipeList } from 'src/app/interfaces/receta.interface';
 import { IRepositoryRes } from 'src/app/interfaces/repository.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-select-ingredients',
   templateUrl: './select-ingredients.component.html',
-  styleUrls: ['./select-ingredients.component.scss']
+  styleUrls: ['./select-ingredients.component.scss'],
+  animations:[scaling]
 })
 export class SelectIngredientsComponent {
   recipes :IRepositoryRes[] = [];
-  formatRecipe:IRecipeList[]=[]
+  formatRecipe:IRecipeList[] = [];
   selectedRecipe = 0
   currentRecipe!:IRecipeList;
-  selectedIngredients:string[] = []
+  selectedIngredients:string[] = [];
   constructor(
     private router:Router,
     private routeConfig:ActivatedRoute
     ){}
 
   toIngredients(){
-    const data = JSON.stringify({
-      ingredients:[... new Set(this.selectedIngredients)],
-      recipes:[...this.formatRecipe.map(item=>item.name)]
-    })
+    if(this.selectedIngredients.length !== 0){
+      const data = JSON.stringify({
+        ingredients:[... new Set(this.selectedIngredients)],
+        recipes:[...this.formatRecipe.map(item=>item.name)]
+      })
+      this.router.navigate(['createlist', data])
+    }
+    else{
+      Swal.fire({
+        title:"Error",
+        text:"Debe seleccionar al menos un ingrediente.",
+        icon:'warning'
+      })
+    }
 
-    this.router.navigate(['createlist', data])
   }
 
   ngOnInit(){
