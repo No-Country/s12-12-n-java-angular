@@ -5,4 +5,5 @@
     alt="checkbox-icon">
   </button>
   <p class="item__ingredient">{{ingredientCheck.nombre}}</p>
-  <span class="item__weight">{{ingredientCheck.cantidad + " " + ingredientCheck.tipo_medida}}</span>
+  <span class="item__weight">{{ingredientCheck.cantidad==0?"":ingredientCheck.cantidad}}
+     {{ingredientCheck.tipo_medida}}</span>

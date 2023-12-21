@@ -12,9 +12,10 @@ import Swal from 'sweetalert2';
 export class MyRecipeCardComponent {
   @Input() data!: IRepositoryRes;
   @Output() emitRecipe = new EventEmitter<IRepositoryEmit>();
-
+  @Output() emitDelete = new EventEmitter<number>();
   isCheck = false;
   showDropdown = false;
+
   constructor(
     private router: Router,
     private recipeServ:RecipeService
@@ -23,6 +24,7 @@ export class MyRecipeCardComponent {
   deleteRecipe(id:number){
     this.recipeServ.deleteRecipeById(id).subscribe({
       next:()=>{
+        this.emitDelete.emit(id)
         Swal.fire({
           title: "Borrado exitoso",
           icon: "success"

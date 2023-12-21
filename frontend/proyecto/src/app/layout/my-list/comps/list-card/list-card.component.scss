@@ -20,8 +20,9 @@
   font-weight: bolder;
 }
 .recipesList{
+  padding-left: 2rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   list-style-type: circle;
 }

@@ -5,6 +5,7 @@
   background-position: left top;
   background-size: cover;
   padding: 7rem .5rem;
+  flex-grow: 2;
 }
 
 .section {
@@ -62,13 +63,20 @@
       padding-inline: 1rem;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
       margin-bottom: 0.5rem;
+      @include transitionFast;
+      &:hover{
+        transform: scale(1.05);
+      }
     }
 
     .btnExport {
       @include btnStyle($colPrime, $colBg);
       padding-inline: 1rem;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
-
+      @include transitionFast;
+      &:hover{
+        transform: scale(1.05);
+      }
       img {
         margin-right: 0.5rem;
       }
