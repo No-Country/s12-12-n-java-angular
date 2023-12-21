@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ENVIROMENT } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { IrecipeResponse } from '../interfaces/receta.interface';
+import { IRecipeDTO, IrecipeResponse } from '../interfaces/receta.interface';
 import { IcategoryRes } from '../interfaces/category.interface';
-import { IIngredient } from '../interfaces/ingredient.interface';
+import { IIngredient, IIngredientDTO } from '../interfaces/ingredient.interface';
 import { IRepositoryRes } from '../interfaces/repository.interface';
 
 import { Observable, catchError, map, of, tap } from 'rxjs';
@@ -28,13 +28,14 @@ export class RecipeService {
   }
 
 
-  crearNuevaReceta(receta: IrecipeResponse): Observable<IrecipeResponse> {
+  createRecipe(receta: IRecipeDTO) {
     return this.http.post<IrecipeResponse>(this.APIRECIPE+"/create-receta", receta);
   }
 
-  crearIngrediente(ingrediente: IIngredient): Observable<IIngredient> {
-    return this.http.post<IIngredient>(this.APIINGREDIENTE + "/ingrediente/create-ingrediente", ingrediente);
+  createIngredients(ingredient: IIngredientDTO) {
+    return this.http.post<string>(this.APIINGREDIENTE + "/create-ingrediente", ingredient);
   }
+
   getAllRecipesById(){
     return this.http.get<IRepositoryRes[]>(this.APIREPOSITORY+"/list")
   }
