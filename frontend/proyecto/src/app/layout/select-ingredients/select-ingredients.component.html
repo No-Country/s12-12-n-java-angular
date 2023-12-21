@@ -13,7 +13,7 @@
     </select>
   </div>
 </div>
-<div class="list">
+<div class="list" [@scalingEffect]>
   <app-item-list
   *ngFor="let ingredient of currentRecipe.ingredients"
   [ingredientCheck]="ingredient"

@@ -38,7 +38,7 @@ export const scaling = trigger('scalingEffect', [
         transform: 'translateX(15px)',
       }),
       stagger(100, [
-        animate(300, style({
+        animate(500, style({
           opacity: 1,
           transform: 'translate(0px)',
         })
