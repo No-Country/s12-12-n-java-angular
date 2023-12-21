@@ -2,10 +2,10 @@
   <div class="details__container">
     <header class="header">
       <div class="header__wrap">
-        <h2 class="header__wrap--text">Calamares en su tinta</h2>
+        <h2 class="header__wrap--text">{{recipeDetails.nombre}}</h2>
         <div class="header__wrap--quantity">
           <img src="../../../assets/icons/heart.svg" alt="heart" />
-          <p class="header__quantity--text">289</p>
+          <p class="header__quantity--text">{{recipeDetails.likes}}</p>
         </div>
       </div>
       <div class="header__subheader">
@@ -40,7 +40,7 @@
           <!-- <shared-divider></shared-divider> -->
           <li class="header__subheader--dishes__items">
             <p>Categoria</p>
-            <span>Ensalada</span>
+            <span>{{recipeDetails.categoria.nombre}}</span>
           </li>
         </ul>
       </div>
@@ -76,17 +76,20 @@
       <article class="instructions__wrap">
         <h3 class="instructions__wrap--title">Ingredientes</h3>
         <ul class="instructions__wrap--list">
-          <li class="instructions__wrap--items">
+          <li class="instructions__wrap--items" *ngFor="let recipeDetails of recipeDetails.ingredientes">
             <div class="instructions__wrap--items__name">
               <img
                 src="../../../assets/icons/list-item-ingredients.svg"
                 alt="list-item-ingredients"
               />
-              <p>Pescado Corbina</p>
+              <p>{{recipeDetails.nombre}}</p>
             </div>
-            <span>1kg</span>
+            <div class="instructions__wrap--quantity">
+              <p>{{recipeDetails.cantidad}}</p>
+              <span>{{recipeDetails.tipo_medida}}</span>
+            </div>
           </li>
-          <li class="instructions__wrap--items">
+          <!-- <li class="instructions__wrap--items">
             <div class="instructions__wrap--items__name">
               <img
                 src="../../../assets/icons/list-item-ingredients.svg"
@@ -135,21 +138,17 @@
               <p>calamar</p>
             </div>
             <span>3grs</span>
-          </li>
+          </li> -->
         </ul>
       </article>
       <article class="instructions__preparation">
         <h3 class="instructions__preparation--title">Preparación</h3>
         <ul class="instructions__preparation--list">
-          <li class="instructions__preparation--item">
-            <p class="instructions__preparation--text">
-              Lorem ipsum dolor sit amet consectetur. Consequat lobortis et
-              neque orci risus. Feugiat integer faucibus fermentum porta magna.
-              Mauris quis suspendisse varius sit consectetur eu ullamcorper quam
-              habitasse.
+          <li class="instructions__preparation--item" *ngFor="let instructions of recipeDetails.procedimientosArray">
+            <p class="instructions__preparation--text">{{ instructions}}
             </p>
           </li>
-          <li class="instructions__preparation--item">
+          <!-- <li class="instructions__preparation--item">
             <p class="instructions__preparation--text">
               Senectus feugiat tincidunt egestas quam lacus egestas in augue
               feugiat. Velit pretium tellus ut adipiscing elementum mauris.
@@ -192,7 +191,7 @@
               Sit ullamcorper nisl porttitor nunc tempus in faucibus ut.
               Pellentesque in neque aenean porttitor risus.
             </p>
-          </li>
+          </li> -->
         </ul>
       </article>
     </section>

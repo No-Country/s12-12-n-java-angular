@@ -1,5 +1,6 @@
 @import "/src/app/stylesConfig/stylesConfig.scss";
 @import "/src/assets/scss/media-queries/media-queries";
+
 :host {
   flex-grow: 2;
 }
@@ -43,6 +44,7 @@
     &--text {
       font-size: 1.25rem;
       font-family: "Poppins", sans-serif;
+      text-transform: capitalize;
 
       @include mobile-xlarge {
         font-size: 1.5rem;
@@ -244,6 +246,7 @@
       @include mobile-xlarge {
         font-size: 1rem;
       }
+
       @include tablet {
         font-size: 1.125rem;
       }
@@ -262,6 +265,14 @@
       @include desktop {
         width: 350px;
       }
+    }
+
+    &--quantity {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      
     }
 
     &--items {
@@ -287,6 +298,7 @@
         p {
           font-size: 14px;
           font-weight: 500;
+          text-transform: capitalize;
 
           @include mobile-xlarge {
             font-size: 1rem;
@@ -310,6 +322,7 @@
       @include mobile-xlarge {
         font-size: 1rem;
       }
+
       @include tablet {
         font-size: 1.125rem;
       }
