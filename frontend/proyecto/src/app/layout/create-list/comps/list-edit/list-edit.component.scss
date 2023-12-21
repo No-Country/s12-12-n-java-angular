@@ -10,12 +10,13 @@
   border-radius: .5rem;
   color: $colThird;
   @include transitionFast;
+  width: min(100%, 320px);
   &:hover{
     background-color: $colWhite;
   }
-  @media screen and (min-width:1000px) {
-    font-size: 1.4rem;
-  }
+}
+input{
+  all: initial;
 }
 button{
   all: initial;

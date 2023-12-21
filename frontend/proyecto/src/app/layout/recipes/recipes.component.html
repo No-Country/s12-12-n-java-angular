@@ -6,7 +6,7 @@
   [sizeRecipes]="recipes.length"
   ></app-search-box>
   <div class="recipe container">
-    <article class="recipe__content">
+    <article class="recipe__content" [@scalingEffect]>
       <app-recipe-card
       *ngFor="let recipe of recipes
       | search:filters.searchText:filters.category"
@@ -41,5 +41,5 @@
   </div>
 </section>
 <ng-template #loader>
-  <p>.......................Aqui deberia estar el loader</p>
+  <app-loader></app-loader>
 </ng-template>

@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { scaling } from 'src/app/animations/animation';
 import { IRepositoryEmit, IRepositoryRes } from 'src/app/interfaces/repository.interface';
 import { IFilterSearch } from 'src/app/interfaces/searchFilter.interface';
 import { RecipeService } from 'src/app/services/recipe.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-my-recipes',
   templateUrl: './my-recipes.component.html',
-  styleUrls: ['./my-recipes.component.scss']
+  styleUrls: ['./my-recipes.component.scss'],
+  animations:[scaling]
 })
 export class MyRecipesComponent {
    myRecipes:IRepositoryRes[] = [];
@@ -30,7 +33,17 @@ export class MyRecipesComponent {
   }
 
   createList(){
-    this.route.navigate(['selectingredients'])
+    if(this.selectedRecipes.length !== 0){
+      const data = JSON.stringify(this.selectedRecipes)
+      this.route.navigate(['selectingredients', data])
+    }
+    else{
+      Swal.fire({
+        title:"Error",
+        text:"Debe seleccionar al menos una receta",
+        icon:'warning'
+      })
+    }
   }
   receiveFilters(filters:IFilterSearch){
     this.filters = filters;

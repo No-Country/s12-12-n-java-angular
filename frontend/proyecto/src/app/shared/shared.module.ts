@@ -7,6 +7,7 @@ import { ShortenStringPipe } from '../layout/pipes/shorten-string.pipe';
 import { SharedDividerComponent } from './shared-divider/shared-divider.component';
 import { SearchPipe } from '../layout/pipes/search.pipe';
 import { SearchMyRecipePipe } from '../layout/pipes/search-my-recipe.pipe';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SearchMyRecipePipe } from '../layout/pipes/search-my-recipe.pipe';
     ShortenStringPipe,
     SharedDividerComponent,
     SearchPipe,
-    SearchMyRecipePipe
+    SearchMyRecipePipe,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { SearchMyRecipePipe } from '../layout/pipes/search-my-recipe.pipe';
     ShortenStringPipe,
     SharedDividerComponent,
     SearchPipe,
-    SearchMyRecipePipe
+    SearchMyRecipePipe,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

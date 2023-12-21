@@ -1,7 +1,26 @@
-<button class="btnDelete">
+<button
+type="button"
+  class="btnDelete"
+  (click)="deleteIngredient()"
+  >
   <img src="assets/icon-delete.svg" alt="x-icon" />
 </button>
-<button class="btnEdit">
+<button
+  type="button"
+  class="btnEdit"
+  (click)="isReadonly = false">
   <img src="assets/icon-edit.svg" alt="edit-icon" />
 </button>
-<p>Frijol Panamito</p>
+<input
+type="text"
+[(ngModel)]="ingredient"
+[readonly]="isReadonly"
+>
+<button
+type="submit"
+class="btnSave"
+*ngIf="!isReadonly"
+(click)="updateIngredient()"
+>
+  <img src="/assets/save.svg" alt="save-icon">
+</button>
