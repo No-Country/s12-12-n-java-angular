@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IListDTO } from 'src/app/interfaces/list.interface';
 
 @Component({
   selector: 'app-list-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-card.component.scss']
 })
 export class ListCardComponent {
-
+  @Input() dataList !: IListDTO;
 }

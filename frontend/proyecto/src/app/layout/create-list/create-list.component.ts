@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IListDTO, IListDataRoute, IListIngredient } from 'src/app/interfaces/list.interface';
+import { DATA } from 'src/app/layout/my-list/data'
 
 @Component({
   selector: 'app-create-list',
@@ -11,6 +12,7 @@ export class CreateListComponent {
   ingredients: string[] = [];
   recipes: string[] = [];
   ingredientField = "";
+  ingredientMessage = "";
 
   constructor(
     private routeConfig:ActivatedRoute,
@@ -25,11 +27,13 @@ export class CreateListComponent {
   }
 
   saveList(){
-    const data:IListDTO = {
-      createdAt : new Date(),
+    const data = {
+      createdAt : new Date().toString(),
       ingredients: this.ingredients,
-      recipes:this.recipes
+      recipes:this.recipes,
+      message:this.ingredientMessage
     }
+    DATA.push(data)
     this.route.navigate(['mylist'])
   }
 

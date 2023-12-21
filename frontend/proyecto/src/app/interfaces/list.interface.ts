@@ -9,5 +9,6 @@ export interface IListIngredient{
   status:string
 }
 export interface IListDTO extends IListDataRoute{
-  createdAt : Date;
+  createdAt : Date,
+  message:string
 }

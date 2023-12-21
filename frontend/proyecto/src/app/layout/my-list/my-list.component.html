@@ -2,36 +2,23 @@
   <h2>Mis Listas</h2>
 </div>
 <div #list class="currentList">
-  <h3>Lista 06/06/06</h3>
+  <h3>Lista {{currentList.createdAt | date}}</h3>
   <ul class="currentList__recipeList">
-    <li>Olluquito con charqui</li>
-    <li>Olluquito con charqui</li>
-    <li>Olluquito con charqui</li>
-    <li>Olluquito con charqui</li>
-    <li>Olluquito con charqui</li>
-    <li>Olluquito con charqui</li>
-    <li>Olluquito con charqui</li>
+    <li *ngFor="let recipes of currentList.recipes">{{recipes}}</li>
   </ul>
   <div class="currentList__ingredientList">
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
-    <app-list-item></app-list-item>
+    <app-list-item
+    *ngFor="let ingredient of currentList.ingredients"
+    [ingredient]="ingredient"
+    ></app-list-item>
   </div>
   <div class="currentList__commentBox">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur corrupti perspiciatis repellat? Vel deleniti repudiandae ad et amet sint, veritatis quasi aut alias, est corrupti, dolorem deserunt voluptatem consequatur. Dolorum. </p>
+    <p>{{currentList.message}}</p>
   </div>
   <div class="currentList__btns">
     <button
     #btnDelete
+    (click)="deleteList()"
     class="btnDelete">Eliminar Lista</button>
     <button
     (click)="takeScreenshot()"
@@ -43,11 +30,9 @@
   </div>
 </div>
 <div class="lists">
-  <app-list-card></app-list-card>
-  <app-list-card></app-list-card>
-  <app-list-card></app-list-card>
-  <app-list-card></app-list-card>
-  <app-list-card></app-list-card>
-  <app-list-card></app-list-card>
-  <app-list-card></app-list-card>
+  <app-list-card
+  (click)="changeCurrentList(i)"
+  *ngFor="let list of data, let i = index"
+  [dataList]="list"
+  ></app-list-card>
 </div>
