@@ -8,12 +8,12 @@ import { IrecipeResponse } from 'src/app/interfaces/receta.interface';
   styleUrls: ['./recipe-card.component.scss']
 })
 export class RecipeCardComponent {
-  @Input() data!:IrecipeResponse;
+  @Input() data!: IrecipeResponse;
   constructor(
     private router: Router
   ) { }
   toDetail() {
-    this.router.navigate(['recipes/recipe-details'])
+    this.router.navigate([`/recipes/recipe-details/${this.data.id}`])
   }
 
 }

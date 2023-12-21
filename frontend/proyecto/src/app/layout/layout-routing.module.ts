@@ -11,7 +11,7 @@ const routes: Routes = [
       { path: 'register', loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule) },
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
       { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
-      { path: 'recipes/recipe-details', loadChildren: () => import('./recipe-details/recipe-details.module').then(m => m.RecipeDetailsModule) },
+      { path: 'recipes/recipe-details/:id', loadChildren: () => import('./recipe-details/recipe-details.module').then(m => m.RecipeDetailsModule) },
       { path: 'mylist', loadChildren: () => import('./my-list/my-list.module').then(m => m.MyListModule) },
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
       { path: 'myrecipes', loadChildren: () => import('./my-recipes/my-recipes.module').then(m => m.MyRecipesModule) },
