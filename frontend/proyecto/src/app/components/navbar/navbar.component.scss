@@ -114,20 +114,17 @@
         align-items: center;
         gap: 0.5rem;
 
+        &--content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         &--link {
-            background-color: $colPrime;
-            padding: 0.75rem 1rem;
-            border-radius: 10px;
-            color: $colWhite;
+            background-color: transparent;
             cursor: pointer;
             font-size: 0.875rem;
-            transition: 0.3s ease-in-out;
-            border:none;
-
-            &:hover {
-                background-color: darken($color: $colPrime , $amount: 10);
-            }
-
+            border: none;
             // &:nth-child(1) {
             //     display: flex;
             //     justify-content: center;
@@ -140,11 +137,30 @@
             // }
         }
 
+        &--btn {
+            background-color: $colPrime;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            color: $colWhite;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: 0.3s ease-in-out;
+            border: none;
+            display: none;
+
+            &:hover {
+                background-color: darken($color: $colPrime , $amount: 10);
+            }
+
+            @include tablet {
+                display: block;
+            }
+
+        }
+
         &--img {
-            border: 1px solid $colThird;
-            border-radius: 50%;
             padding: 0.125rem;
-            font-size: 18px;
+            font-size: 20px;
             color: $colThird;
             font-weight: 500;
 
@@ -202,4 +218,19 @@
 .show-overlay {
     opacity: 1;
     visibility: visible;
+}
+
+.btn-user {
+   
+    cursor: pointer;
+    display: block;
+
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
 }

@@ -24,9 +24,14 @@
                 <li class="icons__items dropdown">
                     <!-- <p>Juan reynaldo dosantos</p> -->
                 <!-- <a [routerLink]="['/login']" class="icons__items--link">Iniciar sesión</a> -->
-                    <button (click)="userRedirect()" type="button" class="icons__items--link dropdown__button">
-                        Iniciar sesión
-                    </button>
+                    <div class="icons__items--content">
+                        <button (click)="userRedirect()" type="button" class="icons__items--btn dropdown__button">
+                            Iniciar sesión
+                        </button>
+                        <button type="button" (click)="userRedirect()" class="icons__items--link btn-user">
+                            <img src="../../../assets/icons/user.svg" alt="user">
+                        </button>
+                    </div>
                     <!-- <ul class="dropdown__menu" >
                         <li class="dropdown__item">
                             <a
