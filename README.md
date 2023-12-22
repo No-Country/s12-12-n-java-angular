@@ -52,9 +52,19 @@
 <h3 align="left">📷 Screenshots</h3>
 <br />
 <div align="center">
-<img src="https://i.ibb.co/vxKqZ7f/Captura-web-21-12-2023-104854-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-104854-foodielist-netlify-app" border="0" width="auto" height="600px">
-<img src="https://i.ibb.co/4SfSLwC/Captura-web-21-12-2023-103643-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-103643-foodielist-netlify-app" border="0"width="auto" height="600px">
-<img src="https://i.ibb.co/Y7h0JYx/Captura-web-21-12-2023-10360-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-10360-foodielist-netlify-app" border="0"width="auto" height="600px" >
+  <table>
+<tr>
+  <td><img src="https://i.ibb.co/vxKqZ7f/Captura-web-21-12-2023-104854-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-104854-foodielist-netlify-app" border="0" ></td>
+ <td><img src="https://i.ibb.co/4SfSLwC/Captura-web-21-12-2023-103643-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-103643-foodielist-netlify-app" border="0" ></td>
+</tr>
+
+  <tr> <td><img src="https://i.ibb.co/DGVw4xd/Captura-web-21-12-2023-211218-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-211218-foodielist-netlify-app" border="0"></td>
+   <td><img src="https://i.ibb.co/Y7h0JYx/Captura-web-21-12-2023-10360-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-10360-foodielist-netlify-app" border="0"  ></td></tr>
+  <tr> <td><img src="https://i.ibb.co/xz0FSrz/Captura-web-21-12-2023-211424-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-211424-foodielist-netlify-app" border="0"></td>
+ <td><img src="https://i.ibb.co/3sG1PYg/Captura-web-21-12-2023-211256-foodielist-netlify-app.jpg" alt="Captura-web-21-12-2023-211256-foodielist-netlify-app" border="0" ></td></tr>
+
+<tr> <td><img src="https://i.ibb.co/7vx5MrC/Captura-web-21-12-2023-112152-localhost.jpg" alt="Captura-web-21-12-2023-112152-localhost" border="0" ></td></tr>
+</table>
 </div>
 <br />
 
